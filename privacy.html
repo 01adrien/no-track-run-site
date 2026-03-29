@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — NoTrackRun</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --neon: #D4FF00;
+      --neon-dim: rgba(212, 255, 0, 0.08);
+      --neon-mid: rgba(212, 255, 0, 0.18);
+      --bg: #0A0A0A;
+      --bg2: #111111;
+      --bg3: #181818;
+      --border: rgba(255,255,255,0.06);
+      --text: #E8E8E8;
+      --muted: #666;
+      --muted2: #444;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      line-height: 1.8;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* GRAIN OVERLAY */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.6;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--neon);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: #0A0A0A;
+      font-weight: 800;
+    }
+
+    .logo-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      color: white;
+      letter-spacing: 1px;
+    }
+
+    .header-tag {
+      font-size: 10px;
+      color: var(--neon);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 1px solid var(--neon-mid);
+      padding: 4px 10px;
+      border-radius: 2px;
+    }
+
+    /* HERO BAND */
+    .hero {
+      padding: 80px 40px 60px;
+      max-width: 860px;
+      margin: 0 auto;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .hero-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--neon);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-label::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: var(--neon);
+    }
+
+    h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(42px, 7vw, 72px);
+      font-weight: 800;
+      line-height: 1;
+      text-transform: uppercase;
+      color: white;
+      letter-spacing: -1px;
+    }
+
+    h1 span {
+      color: var(--neon);
+    }
+
+    .hero-meta {
+      margin-top: 24px;
+      display: flex;
+      gap: 32px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .hero-meta strong {
+      color: var(--text);
+    }
+
+    /* DIVIDER */
+    .divider {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--neon) 0%, transparent 60%);
+      opacity: 0.25;
+    }
+
+    /* CONTENT */
+    .content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 40px 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    /* SECTION */
+    .section {
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .section:nth-child(1) { animation-delay: 0.1s; }
+    .section:nth-child(2) { animation-delay: 0.15s; }
+    .section:nth-child(3) { animation-delay: 0.2s; }
+    .section:nth-child(4) { animation-delay: 0.25s; }
+    .section:nth-child(5) { animation-delay: 0.3s; }
+    .section:nth-child(6) { animation-delay: 0.35s; }
+    .section:nth-child(7) { animation-delay: 0.4s; }
+    .section:nth-child(8) { animation-delay: 0.45s; }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .section-num {
+      font-size: 10px;
+      color: var(--neon);
+      letter-spacing: 2px;
+      min-width: 28px;
+      font-weight: 500;
+    }
+
+    h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: white;
+      letter-spacing: 1px;
+    }
+
+    .section-body {
+      padding-left: 44px;
+      color: #aaa;
+      font-size: 13.5px;
+    }
+
+    .section-body p + p {
+      margin-top: 12px;
+    }
+
+    /* BADGE BLOCKS */
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+      padding-left: 44px;
+    }
+
+    .badge {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--muted);
+      background: var(--bg2);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .badge.green {
+      border-color: var(--neon-mid);
+      color: var(--neon);
+      background: var(--neon-dim);
+    }
+
+    /* CARD BLOCK */
+    .card-block {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--neon);
+      padding: 20px 24px;
+      margin-top: 16px;
+      margin-left: 44px;
+      font-size: 13px;
+      color: #999;
+      line-height: 1.9;
+    }
+
+    .card-block strong {
+      color: white;
+      font-weight: 500;
+    }
+
+    /* CONTACT BOX */
+    .contact-box {
+      background: var(--neon-dim);
+      border: 1px solid var(--neon-mid);
+      padding: 28px 32px;
+      margin-left: 44px;
+      margin-top: 16px;
+    }
+
+    .contact-box p {
+      color: #aaa;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .contact-box a {
+      color: var(--neon);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    .contact-box a:hover {
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 860px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    footer .neon-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--neon);
+      border-radius: 50%;
+      margin-right: 8px;
+      animation: blink 2s ease infinite;
+    }
+
+    /* SCROLL INDICATOR */
+    .toc {
+      position: fixed;
+      right: 32px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 50;
+    }
+
+    .toc-dot {
+      width: 4px;
+      height: 4px;
+      background: var(--muted2);
+      border-radius: 50%;
+      transition: background 0.3s, height 0.3s;
+      cursor: pointer;
+    }
+
+    .toc-dot.active {
+      background: var(--neon);
+      height: 16px;
+      border-radius: 2px;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      header { padding: 0 20px; }
+      .hero  { padding: 48px 20px 40px; }
+      .content { padding: 40px 20px 80px; }
+      .section-body, .badge-row, .card-block, .contact-box { padding-left: 0; margin-left: 0; }
+      footer { flex-direction: column; gap: 8px; padding: 24px 20px; }
+      .toc { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo">
+    <div class="logo-icon">▶</div>
+    <span class="logo-text">NoTrackRun</span>
+  </a>
+  <span class="header-tag">Privacy Policy</span>
+</header>
+
+<!-- TOC DOTS -->
+<nav class="toc" id="toc">
+  <div class="toc-dot active" data-target="s1"></div>
+  <div class="toc-dot" data-target="s2"></div>
+  <div class="toc-dot" data-target="s3"></div>
+  <div class="toc-dot" data-target="s4"></div>
+  <div class="toc-dot" data-target="s5"></div>
+  <div class="toc-dot" data-target="s6"></div>
+  <div class="toc-dot" data-target="s7"></div>
+  <div class="toc-dot" data-target="s8"></div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">Legal — Data Protection</div>
+  <h1>Privacy<br><span>Policy</span></h1>
+  <div class="hero-meta">
+    <span><strong>Effective date:</strong> March 2025</span>
+    <span><strong>Last updated:</strong> March 2025</span>
+    <span><strong>GDPR compliant</strong></span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTENT -->
+<main class="content">
+
+  <!-- 1 -->
+  <div class="section" id="s1">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Introduction</h2>
+    </div>
+    <div class="section-body">
+      <p>NoTrackRun ("we", "our", "the app") is a privacy-first running application developed by dev.henin.notrackrun. We believe that connected sport should never come at the cost of your personal freedom.</p>
+      <p>This Privacy Policy explains how we handle — and deliberately <em>don't handle</em> — your data. Our core principle: collect nothing that isn't strictly necessary, and give you full control over everything that is.</p>
+    </div>
+    <div class="badge-row">
+      <span class="badge green">Zero profiling</span>
+      <span class="badge green">No ads</span>
+      <span class="badge green">GDPR compliant</span>
+      <span class="badge green">EU hosted</span>
+      <span class="badge">No mandatory accounts</span>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="section" id="s2">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Data We Collect</h2>
+    </div>
+    <div class="section-body">
+      <p>NoTrackRun is designed to operate with <strong style="color:white">no personal data by default</strong>. No name, no email, no account — nothing that identifies you is required to use the app.</p>
+    </div>
+    <div class="card-block">
+      <strong>Classic Mode</strong><br>
+      Records performance metrics (time, distance, pace, elevation) and GPS route — stored <em>locally on your device only</em>. Never uploaded to our servers without explicit action from you.<br><br>
+      <strong>"No Track" Mode</strong><br>
+      Records only activity metrics. GPS location tracking is fully disabled. No route is stored — not locally, not remotely. You can run completely invisibly.<br><br>
+      <strong>Beta Sign-up (optional)</strong><br>
+      If you register for our beta, we collect your email address for a single notification. It is deleted immediately after sending.
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="section" id="s3">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Data We Do NOT Collect</h2>
+    </div>
+    <div class="section-body">
+      <p>We want to be explicit about what we refuse to collect — regardless of industry norms:</p>
+    </div>
+    <div class="badge-row">
+      <span class="badge">No identity data</span>
+      <span class="badge">No device fingerprint</span>
+      <span class="badge">No location history</span>
+      <span class="badge">No behavioral tracking</span>
+      <span class="badge">No ad identifiers</span>
+      <span class="badge">No third-party analytics</span>
+      <span class="badge">No cloud sync without consent</span>
+      <span class="badge">No social login</span>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="section" id="s4">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Coaches & Organizations</h2>
+    </div>
+    <div class="section-body">
+      <p>For clubs, coaches, and companies using our web interface: access is managed through anonymous access codes. Athletes never share personal data with the platform — only their performance results, which are tied to a code, never a person.</p>
+      <p>Organizations access a private management space. No athlete identification is required or possible at the platform level. All data processed through the web interface is stored on European servers.</p>
+    </div>
+    <div class="card-block">
+      <strong>Code-based architecture:</strong> Athletes → anonymous code → workouts & sync. No name, no email, no profile.
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="section" id="s5">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>Data Storage & Security</h2>
+    </div>
+    <div class="section-body">
+      <p>All performance data that leaves your device is stored exclusively on servers located within the European Union, in accordance with GDPR requirements and the principle of European digital sovereignty.</p>
+      <p>Local data (GPS traces, session records) resides only on your device and can be deleted at any time — including retroactively after a session in "No Track" mode.</p>
+    </div>
+    <div class="badge-row">
+      <span class="badge green">EU servers only</span>
+      <span class="badge green">Local-first architecture</span>
+      <span class="badge green">On-device deletion</span>
+      <span class="badge">Encrypted in transit</span>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="section" id="s6">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>Your Rights (GDPR)</h2>
+    </div>
+    <div class="section-body">
+      <p>Under the General Data Protection Regulation (GDPR), you have the following rights regarding any data we may hold:</p>
+    </div>
+    <div class="card-block">
+      <strong>Right of access</strong> — Know what data we hold on you.<br>
+      <strong>Right to erasure</strong> — Request complete deletion at any time.<br>
+      <strong>Right to portability</strong> — Export your data in a standard format.<br>
+      <strong>Right to object</strong> — Opt out of any processing at any time.<br>
+      <strong>Right to rectification</strong> — Correct any inaccurate information.<br><br>
+      Since we collect almost nothing, exercising these rights is straightforward. Contact us at any time.
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="section" id="s7">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2>Third Parties & Sharing</h2>
+    </div>
+    <div class="section-body">
+      <p>We do not sell, share, or transfer your data to any third party — advertising platforms, data brokers, or analytics services.</p>
+      <p>Social sharing (if you choose to share a run result) is entirely optional and initiated only by you. We design sharing features to expose performance metrics only — never your location or route unless you explicitly include it.</p>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="section" id="s8">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2>Contact</h2>
+    </div>
+    <div class="section-body">
+      <p>For any question, data request, or concern about this policy, reach out directly:</p>
+    </div>
+    <div class="contact-box">
+      <p>Data controller & developer</p>
+      <a href="mailto:info@notrackrun.eu">info@notrackrun.eu</a>
+      <p style="margin-top:16px; font-size:12px; color:#555;">NoTrackRun 
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <span class="neon-dot"></span>
+    © 2025 NoTrackRun — All rights reserved.
+  </div>
+  <div style="color:var(--muted2)">Technology designed for humans, not algorithms.</div>
+</footer>
+
+<script>
+  // TOC dot activation on scroll
+  const sections = ['s1','s2','s3','s4','s5','s6','s7','s8'];
+  const dots = document.querySelectorAll('.toc-dot');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = sections.indexOf(entry.target.id);
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: 0.5 });
+
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+
+  // Click dots to scroll
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      document.getElementById(sections[i])?.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
