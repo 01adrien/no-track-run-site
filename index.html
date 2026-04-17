@@ -1,1132 +1,912 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NoTrackRun</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>NoTrackRun</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+    <style>
+      :root {
+        --background: hsl(220 25% 6%);
+        --foreground: hsl(0 0% 96%);
+        --section: hsl(220 22% 9%);
+        --card: hsl(220 20% 12%);
+        --muted: hsl(220 15% 18%);
+        --muted-foreground: hsl(0 0% 60%);
+        --accent: hsl(67.2, 100%, 51%);
+        --accent-dim: hsl(67.2, 100%, 51%, 0.12);
+        --accent-foreground: hsl(220 25% 6%);
+        --border: hsl(220 15% 20%);
+        --radius: 1rem;
+      }
 
-  <!-- Favicons -->
-  <link href="assets/img/icon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+      * {
+        box-sizing: border-box;
+      }
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+      body {
+        background: var(--background);
+        color: var(--foreground);
+        font-family: "DM Sans", sans-serif;
+        line-height: 1.65;
+        overflow-x: hidden;
+      }
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+      h1,
+      h2,
+      h3,
+      h4,
+      .display {
+        font-family: "Syne", sans-serif;
+      }
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+      /* ── NAV ── */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        backdrop-filter: blur(18px);
+        background: hsla(220, 25%, 6%, 0.82);
+        border-bottom: 1px solid var(--border);
+      }
 
-</head>
+      /* ── HERO ── */
+      .hero-bg {
+        background: radial-gradient(
+            ellipse 80% 60% at 60% 40%,
+            hsla(70, 100%, 59%, 0.18) 0%,
+            transparent 70%
+          ),
+          radial-gradient(
+            ellipse 50% 50% at 20% 80%,
+            hsla(59, 98%, 47%, 0.07) 0%,
+            transparent 60%
+          ),
+          var(--background);
+      }
 
-<body class="index-page">
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: hsl(67 100% 51% / 0.1);
+        border: 1px solid hsl(67 100% 51% / 0.25);
+        border-radius: 999px;
+        padding: 6px 16px;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 1.5rem;
+      }
 
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <h1 class="sitename">NoTrack<span style="color: #ff7f00;">Run</span></h1>
+      /* ── BUTTONS ── */
+      .btn-primary {
+        background: var(--accent);
+        color: var(--accent-foreground);
+        border-radius: var(--radius);
+        font-weight: 700;
+        font-family: "Syne", sans-serif;
+        letter-spacing: 0.02em;
+        transition: opacity 0.25s, transform 0.2s, box-shadow 0.25s;
+        display: inline-block;
+      }
+      .btn-primary:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px hsl(67 100% 51% / 0.35);
+      }
+      .btn-ghost {
+        border: 1px solid var(--border);
+        color: var(--foreground);
+        border-radius: var(--radius);
+        font-weight: 500;
+        font-family: "Syne", sans-serif;
+        transition: background 0.2s, border-color 0.2s, transform 0.2s;
+        display: inline-block;
+      }
+      .btn-ghost:hover {
+        background: var(--muted);
+        border-color: hsl(220 15% 32%);
+        transform: translateY(-2px);
+      }
 
+      /* ── CARDS ── */
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+      }
+      .card:hover {
+        /* transform: translateY(-5px); */
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+        border-color: hsl(220 15% 30%);
+      }
+
+      /* ── PLACEHOLDER IMAGES ── */
+      .img-placeholder {
+        background: linear-gradient(
+          135deg,
+          var(--muted) 0%,
+          hsl(220 18% 15%) 100%
+        );
+        border-radius: 0.6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted-foreground);
+        font-size: 0.8rem;
+        font-family: "Syne", sans-serif;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        border: 1px dashed var(--border);
+        position: relative;
+        overflow: hidden;
+      }
+      .img-placeholder::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse at 30% 50%,
+          hsl(67 100% 51% / 0.06),
+          transparent 70%
+        );
+      }
+      .img-placeholder .icon {
+        font-size: 2rem;
+        margin-bottom: 0.4rem;
+        opacity: 0.5;
+      }
+
+      /* ── REAL IMAGE ── */
+      .product-img {
+        border-radius: 0.6rem;
+        width: 100%;
+        object-fit: cover;
+        border: 1px solid var(--border);
+      }
+
+      /* ── FEATURE PILLS ── */
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--accent-dim);
+        border: 1px solid hsl(67 100% 51% / 0.2);
+        color: hsl(67 100% 75%);
+        border-radius: 999px;
+        padding: 4px 14px;
+        font-size: 0.78rem;
+        font-weight: 500;
+      }
+
+      /* ── SECTION TAG ── */
+      .section-tag {
+        display: inline-block;
+        background: var(--muted);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 4px 16px;
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted-foreground);
+        margin-bottom: 1rem;
+        font-family: "Syne", sans-serif;
+      }
+
+      /* ── DIVIDER ── */
+      .accent-line {
+        width: 48px;
+        height: 3px;
+        background: var(--accent);
+        border-radius: 2px;
+        margin-bottom: 1.5rem;
+      }
+
+      /* ── PHILOSOPHY ── */
+      .philo-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        background: var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+      .philo-cell {
+        background: var(--card);
+        padding: 2rem;
+      }
+
+      /* ── STATS ── */
+      .stat-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+        text-align: center;
+      }
+      .stat-number {
+        font-family: "Syne", sans-serif;
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: var(--accent);
+        line-height: 1.1;
+      }
+
+      /* ── PRODUCT SECTION ── */
+      .product-section {
+        border-top: 1px solid var(--border);
+        padding: 6rem 0;
+      }
+
+      /* ── SCROLL FADE ── */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.65s ease, transform 0.65s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .fade-delay-1 {
+        transition-delay: 0.1s;
+      }
+      .fade-delay-2 {
+        transition-delay: 0.2s;
+      }
+      .fade-delay-3 {
+        transition-delay: 0.3s;
+      }
+      .fade-delay-4 {
+        transition-delay: 0.4s;
+      }
+
+      /* ── FORM ── */
+      input[type="email"],
+      select {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 0.6rem;
+        color: var(--foreground);
+        padding: 1rem 1.25rem;
+        font-family: "DM Sans", sans-serif;
+        font-size: 1rem;
+        width: 100%;
+        transition: border-color 0.2s;
+        outline: none;
+        -webkit-appearance: none;
+      }
+      input[type="email"]:focus,
+      select:focus {
+        border-color: hsl(67 100% 51% / 0.5);
+      }
+      select option {
+        background: hsl(220 20% 12%);
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        border-top: 1px solid var(--border);
+      }
+
+      /* ── NOISE OVERLAY ── */
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+        opacity: 0.025;
+        pointer-events: none;
+        z-index: 9999;
+      }
+
+      /* ── CAROUSEL ── */
+      .carousel {
+        position: relative;
+        overflow: hidden;
+      }
+      .carousel-track {
+        display: flex;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .carousel-slide {
+        min-width: 100%;
+      }
+      .carousel-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 12px;
+      }
+      .carousel-btn {
+        background: var(--card);
+        border: 1px solid var(--border);
+        color: var(--foreground);
+        border-radius: 999px;
+        width: 36px;
+        height: 36px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: background 0.2s, border-color 0.2s;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .carousel-btn:hover {
+        background: var(--muted);
+        border-color: hsl(220 15% 32%);
+      }
+      .carousel-dots {
+        display: flex;
+        gap: 6px;
+      }
+      .carousel-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: var(--border);
+        transition: background 0.2s, width 0.2s;
+        cursor: pointer;
+      }
+      .carousel-dot.active {
+        background: var(--accent);
+        width: 18px;
+      }
+
+      @media (max-width: 768px) {
+        .philo-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen">
+    <!-- ══ NAV ══ -->
+    <header class="flex justify-between items-center px-8 py-5">
+      <a
+        href="#"
+        class="text-xl font-bold tracking-tight"
+        style="font-family: 'Syne', sans-serif"
+      >
+        NoTrack<span style="color: var(--accent)">Run</span>
       </a>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>NoTrackRun</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-
-  <!-- Favicons -->
-  <link href="assets/img/icon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-
-</head>
-
-<body class="index-page">
-
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <h1 class="sitename">NoTrack<span style="color: #ff7f00;">Run</span></h1>
-
-      </a>
-
-     <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active" data-key="nav_home">Accueil</a></li>
-          <li><a href="#philosophy" data-key="nav_philosophy">Notre philosophie</a></li>
-          <li><a href="#partners" data-key="nav_partners">Entreprises & Coachs</a></li>
-          <li><a href="#runners" data-key="nav_runners">Pour les coureurs</a></li>
-          <li><a href="#team" data-key="nav_team">Equipe</a></li>
-          <li><a href="#beta" data-key="nav_beta">Participer à la bêta</a></li>
-          <li><a href="mailto:info@notrackrun.eu" data-key="nav_contact">Contact</a></li>
-
-          <li>
-            <select id="languageSelect" class="form-select language-selector" style="min-width: 80px;">
-              <option value="en" selected>ENG</option>
-              <option value="fr">FR</option>
-              <option value="nl">NL</option>
-              <option value="de">DE</option>
-            </select>
-          </li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      <nav
+        class="hidden md:flex items-center gap-8 text-sm"
+        style="color: var(--muted-foreground)"
+      >
+        <a href="#web" class="hover:text-white transition">Web</a>
+        <a href="#mobile" class="hover:text-white transition">Mobile</a>
+        <a href="#watch" class="hover:text-white transition">Montre</a>
+        <a href="#philosophy" class="hover:text-white transition"
+          >Philosophie</a
+        >
+        <a href="#beta" class="btn-primary px-5 py-2 text-sm">Beta</a>
       </nav>
+    </header>
 
-
-      <!-- Sélecteur de langue déroulant -->
-      
-
-    </div>
-  </header>
-  <main class="main">
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
-      <img src="assets/img/hero-bg.jpg" alt="background" class="hero-bg">
-      
-      <div class="container d-flex flex-column align-items-center text-center">
-        <h2 data-key="hero_title">L'app de running qui respecte votre vie privée</h2>
-        <p data-key="hero_sub">Mode "No Track". Zéro tracking. 100% liberté.</p>
-
-
-       <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
-        <a href="#partners" class="btn-get-started" data-key="btn_partners">Je suis une entreprise / coach</a>
-        <a href="#runners" class="btn-get-started" data-key="btn_runners">Je suis coureur·se</a>
-        <a href="#beta" class="btn-get-started" data-key="btn_beta">Participer à la bêta</a>
-      </div>
-
+    <!-- ══ HERO ══ -->
+    <section class="hero-bg text-center py-36 px-6 relative">
+      <div class="max-w-4xl mx-auto">
+        <h1
+          class="text-7xl md:text-8xl font-extrabold leading-none mb-6 fade-in fade-delay-1"
+        >
+          Run Free.
+        </h1>
+        <p
+          class="text-lg md:text-xl max-w-2xl mx-auto mb-10 fade-in fade-delay-2"
+          style="color: var(--muted-foreground)"
+        >
+          Web, mobile et montre connectée — une plateforme de running complète,
+          conçue sans tracking, sans publicité, sans compromis.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center fade-in fade-delay-3">
+          <a href="#beta" class="btn-primary px-8 py-4 text-base"
+            >Rejoindre la bêta</a
+          >
+          <a href="#philosophy" class="btn-ghost px-8 py-4 text-base"
+            >Notre philosophie</a
+          >
+        </div>
       </div>
     </section>
 
-  <!-- About Section -->
-  <section id="philosophy" class="about section">
-
-    <div class="container">
-
-      <div class="row gy-4">
-        <!-- Colonne texte principale -->
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-          <h3 data-key="philosophy_title">Notre philosophie : respect de la vie privée & souveraineté numérique</h3>
-          <img src="assets/img/phylo.png" class="img-fluid rounded-4 mb-4" alt="Philosophie - Vie privée">
-          <p data-key="philosophy_p1">
-            Nous croyons qu’il est possible de profiter du sport connecté sans compromettre sa vie privée.  
-            Notre application vous offre la liberté de courir comme vous le souhaitez : avec ou sans suivi, avec ou sans partage.
-          </p>
-          <p data-key="philosophy_p2">
-            Choisissez le mode qui vous convient : <strong>le mode Classique</strong>, qui enregistre vos performances ainsi que le tracé de vos déplacements, ou <strong>le mode "No Track"</strong>, qui désactive l’enregistrement des données de géolocalisation et du parcours.
-          </p>
-          <p data-key="philosophy_p3">
-            Et si vous le souhaitez, vous pouvez partager vos résultats sur vos réseaux sociaux — en toute liberté, sans obligation de divulguer votre position.
-          </p>
-          <p data-key="philosophy_p4">
-            Notre solution s’adresse aussi aux professionnels : coachs, clubs ou entreprises disposent d’une interface web dédiée pour proposer des entraînements et suivre les performances de leurs coureurs — toujours sans nécessiter de données personnelles de leur part.
-          </p>
-          <p data-key="philosophy_p5">
-            Nous pensons aussi à celles et ceux pour qui la discrétion est essentielle : militaires, forces de l’ordre, personnels sensibles — courir ne devrait jamais rimer avec exposition involontaire.  
-          </p>
-          <p data-key="philosophy_p6">
-            Le projet s’inscrit dans une démarche européenne : souveraineté technologique, conformité RGPD, et respect des valeurs fondamentales de protection des données pour tous les citoyens du continent.
-          </p>
-        </div>
-
-        <!-- Colonne valeurs + visuel secondaire -->
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
-          <div class="content ps-0 ps-lg-5">
-            <p data-key="philosophy_p7">
-              Aucune donnée personnelle requise, aucun compte obligatoire, aucun suivi imposé.  
-              Notre mission : proposer une alternative éthique, transparente et souveraine — où chaque coureur·se garde le contrôle total de ses données.
-            </p>
-            <p data-key="philosophy_p8">
-              Notre engagement : vous permettre de courir en toute sérénité, en respectant vos choix et votre anonymat.
-            </p>
-            <p class="fst-italic" data-key="philosophy_p9">
-              Une technologie pensée pour les humains, pas pour les algorithmes.
-            </p>
-            <ul>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-key="philosophy_li1">Mode "No Track" : aucun enregistrement de géolocalisation, aucun tracking.</span></li>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-key="philosophy_li2">Conforme au RGPD, aucune donnée personnelle requise. Les performances sont hébergées exclusivement en Europe.</span></li>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-key="philosophy_li3">Aucune publicité, aucun compte obligatoire, 100&nbsp;% souveraineté.</span></li>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-key="philosophy_li4">Interface web pour coachs et organisations : entraînements, suivi et gestion sécurisés.</span></li>
-            </ul>
-            <p data-key="philosophy_p10">
-              Idéal pour les coureurs soucieux de leur vie privée, les professionnels de la sécurité, ou simplement ceux qui veulent courir sans être analysés.
+    <!-- ══ PRODUCT 1 — WEB ══ -->
+    <section id="web" class="product-section">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid xl:grid-cols-2 gap-16 items-start">
+          <!-- LEFT: TEXT -->
+          <div class="fade-in">
+            <div class="accent-line"></div>
+            <h2 class="text-5xl font-bold mb-4">Plateforme Web</h2>
+            <p class="text-lg mb-6" style="color: var(--muted-foreground)">
+              Un dashboard complet pour coachs, clubs et entreprises. Gérez vos
+              coureurs, créez des plans d'entraînement et suivez les
+              performances — le tout en garantissant une confidentialité totale.
             </p>
 
-            <div class="position-relative mt-4">
-              <img src="assets/img/GDPR.jpg" class="img-fluid rounded-4" alt="Interface Ghost Mode">
+            <div class="grid grid-cols-2 gap-3 mb-8">
+              <div class="card p-4 flex gap-3 items-center justify-center">
+                <span class="font-medium text-sm"
+                  >Analytics sans profilage</span
+                >
+              </div>
+              <div class="card p-4 flex gap-3 items-center justify-center">
+                <span class="font-medium text-sm">Codes d'accès</span>
+              </div>
+              <div class="card p-4 flex gap-3 items-center justify-center">
+                <span class="font-medium text-sm">Gestion multi-rôles</span>
+              </div>
+              <div class="card p-4 flex gap-3 items-center justify-center">
+                <span class="font-medium text-sm">Plans d'entraînement</span>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-2">
+              <span class="pill">RGPD compliant</span>
+              <span class="pill">Hébergement EU</span>
             </div>
           </div>
-        </div>
-      </div>
 
-    </div>
-
-  </section><!-- /Philosophy Section -->
-
-
-
-
-    <!-- Stats Section -->
-  <section id="stats" class="stats section light-background">
-
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-      <div class="row gy-4">
-
-        <!-- Stat : GDPR fines in 2024 -->
-        <div class="col-lg-3 col-md-6">
-          <div class="stats-item d-flex align-items-center w-100 h-100">
-            <i class="bi bi-shield-lock color-orange flex-shrink-0"></i>
-            <div>
-              <span data-purecounter-start="0" data-purecounter-end="1200" data-purecounter-duration="1" class="purecounter"></span>
-              <p data-key="stats_gdpr_fines">Total GDPR fines 2024 (€M)</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Stat : Breaches reported -->
-        <div class="col-lg-3 col-md-6">
-          <div class="stats-item d-flex align-items-center w-100 h-100">
-            <i class="bi bi-exclamation-triangle color-red flex-shrink-0"></i>
-            <div>
-              <span data-purecounter-start="0" data-purecounter-end="4876" data-purecounter-duration="1" class="purecounter"></span>
-              <p data-key="stats_breaches_reported">Data breach reports 2024</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Stat : Military security incidents -->
-        <div class="col-lg-3 col-md-6">
-          <div class="stats-item d-flex align-items-center w-100 h-100">
-            <i class="bi bi-person-badge color-blue flex-shrink-0"></i>
-            <div>
-              <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1" class="purecounter"></span>
-              <p data-key="stats_military_incidents">Incidents exposé militaires 2024 - 2025</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Stat : Record exposures Q4 2024 -->
-        <div class="col-lg-3 col-md-6">
-          <div class="stats-item d-flex align-items-center w-100 h-100">
-            <i class="bi bi-database color-green flex-shrink-0"></i>
-            <div>
-              <span data-purecounter-start="0" data-purecounter-end="422" data-purecounter-duration="1" class="purecounter"></span>
-              <p data-key="stats_records_exposed">Millions records exposed (Q4 2024)</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section id="partners" class="section py-5">
-    <div class="container">
-      <div class="row gy-4">
-        
-        <!-- Colonne 1 : Présentation & fonctionnement -->
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-          <h3><span data-key="partners_title">Entreprises & Coachs</span></h3>
-
-          <p><span data-key="partners_intro">
-            Notre interface web permet aux clubs, coachs et structures sportives de gérer facilement leurs coureurs, créer des plans d’entraînement personnalisés et suivre les performances à distance — en garantissant la confidentialité et la protection des données.
-          </span></p>
-
-          <h4><span data-key="partners_how_it_works">Fonctionnement</span></h4>
-
-          <p><span data-key="partners_description">
-            Les entreprises abonnées disposent d’un espace privé pour gérer leurs coachs et générer des codes d’accès à transmettre aux sportifs. Ces derniers saisissent leur code dans l’application mobile, reçoivent leurs entraînements, et synchronisent automatiquement leurs performances.
-          </span></p>
-
-          <h4><span data-key="partners_roles">Les rôles</span></h4>
-          <ul class="list-unstyled">
-            <li><i class="bi bi-check-circle-fill"></i> <span data-key="partners_role_companies"><strong>Entreprises :</strong> gèrent les coachs, les codes d’accès et le suivi des activités.</span></li>
-
-            <li><i class="bi bi-check-circle-fill"></i> <span data-key="partners_role_coaches"><strong>Coachs :</strong> organisent les séances, attribuent les codes aux sportifs et suivent leur activation.</span></li>
-
-            <li><i class="bi bi-check-circle-fill"></i> <span data-key="partners_role_athletes"><strong>Sportifs :</strong> utilisent un code d’accès personnel pour accéder à leurs entraînements, tout en conservant le contrôle sur leurs données.</span></li>
-          </ul>
-
-          <p><span data-key="partners_conclusion">
-            Ce système garantit un suivi sécurisé, sans collecte de données sensibles, en conformité avec la souveraineté numérique et le RGPD.
-          </span></p>
-        </div>
-
-
-        <!-- Colonne 2 : Cas d’usage entreprise bien-être -->
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
-          <div class="content ps-0 ps-lg-5">
-            <h4><span data-key="partners_other_usecases_title">Autres cas d’usage</span></h4>
-
-            <p><span data-key="partners_other_usecases_intro">
-              La plateforme peut aussi être utilisée par des entreprises non sportives souhaitant encourager l’activité physique au sein de leurs équipes. Elle permet d’organiser des challenges collectifs, de suivre les progrès des participants et de renforcer la cohésion autour d’objectifs communs.
-            </span></p>
-
-            <ul class="list-unstyled">
-              <li><i class="bi bi-check-circle-fill"></i> <span data-key="partners_other_usecases_motivation">Motiver les collaborateurs par le sport et la santé.</span></li>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-key="partners_other_usecases_challenges">Créer facilement des défis d’équipe ou inter-équipes.</span></li>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-key="partners_other_usecases_tracking">Suivre l’évolution de chacun en respectant la vie privée.</span></li>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-key="partners_other_usecases_objectives">Atteindre ensemble un objectif sportif (ex : course caritative, trail local…)</span></li>
-            </ul>
-
-            <p class="fst-italic"><span data-key="partners_other_usecases_italic">Un outil de sport connecté éthique, utile à tous : coachs, entreprises, clubs… et maintenant aussi vos collaborateurs.</span></p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-
-    <section id="runners" class="about section light-background">
-
-      <div class="container ">
-
-        <div class="row gy-4">
-          <!-- Colonne texte principale -->
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 data-key="runners_title">Pour les coureurs : liberté, performance, confidentialité</h3>
-            
-            <p data-key="runners_intro_1">
-              Que vous soyez débutant, passionné ou athlète régulier, notre application vous accompagne dans vos objectifs sans jamais compromettre votre vie privée.
-            </p>
-
-            <p data-key="runners_intro_2">
-              Le <strong>mode Classique</strong> vous permet de suivre vos activités (temps, distance, allure, etc.) avec enregistrement du tracé GPS. Parfait pour ceux qui souhaitent bénéficier d’un suivi complet tout en gardant le contrôle total sur leurs données : pas d’identification, pas de stockage cloud, pas de profilage.
-            </p>
-
-            <p data-key="runners_ghost_mode_intro">
-              Pour les plus discrets ou les professionnels sensibles, le <strong>mode "No Track"</strong> (Ghost Mode) propose une alternative encore plus minimaliste :
-            </p>
-
-            <ul class="ul-runner">
-              <li><i class="bi bi-check-circle-fill"></i> <span data-key="runners_ghost_point_1">L’activité se déroule normalement, mais sans enregistrement de localisation.</span></li>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-key="runners_ghost_point_2">Vous pouvez supprimer le tracé GPS <strong>même après la session, à tout moment, en cas d’oubli</strong>.</span></li>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-key="runners_ghost_point_3">Aucune donnée liée à une identité, aucun envoi vers le cloud, <strong>zéro profilage</strong>.</span></li>
-            </ul>
-
-
-            <p data-key="runners_philosophy">
-              Notre philosophie : vous donner les outils, pas vous surveiller.
-            </p>
-          </div>
-
-          <!-- Colonne fonctionnalités personnalisées -->
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
-            <div class="content ps-0 ps-lg-5">
-              <p>
-                L’application est pensée pour vous simplifier la vie :
-              </p>
-              <ul>
-                <li><i class="bi bi-check-circle-fill"></i> <span data-key="runners_feature_1"><strong>Objectifs mensuels personnalisés</strong> (distance, fréquence, etc.) avec rappels configurables.</span></li>
-                <li><i class="bi bi-check-circle-fill"></i> <span data-key="runners_feature_2"><strong>Création automatique de plans d'entraînement</strong> après un mini test initial (niveau, rythme, type d’effort).</span></li>
-                <li><i class="bi bi-check-circle-fill"></i> <span data-key="runners_feature_3"><strong>Import d’entraînements</strong> envoyés par votre entreprise ou votre club, en toute simplicité.</span></li>
-                <li><i class="bi bi-check-circle-fill"></i> <span data-key="runners_feature_4"><strong>Mode hors ligne</strong> disponible : courez sans connexion, vos données restent localement sur votre appareil.</span></li>
-              </ul>
-
-
-              <p class="fst-italic" data-key="runners_italic">
-                Une app conçue pour ceux qui courent librement, et veulent le rester.
-              </p>
-
-              <p data-key="runners_no_account">
-                Aucun compte requis, aucune publicité, aucun algorithme de recommandation caché.
-                <br>
-                Juste une app souveraine, simple, efficace — où chaque donnée est optionnelle, contrôlée, effaçable.
-              </p>
-
-              <p data-key="runners_privacy">
-                Respect de la vie privée, souveraineté numérique, éthique du sport connecté : vous êtes libre d’aller courir… sans laisser de traces.
-              </p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /Runners Section -->
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section dark-background">
-
-      <img src="assets/img/testimonials-bg.jpg" class="testimonials-bg" alt="">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              }
-            }
-          </script>
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/team/alex.png" class="testimonial-img" alt="">
-                <h3><span>Alexandre Henin</span></h3>
-                <h4><span data-key="testimonials_dev_role">Développeur</span></h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          <!-- RIGHT: CAROUSEL -->
+          <div class="fade-in fade-delay-2">
+            <div class="carousel" id="carousel-web">
+              <div class="carousel-track">
+                <div class="carousel-slide">
+                  <img
+                    src="assets/img/web/user-view.png"
+                    alt="Dashboard Web"
+                    class="product-img"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                  />
                 </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span data-key="testimonials_alex_text">Je suis fier de construire cette plateforme avec passion et transparence. Vos retours comptent énormément : ensemble, on crée une application qui vous respecte et protège vos données.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/team/adrien.png" class="testimonial-img" alt="">
-                <h3><span>Adrien Gaucher</span></h3>
-                <h4><span data-key="testimonials_dev_role">Développeur</span></h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <div class="carousel-slide">
+                  <img
+                    src="assets/img/web/week-plan-view.png"
+                    alt="Plan semaine"
+                    class="product-img"
+                    style="height: 340px; object-fit: cover"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                  />
                 </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span data-key="testimonials_adrien_text">Les outils existants sont souvent trop complexes ou inadaptés. Ce projet offre une alternative claire, utile et légère, conçue pour simplifier la gestion des entraînements au quotidien d’une équipe.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
+              </div>
+              <div class="carousel-controls">
+                <button
+                  class="carousel-btn"
+                  onclick="moveCarousel('carousel-web',-1)"
+                >
+                  ‹
+                </button>
+                <div class="carousel-dots" id="dots-carousel-web"></div>
+                <button
+                  class="carousel-btn"
+                  onclick="moveCarousel('carousel-web',1)"
+                >
+                  ›
+                </button>
               </div>
             </div>
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/team/jimmy.jpg" class="testimonial-img" alt="">
-                <h3>Jimmy Noiret</h3>
-                <h4>Expert Sportif</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span data-key="testimonials_jimmy_text">Fier d’apporter ma touche personnelle à l’entraînement de sportifs de tous horizons, et ce sans devoir payer cher ni compromettre ses données personnelles. À chacun sa trace, à chacun son chemin vers de meilleures performances !</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div>
-
-          
-
           </div>
-          <div class="swiper-pagination"></div>
         </div>
-
       </div>
-
-    </section><!-- /Testimonials Section -->
-
-
-    <!-- Team Section -->
-    <section id="team" class="team section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2><span data-key="team_title">Equipe</span></h2>
-        <p><span data-key="team_subtitle">Notre équipe</span></p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-5">
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="member">
-              <div class="pic"><img src="assets/img/team/alex.png" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4><span data-key="team_alex_name">Alexandre Henin</span></h4>
-                <span data-key="team_alex_role">Développeur</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="member">
-              <div class="pic"><img src="assets/img/team/adrien.png" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4><span data-key="team_adrien_name">Adrien Gaucher</span></h4>
-                <span data-key="team_adrien_role">Développeur</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="member">
-              <div class="pic"><img src="assets/img/team/jimmy.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4><span data-key="team_jimmy_name">Jimmy Noiret</span></h4>
-                <span data-key="team_jimmy_role">Expert Sportif</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-        </div>
-
-      </div>
-
-    </section>
-    <!-- /Team Section -->
-
-
-    <!-- Beta Section -->
-    <section id="beta" class="section">
-  <div class="container section-title" data-aos="fade-up">
-    <h2><span data-key="beta_title">Participer à la Bêta</span></h2>
-    <p><span data-key="beta_subtitle">Inscrivez-vous pour tester notre application en avant-première</span></p>
-  </div>
-
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
-    <p data-key="beta_intro">
-    Prochainement, une première version bêta de notre application sera disponible pour des tests. Que vous soyez une entreprise ou un coureur, vous êtes les bienvenus pour y participer.
-    </p>
-
-    <ul>
-      <li data-key="beta_runners_info"><strong>Coureurs :</strong> Vous recevrez un seul e-mail lorsque la version bêta sera disponible. Vous pourrez alors la télécharger gratuitement sur les plateformes <strong>Apple App Store</strong> ou <strong>Google Play</strong>. <strong>Une fois cet e-mail envoyé, votre adresse sera immédiatement supprimée de notre système.</strong></li>
-      <li data-key="beta_companies_info"><strong>Entreprises :</strong> Vous serez recontactés pour un premier échange. Nous vous fournirons des informations personnalisées et une aide à l’intégration. Ce service est entièrement <strong>gratuit</strong>.</li>
-    </ul>
-
-    <form id="beta-form" class="mt-4">
-      <div class="mb-3">
-        <label for="userType" class="form-label" data-key="beta_form_label_type">Je suis :</label>
-        <select id="userType" name="userType" class="form-select" required>
-          <option value="" data-key="beta_form_option_select">-- Sélectionnez --</option>
-          <option value="coureur" data-key="beta_form_option_runner">Un coureur</option>
-          <option value="entreprise" data-key="beta_form_option_company">Une entreprise</option>
-        </select>
-      </div>
-
-      <div class="mb-3">
-        <label for="email" class="form-label" data-key="beta_form_label_email">Adresse e-mail :</label>
-        <input type="email" id="email" name="email" class="form-control" required placeholder="votre@email.com">
-      </div>
-
-      <button type="submit" class="btn btn-primary" data-key="beta_form_button">S’inscrire à la bêta</button>
-    </form>
-    <div id="beta-message" class="mt-3"></div>
-  </div>
     </section>
 
+    <!-- ══ PRODUCT 2 — MOBILE ══ -->
+    <section
+      id="mobile"
+      class="product-section"
+      style="
+        background: radial-gradient(
+          ellipse 60% 50% at 0% 50%,
+          hsl(67 100% 44% / 0.06) 0%,
+          transparent 60%
+        );
+      "
+    >
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-16 items-start">
+          <!-- LEFT: CAROUSEL -->
+          <div class="fade-in order-2 md:order-1">
+            <div class="carousel" id="carousel-mobile">
+              <div class="carousel-track">
+                <div class="carousel-slide">
+                  <img
+                    src="assets/img/mobile/mobile-view-1.png"
+                    alt="Plan semaine"
+                    class="product-img"
+                    style="height: 340px; object-fit: cover"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                  />
+                </div>
+                <div class="carousel-slide">
+                  <img
+                    src="assets/img/mobile/mobile-view-2.png"
+                    alt="Plan semaine"
+                    class="product-img"
+                    style="height: 340px; object-fit: cover"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                  />
+                </div>
+              </div>
+              <div class="carousel-controls">
+                <button
+                  class="carousel-btn"
+                  onclick="moveCarousel('carousel-mobile',-1)"
+                >
+                  ‹
+                </button>
+                <div class="carousel-dots" id="dots-carousel-mobile"></div>
+                <button
+                  class="carousel-btn"
+                  onclick="moveCarousel('carousel-mobile',1)"
+                >
+                  ›
+                </button>
+              </div>
+            </div>
+          </div>
 
-  </main>
+          <!-- RIGHT: TEXT -->
+          <div class="fade-in fade-delay-1 order-1 md:order-2">
+            <div class="accent-line"></div>
+            <h2 class="text-5xl font-bold mb-4">Application Mobile</h2>
+            <p class="text-lg mb-6" style="color: var(--muted-foreground)">
+              Enregistrez vos sessions simplement, courez librement. L'app
+              mobile NoTrackRun est pensée pour vous donner les outils — pas
+              pour vous surveiller.
+            </p>
 
-  <footer id="footer" class="footer dark-background">
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">NoTrackRun</span>
-          </a>
-          <div class="social-links d-flex mt-4">
-            <a href="https://www.facebook.com/profile.php?id=61578689183222"><i class="bi bi-facebook"></i></a>
-            <a href="https://www.instagram.com/notrackrun/" ><i class="bi bi-instagram"></i></a>
+            <div class="grid grid-cols-2 gap-3 mb-8">
+              <div class="card p-4 flex gap-3 items-center justify-center">
+                <span class="font-medium text-sm">Ghost Mode</span>
+              </div>
+              <div class="card p-4 flex gap-3 items-center justify-center">
+                <span class="font-medium text-sm">Objectifs personnalisés</span>
+              </div>
+              <div class="card p-4 flex gap-3 items-center justify-center">
+                <span class="font-medium text-sm">Mode hors-ligne</span>
+              </div>
+              <div class="card p-4 flex gap-3 items-center">
+                <span class="font-medium text-sm justify-center"
+                  >Import entraînements coach</span
+                >
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-2">
+              <span class="pill">iOS & Android</span>
+              <span class="pill">Aucun compte requis</span>
+              <span class="pill">Ghost Mode</span>
+              <span class="pill">Mode hors-ligne</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="container ">
-      <p class="copyright text-center mt-4">
-        <span>&copy; 2025</span> <strong class="sitename">NoTrackRun</strong> – Tous droits réservés.
+    <!-- ══ PRODUCT 3 — WATCH ══ -->
+    <section id="watch" class="product-section">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-16 items-start">
+          <!-- LEFT: TEXT -->
+          <div class="fade-in">
+            <div class="accent-line"></div>
+            <h2 class="text-5xl font-bold mb-4">App Montre</h2>
+            <p class="text-lg mb-6" style="color: var(--muted-foreground)">
+              Courez les yeux dans les yeux avec vos métriques — pas avec un
+              algorithme. L'app montre NoTrackRun est ultra-légère, autonome, et
+              ne transmet rien sans votre accord explicite.
+            </p>
+
+            <div class="grid grid-cols-2 gap-3 mb-8">
+              <div class="card p-4 flex gap-3 items-center justify-center">
+                <span class="font-medium text-sm">Suivi en temps réel</span>
+              </div>
+              <div class="card p-4 flex gap-3 items-center justify-center">
+                <span class="font-medium text-sm">Conception légère</span>
+              </div>
+              <div class="card p-4 flex gap-3 items-center justify-center">
+                <span class="font-medium text-sm">Zéro SDK tiers</span>
+              </div>
+              <div class="card p-4 flex gap-3 items-center justify-center">
+                <span class="font-medium text-sm">Synchro sécurisée</span>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-2">
+              <span class="pill">Apple Watch</span>
+              <span class="pill">Wear OS</span>
+              <span class="pill">Zéro SDK tiers</span>
+              <span class="pill">Synchro manuelle</span>
+            </div>
+          </div>
+
+          <!-- RIGHT: CAROUSEL -->
+          <div class="fade-in fade-delay-2">
+            <div class="carousel" id="carousel-watch">
+              <div class="carousel-track">
+                <div class="carousel-slide">
+                  <div class="img-placeholder" style="height: 340px">
+                    <div class="text-center">
+                      <div class="icon">⌚</div>
+                      <div>Vue session</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-slide">
+                  <div class="img-placeholder" style="height: 340px">
+                    <div class="text-center">
+                      <div class="icon">❤️</div>
+                      <div>Fréquence cardiaque</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-slide">
+                  <div class="img-placeholder" style="height: 340px">
+                    <div class="text-center">
+                      <div class="icon">📶</div>
+                      <div>Synchro mobile</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-controls">
+                <button
+                  class="carousel-btn"
+                  onclick="moveCarousel('carousel-watch',-1)"
+                >
+                  ‹
+                </button>
+                <div class="carousel-dots" id="dots-carousel-watch"></div>
+                <button
+                  class="carousel-btn"
+                  onclick="moveCarousel('carousel-watch',1)"
+                >
+                  ›
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PHILOSOPHY ══ -->
+    <section
+      id="philosophy"
+      class="product-section"
+      style="
+        background: radial-gradient(
+          ellipse 60% 50% at 100% 50%,
+          hsl(67 100% 44% / 0.05) 0%,
+          transparent 60%
+        );
+      "
+    >
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="section-tag fade-in">Notre philosophie</div>
+        <h2 class="text-5xl font-bold mb-4 fade-in">
+          Une technologie pensée<br />pour les humains.
+        </h2>
+        <p
+          class="text-lg mb-12 fade-in"
+          style="color: var(--muted-foreground); max-width: 680px"
+        >
+          Nous croyons qu'il est possible de profiter du sport connecté sans
+          compromettre sa vie privée. NoTrackRun, c'est la liberté de courir
+          comme vous le souhaitez — avec ou sans suivi, avec ou sans partage.
+        </p>
+
+        <div class="philo-grid fade-in card">
+          <div class="philo-cell">
+            <h4 class="font-semibold text-lg mb-2">Souveraineté numérique</h4>
+            <p class="text-sm" style="color: var(--muted-foreground)">
+              Projet 100 % européen. Hébergement exclusivement en Europe,
+              conformité RGPD native. Vos données ne quittent jamais le
+              continent.
+            </p>
+          </div>
+          <div class="philo-cell" style="border-left: 1px solid var(--border)">
+            <h4 class="font-semibold text-lg mb-2">Zéro tracking caché</h4>
+            <p class="text-sm" style="color: var(--muted-foreground)">
+              Aucune publicité, aucun algorithme de recommandation, aucun profil
+              commercial. Ce que vous faites ne regarde personne d'autre.
+            </p>
+          </div>
+          <div class="philo-cell" style="border-top: 1px solid var(--border)">
+            <h4 class="font-semibold text-lg mb-2">
+              Pour les professionnels sensibles
+            </h4>
+            <p class="text-sm" style="color: var(--muted-foreground)">
+              Militaires, forces de l'ordre, personnels à statut sensible —
+              courir ne devrait jamais rimer avec exposition involontaire. Le
+              Ghost Mode a été pensé pour eux.
+            </p>
+          </div>
+          <div
+            class="philo-cell"
+            style="
+              border-top: 1px solid var(--border);
+              border-left: 1px solid var(--border);
+            "
+          >
+            <h4 class="font-semibold text-lg mb-2">Aucun compte obligatoire</h4>
+            <p class="text-sm" style="color: var(--muted-foreground)">
+              Lancez l'app et courez. Aucune inscription requise, aucun email
+              collecté sans consentement explicite, aucune donnée personnelle
+              exigée.
+            </p>
+          </div>
+        </div>
+
+        <!-- QUOTE -->
+        <blockquote
+          class="mt-12 text-center fade-in"
+          style="max-width: 600px; margin-left: auto; margin-right: auto"
+        >
+          <p
+            class="text-2xl font-bold leading-snug mb-4"
+            style="font-family: 'Syne', sans-serif"
+          >
+            "Aucun compte requis, aucune publicité, aucun algorithme de
+            recommandation caché. Juste une app souveraine, simple, efficace."
+          </p>
+          <footer class="text-sm" style="color: var(--muted-foreground)">
+            — NoTrackRun
+          </footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ══ BETA ══ -->
+    <section id="beta" class="product-section">
+      <div class="max-w-2xl mx-auto px-6 text-center">
+        <div class="section-tag fade-in">Accès anticipé</div>
+        <h2 class="text-5xl font-bold mb-4 fade-in">Rejoindre la Bêta</h2>
+        <p class="mb-10 fade-in" style="color: var(--muted-foreground)">
+          Inscrivez-vous pour tester l'application en avant-première. Un seul
+          e-mail vous sera envoyé à la disponibilité de la bêta — puis votre
+          adresse sera immédiatement supprimée. Pas de newsletter, pas de spam.
+        </p>
+
+        <div class="card p-8 text-left fade-in">
+          <div class="flex flex-col gap-4">
+            <div>
+              <label class="block text-sm font-medium mb-2">Je suis</label>
+              <select>
+                <option value="" disabled selected>-- Sélectionnez --</option>
+                <option value="runner">Un coureur / une coureuse</option>
+                <option value="company">Une entreprise / un club</option>
+                <option value="coach">Un coach indépendant</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2"
+                >Adresse e-mail</label
+              >
+              <input type="email" placeholder="vous@exemple.com" />
+            </div>
+            <button
+              class="btn-primary py-4 text-base text-center"
+              onclick="this.textContent='✔ Inscription envoyée !'; this.disabled=true; this.style.opacity='.7'"
+            >
+              S'inscrire à la bêta
+            </button>
+          </div>
+
+          <div
+            class="mt-6 pt-6 grid grid-cols-2 gap-4"
+            style="border-top: 1px solid var(--border)"
+          >
+            <div class="text-sm" style="color: var(--muted-foreground)">
+              <span class="font-semibold" style="color: var(--foreground)"
+                >Coureurs</span
+              ><br />
+              Un seul e-mail à la sortie bêta, puis suppression immédiate de
+              votre adresse.
+            </div>
+            <div class="text-sm" style="color: var(--muted-foreground)">
+              <span class="font-semibold" style="color: var(--foreground)"
+                >Entreprises & coachs</span
+              ><br />
+              Recontact personnalisé + aide à l'intégration gratuite.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FOOTER ══ -->
+    <footer
+      class="text-center py-12 px-6"
+      style="color: var(--muted-foreground)"
+    >
+      <div
+        class="text-xl font-bold mb-2"
+        style="font-family: 'Syne', sans-serif; color: var(--foreground)"
+      >
+        NoTrack<span style="color: var(--accent)">Run</span>
+      </div>
+      <p class="text-sm mb-4">
+        Une alternative éthique, transparente et souveraine au sport connecté.
       </p>
-      <div class="credits">
-        Designed by <a href="https://bootstrapmade.com/" target="_blank">BootstrapMade</a>
-        · Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+      <a
+        href="/cdn-cgi/l/email-protection#5c35323a331c3233282e3d3f372e2932723929"
+        class="text-sm hover:text-white transition"
+        ><span
+          class="__cf_email__"
+          data-cfemail="61080f070e210f0e151300020a13140f4f0414"
+          >[email&#160;protected]</span
+        ></a
+      >
+      <div
+        class="mt-6 pt-6 text-xs"
+        style="border-top: 1px solid var(--border)"
+      >
+        © 2026 NoTrackRun · Tous droits réservés · RGPD · Hébergement EU
       </div>
-    </div>
-  </footer>
-
-
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/lang.js"></script>
-  <script src="assets/js/inscriptionbeta.js"></script>
-
-</body>
-
-</html>
-
-     <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active" data-key="nav_home">Accueil</a></li>
-          <li><a href="#philosophy" data-key="nav_philosophy">Notre philosophie</a></li>
-          <li><a href="#partners" data-key="nav_partners">Entreprises & Coachs</a></li>
-          <li><a href="#runners" data-key="nav_runners">Pour les coureurs</a></li>
-          <li><a href="#team" data-key="nav_team">Equipe</a></li>
-          <li><a href="#beta" data-key="nav_beta">Participer à la bêta</a></li>
-          <li><a href="mailto:info@notrackrun.eu" data-key="nav_contact">Contact</a></li>
-
-          <li>
-            <select id="languageSelect" class="form-select language-selector" style="min-width: 80px;">
-              <option value="en" selected>ENG</option>
-              <option value="fr">FR</option>
-              <option value="nl">NL</option>
-              <option value="de">DE</option>
-            </select>
-          </li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-
-      <!-- Sélecteur de langue déroulant -->
-      
-
-    </div>
-  </header>
-  <main class="main">
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
-      <img src="assets/img/hero-bg.jpg" alt="background" class="hero-bg">
-      
-      <div class="container d-flex flex-column align-items-center text-center">
-        <h2 data-key="hero_title">L'app de running qui respecte votre vie privée</h2>
-        <p data-key="hero_sub">Mode "No Track". Zéro tracking. 100% liberté.</p>
-
-
-       <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
-        <a href="#partners" class="btn-get-started" data-key="btn_partners">Je suis une entreprise / coach</a>
-        <a href="#runners" class="btn-get-started" data-key="btn_runners">Je suis coureur·se</a>
-        <a href="#beta" class="btn-get-started" data-key="btn_beta">Participer à la bêta</a>
-      </div>
-
-      </div>
-    </section>
-
-  <!-- About Section -->
-  <section id="philosophy" class="about section">
-
-    <div class="container">
-
-      <div class="row gy-4">
-        <!-- Colonne texte principale -->
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-          <h3 data-key="philosophy_title">Notre philosophie : respect de la vie privée & souveraineté numérique</h3>
-          <img src="assets/img/phylo.png" class="img-fluid rounded-4 mb-4" alt="Philosophie - Vie privée">
-          <p data-key="philosophy_p1">
-            Nous croyons qu’il est possible de profiter du sport connecté sans compromettre sa vie privée.  
-            Notre application vous offre la liberté de courir comme vous le souhaitez : avec ou sans suivi, avec ou sans partage.
-          </p>
-          <p data-key="philosophy_p2">
-            Choisissez le mode qui vous convient : <strong>le mode Classique</strong>, qui enregistre vos performances ainsi que le tracé de vos déplacements, ou <strong>le mode "No Track"</strong>, qui désactive l’enregistrement des données de géolocalisation et du parcours.
-          </p>
-          <p data-key="philosophy_p3">
-            Et si vous le souhaitez, vous pouvez partager vos résultats sur vos réseaux sociaux — en toute liberté, sans obligation de divulguer votre position.
-          </p>
-          <p data-key="philosophy_p4">
-            Notre solution s’adresse aussi aux professionnels : coachs, clubs ou entreprises disposent d’une interface web dédiée pour proposer des entraînements et suivre les performances de leurs coureurs — toujours sans nécessiter de données personnelles de leur part.
-          </p>
-          <p data-key="philosophy_p5">
-            Nous pensons aussi à celles et ceux pour qui la discrétion est essentielle : militaires, forces de l’ordre, personnels sensibles — courir ne devrait jamais rimer avec exposition involontaire.  
-          </p>
-          <p data-key="philosophy_p6">
-            Le projet s’inscrit dans une démarche européenne : souveraineté technologique, conformité RGPD, et respect des valeurs fondamentales de protection des données pour tous les citoyens du continent.
-          </p>
-        </div>
-
-        <!-- Colonne valeurs + visuel secondaire -->
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
-          <div class="content ps-0 ps-lg-5">
-            <p data-key="philosophy_p7">
-              Aucune donnée personnelle requise, aucun compte obligatoire, aucun suivi imposé.  
-              Notre mission : proposer une alternative éthique, transparente et souveraine — où chaque coureur·se garde le contrôle total de ses données.
-            </p>
-            <p data-key="philosophy_p8">
-              Notre engagement : vous permettre de courir en toute sérénité, en respectant vos choix et votre anonymat.
-            </p>
-            <p class="fst-italic" data-key="philosophy_p9">
-              Une technologie pensée pour les humains, pas pour les algorithmes.
-            </p>
-            <ul>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-key="philosophy_li1">Mode "No Track" : aucun enregistrement de géolocalisation, aucun tracking.</span></li>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-key="philosophy_li2">Conforme au RGPD, aucune donnée personnelle requise. Les performances sont hébergées exclusivement en Europe.</span></li>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-key="philosophy_li3">Aucune publicité, aucun compte obligatoire, 100&nbsp;% souveraineté.</span></li>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-key="philosophy_li4">Interface web pour coachs et organisations : entraînements, suivi et gestion sécurisés.</span></li>
-            </ul>
-            <p data-key="philosophy_p10">
-              Idéal pour les coureurs soucieux de leur vie privée, les professionnels de la sécurité, ou simplement ceux qui veulent courir sans être analysés.
-            </p>
-
-            <div class="position-relative mt-4">
-              <img src="assets/img/GDPR.jpg" class="img-fluid rounded-4" alt="Interface Ghost Mode">
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </section><!-- /Philosophy Section -->
-
-
-
-
-    <!-- Stats Section -->
-  <section id="stats" class="stats section light-background">
-
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-      <div class="row gy-4">
-
-        <!-- Stat : GDPR fines in 2024 -->
-        <div class="col-lg-3 col-md-6">
-          <div class="stats-item d-flex align-items-center w-100 h-100">
-            <i class="bi bi-shield-lock color-orange flex-shrink-0"></i>
-            <div>
-              <span data-purecounter-start="0" data-purecounter-end="1200" data-purecounter-duration="1" class="purecounter"></span>
-              <p data-key="stats_gdpr_fines">Total GDPR fines 2024 (€M)</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Stat : Breaches reported -->
-        <div class="col-lg-3 col-md-6">
-          <div class="stats-item d-flex align-items-center w-100 h-100">
-            <i class="bi bi-exclamation-triangle color-red flex-shrink-0"></i>
-            <div>
-              <span data-purecounter-start="0" data-purecounter-end="4876" data-purecounter-duration="1" class="purecounter"></span>
-              <p data-key="stats_breaches_reported">Data breach reports 2024</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Stat : Military security incidents -->
-        <div class="col-lg-3 col-md-6">
-          <div class="stats-item d-flex align-items-center w-100 h-100">
-            <i class="bi bi-person-badge color-blue flex-shrink-0"></i>
-            <div>
-              <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1" class="purecounter"></span>
-              <p data-key="stats_military_incidents">Incidents exposé militaires 2024 - 2025</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Stat : Record exposures Q4 2024 -->
-        <div class="col-lg-3 col-md-6">
-          <div class="stats-item d-flex align-items-center w-100 h-100">
-            <i class="bi bi-database color-green flex-shrink-0"></i>
-            <div>
-              <span data-purecounter-start="0" data-purecounter-end="422" data-purecounter-duration="1" class="purecounter"></span>
-              <p data-key="stats_records_exposed">Millions records exposed (Q4 2024)</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section id="partners" class="section py-5">
-    <div class="container">
-      <div class="row gy-4">
-        
-        <!-- Colonne 1 : Présentation & fonctionnement -->
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-          <h3><span data-key="partners_title">Entreprises & Coachs</span></h3>
-
-          <p><span data-key="partners_intro">
-            Notre interface web permet aux clubs, coachs et structures sportives de gérer facilement leurs coureurs, créer des plans d’entraînement personnalisés et suivre les performances à distance — en garantissant la confidentialité et la protection des données.
-          </span></p>
-
-          <h4><span data-key="partners_how_it_works">Fonctionnement</span></h4>
-
-          <p><span data-key="partners_description">
-            Les entreprises abonnées disposent d’un espace privé pour gérer leurs coachs et générer des codes d’accès à transmettre aux sportifs. Ces derniers saisissent leur code dans l’application mobile, reçoivent leurs entraînements, et synchronisent automatiquement leurs performances.
-          </span></p>
-
-          <h4><span data-key="partners_roles">Les rôles</span></h4>
-          <ul class="list-unstyled">
-            <li><i class="bi bi-check-circle-fill"></i> <span data-key="partners_role_companies"><strong>Entreprises :</strong> gèrent les coachs, les codes d’accès et le suivi des activités.</span></li>
-
-            <li><i class="bi bi-check-circle-fill"></i> <span data-key="partners_role_coaches"><strong>Coachs :</strong> organisent les séances, attribuent les codes aux sportifs et suivent leur activation.</span></li>
-
-            <li><i class="bi bi-check-circle-fill"></i> <span data-key="partners_role_athletes"><strong>Sportifs :</strong> utilisent un code d’accès personnel pour accéder à leurs entraînements, tout en conservant le contrôle sur leurs données.</span></li>
-          </ul>
-
-          <p><span data-key="partners_conclusion">
-            Ce système garantit un suivi sécurisé, sans collecte de données sensibles, en conformité avec la souveraineté numérique et le RGPD.
-          </span></p>
-        </div>
-
-
-        <!-- Colonne 2 : Cas d’usage entreprise bien-être -->
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
-          <div class="content ps-0 ps-lg-5">
-            <h4><span data-key="partners_other_usecases_title">Autres cas d’usage</span></h4>
-
-            <p><span data-key="partners_other_usecases_intro">
-              La plateforme peut aussi être utilisée par des entreprises non sportives souhaitant encourager l’activité physique au sein de leurs équipes. Elle permet d’organiser des challenges collectifs, de suivre les progrès des participants et de renforcer la cohésion autour d’objectifs communs.
-            </span></p>
-
-            <ul class="list-unstyled">
-              <li><i class="bi bi-check-circle-fill"></i> <span data-key="partners_other_usecases_motivation">Motiver les collaborateurs par le sport et la santé.</span></li>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-key="partners_other_usecases_challenges">Créer facilement des défis d’équipe ou inter-équipes.</span></li>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-key="partners_other_usecases_tracking">Suivre l’évolution de chacun en respectant la vie privée.</span></li>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-key="partners_other_usecases_objectives">Atteindre ensemble un objectif sportif (ex : course caritative, trail local…)</span></li>
-            </ul>
-
-            <p class="fst-italic"><span data-key="partners_other_usecases_italic">Un outil de sport connecté éthique, utile à tous : coachs, entreprises, clubs… et maintenant aussi vos collaborateurs.</span></p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-
-    <section id="runners" class="about section light-background">
-
-      <div class="container ">
-
-        <div class="row gy-4">
-          <!-- Colonne texte principale -->
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 data-key="runners_title">Pour les coureurs : liberté, performance, confidentialité</h3>
-            
-            <p data-key="runners_intro_1">
-              Que vous soyez débutant, passionné ou athlète régulier, notre application vous accompagne dans vos objectifs sans jamais compromettre votre vie privée.
-            </p>
-
-            <p data-key="runners_intro_2">
-              Le <strong>mode Classique</strong> vous permet de suivre vos activités (temps, distance, allure, etc.) avec enregistrement du tracé GPS. Parfait pour ceux qui souhaitent bénéficier d’un suivi complet tout en gardant le contrôle total sur leurs données : pas d’identification, pas de stockage cloud, pas de profilage.
-            </p>
-
-            <p data-key="runners_ghost_mode_intro">
-              Pour les plus discrets ou les professionnels sensibles, le <strong>mode "No Track"</strong> (Ghost Mode) propose une alternative encore plus minimaliste :
-            </p>
-
-            <ul class="ul-runner">
-              <li><i class="bi bi-check-circle-fill"></i> <span data-key="runners_ghost_point_1">L’activité se déroule normalement, mais sans enregistrement de localisation.</span></li>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-key="runners_ghost_point_2">Vous pouvez supprimer le tracé GPS <strong>même après la session, à tout moment, en cas d’oubli</strong>.</span></li>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-key="runners_ghost_point_3">Aucune donnée liée à une identité, aucun envoi vers le cloud, <strong>zéro profilage</strong>.</span></li>
-            </ul>
-
-
-            <p data-key="runners_philosophy">
-              Notre philosophie : vous donner les outils, pas vous surveiller.
-            </p>
-          </div>
-
-          <!-- Colonne fonctionnalités personnalisées -->
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
-            <div class="content ps-0 ps-lg-5">
-              <p>
-                L’application est pensée pour vous simplifier la vie :
-              </p>
-              <ul>
-                <li><i class="bi bi-check-circle-fill"></i> <span data-key="runners_feature_1"><strong>Objectifs mensuels personnalisés</strong> (distance, fréquence, etc.) avec rappels configurables.</span></li>
-                <li><i class="bi bi-check-circle-fill"></i> <span data-key="runners_feature_2"><strong>Création automatique de plans d'entraînement</strong> après un mini test initial (niveau, rythme, type d’effort).</span></li>
-                <li><i class="bi bi-check-circle-fill"></i> <span data-key="runners_feature_3"><strong>Import d’entraînements</strong> envoyés par votre entreprise ou votre club, en toute simplicité.</span></li>
-                <li><i class="bi bi-check-circle-fill"></i> <span data-key="runners_feature_4"><strong>Mode hors ligne</strong> disponible : courez sans connexion, vos données restent localement sur votre appareil.</span></li>
-              </ul>
-
-
-              <p class="fst-italic" data-key="runners_italic">
-                Une app conçue pour ceux qui courent librement, et veulent le rester.
-              </p>
-
-              <p data-key="runners_no_account">
-                Aucun compte requis, aucune publicité, aucun algorithme de recommandation caché.
-                <br>
-                Juste une app souveraine, simple, efficace — où chaque donnée est optionnelle, contrôlée, effaçable.
-              </p>
-
-              <p data-key="runners_privacy">
-                Respect de la vie privée, souveraineté numérique, éthique du sport connecté : vous êtes libre d’aller courir… sans laisser de traces.
-              </p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /Runners Section -->
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section dark-background">
-
-      <img src="assets/img/testimonials-bg.jpg" class="testimonials-bg" alt="">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              }
+    </footer>
+
+    <script>
+      // Scroll fade-in
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
             }
-          </script>
-          <div class="swiper-wrapper">
+          });
+        },
+        { threshold: 0.1 }
+      );
 
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/team/alex.png" class="testimonial-img" alt="">
-                <h3><span>Alexandre Henin</span></h3>
-                <h4><span data-key="testimonials_dev_role">Développeur</span></h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span data-key="testimonials_alex_text">Je suis fier de construire cette plateforme avec passion et transparence. Vos retours comptent énormément : ensemble, on crée une application qui vous respecte et protège vos données.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div>
+      document.querySelectorAll(".fade-in").forEach((el) => obs.observe(el));
 
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/team/adrien.png" class="testimonial-img" alt="">
-                <h3><span>Adrien Gaucher</span></h3>
-                <h4><span data-key="testimonials_dev_role">Développeur</span></h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span data-key="testimonials_adrien_text">Les outils existants sont souvent trop complexes ou inadaptés. Ce projet offre une alternative claire, utile et légère, conçue pour simplifier la gestion des entraînements au quotidien d’une équipe.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/team/jimmy.jpg" class="testimonial-img" alt="">
-                <h3>Jimmy Noiret</h3>
-                <h4>Expert Sportif</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span data-key="testimonials_jimmy_text">Fier d’apporter ma touche personnelle à l’entraînement de sportifs de tous horizons, et ce sans devoir payer cher ni compromettre ses données personnelles. À chacun sa trace, à chacun son chemin vers de meilleures performances !</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div>
-
-          
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-
-    </section><!-- /Testimonials Section -->
-
-
-    <!-- Team Section -->
-    <section id="team" class="team section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2><span data-key="team_title">Equipe</span></h2>
-        <p><span data-key="team_subtitle">Notre équipe</span></p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-5">
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="member">
-              <div class="pic"><img src="assets/img/team/alex.png" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4><span data-key="team_alex_name">Alexandre Henin</span></h4>
-                <span data-key="team_alex_role">Développeur</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="member">
-              <div class="pic"><img src="assets/img/team/adrien.png" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4><span data-key="team_adrien_name">Adrien Gaucher</span></h4>
-                <span data-key="team_adrien_role">Développeur</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="member">
-              <div class="pic"><img src="assets/img/team/jimmy.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4><span data-key="team_jimmy_name">Jimmy Noiret</span></h4>
-                <span data-key="team_jimmy_role">Expert Sportif</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-        </div>
-
-      </div>
-
-    </section>
-    <!-- /Team Section -->
-
-
-    <!-- Beta Section -->
-    <section id="beta" class="section">
-  <div class="container section-title" data-aos="fade-up">
-    <h2><span data-key="beta_title">Participer à la Bêta</span></h2>
-    <p><span data-key="beta_subtitle">Inscrivez-vous pour tester notre application en avant-première</span></p>
-  </div>
-
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
-    <p data-key="beta_intro">
-    Prochainement, une première version bêta de notre application sera disponible pour des tests. Que vous soyez une entreprise ou un coureur, vous êtes les bienvenus pour y participer.
-    </p>
-
-    <ul>
-      <li data-key="beta_runners_info"><strong>Coureurs :</strong> Vous recevrez un seul e-mail lorsque la version bêta sera disponible. Vous pourrez alors la télécharger gratuitement sur les plateformes <strong>Apple App Store</strong> ou <strong>Google Play</strong>. <strong>Une fois cet e-mail envoyé, votre adresse sera immédiatement supprimée de notre système.</strong></li>
-      <li data-key="beta_companies_info"><strong>Entreprises :</strong> Vous serez recontactés pour un premier échange. Nous vous fournirons des informations personnalisées et une aide à l’intégration. Ce service est entièrement <strong>gratuit</strong>.</li>
-    </ul>
-
-    <form id="beta-form" class="mt-4">
-      <div class="mb-3">
-        <label for="userType" class="form-label" data-key="beta_form_label_type">Je suis :</label>
-        <select id="userType" name="userType" class="form-select" required>
-          <option value="" data-key="beta_form_option_select">-- Sélectionnez --</option>
-          <option value="coureur" data-key="beta_form_option_runner">Un coureur</option>
-          <option value="entreprise" data-key="beta_form_option_company">Une entreprise</option>
-        </select>
-      </div>
-
-      <div class="mb-3">
-        <label for="email" class="form-label" data-key="beta_form_label_email">Adresse e-mail :</label>
-        <input type="email" id="email" name="email" class="form-control" required placeholder="votre@email.com">
-      </div>
-
-      <button type="submit" class="btn btn-primary" data-key="beta_form_button">S’inscrire à la bêta</button>
-    </form>
-    <div id="beta-message" class="mt-3"></div>
-  </div>
-    </section>
-
-
-  </main>
-
-  <footer id="footer" class="footer dark-background">
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">NoTrackRun</span>
-          </a>
-          <div class="social-links d-flex mt-4">
-            <a href="https://www.facebook.com/profile.php?id=61578689183222"><i class="bi bi-facebook"></i></a>
-            <a href="https://www.instagram.com/notrackrun/" ><i class="bi bi-instagram"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container ">
-      <p class="copyright text-center mt-4">
-        <span>&copy; 2025</span> <strong class="sitename">NoTrackRun</strong> – Tous droits réservés.
-      </p>
-      <div class="credits">
-        Designed by <a href="https://bootstrapmade.com/" target="_blank">BootstrapMade</a>
-        · Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
-      </div>
-    </div>
-  </footer>
-
-
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/lang.js"></script>
-  <script src="assets/js/inscriptionbeta.js"></script>
-
-</body>
-
+      // Carousel
+      const carousels = {};
+      function initCarousel(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const slides = el.querySelectorAll(".carousel-slide");
+        const dotsContainer = document.getElementById("dots-" + id);
+        carousels[id] = { index: 0, total: slides.length };
+        slides.forEach((_, i) => {
+          const dot = document.createElement("div");
+          dot.className = "carousel-dot" + (i === 0 ? " active" : "");
+          dot.onclick = () => goToSlide(id, i);
+          dotsContainer.appendChild(dot);
+        });
+      }
+      function goToSlide(id, i) {
+        const el = document.getElementById(id);
+        const c = carousels[id];
+        c.index = (i + c.total) % c.total;
+        el.querySelector(".carousel-track").style.transform = `translateX(-${
+          c.index * 100
+        }%)`;
+        el.querySelectorAll(".carousel-dot").forEach((d, j) =>
+          d.classList.toggle("active", j === c.index)
+        );
+      }
+      function moveCarousel(id, dir) {
+        goToSlide(id, carousels[id].index + dir);
+      }
+      ["carousel-web", "carousel-mobile", "carousel-watch"].forEach(
+        initCarousel
+      );
+    </script>
+  </body>
 </html>
