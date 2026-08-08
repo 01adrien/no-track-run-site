@@ -1,0 +1,7 @@
+{
+  "name": "notrackrun/web-site",
+  "require": {
+    "php": ">=8.1",
+    "phpmailer/phpmailer": "^6.9"
+  }
+}

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./favicon.svg" />
+    <title>NoTrackRun</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link href="../assets/css/main.css" rel="stylesheet" />
+    <link href="../assets/css/about.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="min-h-screen">
+    <!-- ══ NAV ══ -->
+    <header>
+      <div class="flex justify-between items-center px-8 py-5">
+        <a
+          href="../index.html"
+          class="text-xl font-bold tracking-tight"
+          style="font-family: 'Syne', sans-serif"
+        >
+          NoTrack<span style="color: var(--accent)">Run</span>
+        </a>
+        <nav
+          class="hidden md:flex items-center gap-8 text-sm"
+          style="color: var(--muted-foreground)"
+        >
+          <a href="../index.html" class="hover:text-white transition">Home</a>
+          <a href="#how-it-works" class="hover:text-white transition"
+            >How it works</a
+          >
+          <a href="#data" class="hover:text-white transition">Data</a>
+          <a href="#formulas" class="hover:text-white transition">Formulas</a>
+          <a href="#faq" class="hover:text-white transition">FAQ</a>
+          <a href="#team" class="hover:text-white transition">Team</a>
+          <a href="../index.html#web" class="btn-primary px-5 py-2 text-sm"
+            >Explore the platform</a
+          >
+        </nav>
+        <button
+          class="hamburger"
+          id="hamburger-btn"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          onclick="toggleMobileMenu()"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <nav class="mobile-menu" id="mobile-menu">
+        <a href="index.html" onclick="closeMobileMenu()">Home</a>
+        <a href="#how-it-works" onclick="closeMobileMenu()">How it works</a>
+        <a href="#data" onclick="closeMobileMenu()">Data</a>
+        <a href="#formulas" onclick="closeMobileMenu()">Formulas</a>
+        <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+        <a href="#team" onclick="closeMobileMenu()">Team</a>
+        <a href="index.html#web" class="mobile-cta" onclick="closeMobileMenu()"
+          >Explore the platform →</a
+        >
+      </nav>
+    </header>
+
+    <!-- ══ HERO ══ -->
+    <section class="hero-bg text-center py-28 px-6 relative">
+      <div class="max-w-3xl mx-auto">
+        <h1
+          class="text-6xl md:text-7xl font-extrabold leading-none mb-6 fade-in fade-delay-1"
+        >
+          No accounts.<br />No profiles.<br />Just tokens.
+        </h1>
+        <p
+          class="text-lg max-w-2xl mx-auto fade-in fade-delay-2"
+          style="color: var(--muted-foreground)"
+        >
+          Here's the precise, unglamorous truth about what NoTrackRun stores,
+          what it never sees, and how coaches and runners connect without a
+          single sign-up form.
+        </p>
+      </div>
+    </section>
+
+    <!-- ══ HOW IT WORKS ══ -->
+    <section id="how-it-works" class="product-section">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="text-center mb-16 fade-in">
+          <div class="section-tag">The model</div>
+          <h2 class="text-4xl font-bold mb-4">Access runs on tokens</h2>
+          <p style="color: var(--muted-foreground)">
+            No runner ever creates an account with NoTrackRun directly. Access
+            is granted by the organization that subscribes, one token at a time.
+          </p>
+        </div>
+
+        <div class="flow fade-in fade-delay-1">
+          <div class="flow-step">
+            <div class="flow-number">1</div>
+            <div class="flow-content">
+              <h4>An organization subscribes</h4>
+              <p>
+                A coach, club, or company picks a formula and shares only their
+                email and organization name with NoTrackRun. That's the only
+                direct contact we hold at the company level.
+              </p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-number">2</div>
+            <div class="flow-content">
+              <h4>The platform generates tokens</h4>
+              <p>
+                Each formula includes a set number of runner slots. One access
+                token is generated per slot, ready to be handed out.
+              </p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-number">3</div>
+            <div class="flow-content">
+              <h4>A token is assigned to a runner</h4>
+              <p>
+                The organization tags the token with a name or a pseudonym —
+                whatever the runner is comfortable being identified by.
+              </p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-number">4</div>
+            <div class="flow-content">
+              <h4>The runner enters the token</h4>
+              <p>
+                No sign-up screen, no runner email, no password. The token is
+                the only thing that links the app to a training plan.
+              </p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-number">5</div>
+            <div class="flow-content">
+              <h4>Sessions sync back to the organization</h4>
+              <p>
+                Training data flows to the coach or club dashboard, scoped to
+                that organization only. NoTrackRun doesn't cross-reference
+                runners between organizations, and never uses this data for
+                advertising.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ DATA: WHAT WE STORE ══ -->
+    <section
+      id="data"
+      class="product-section"
+      style="
+        background: radial-gradient(
+          ellipse 60% 50% at 0% 50%,
+          hsl(67 100% 44% / 0.06) 0%,
+          transparent 60%
+        );
+      "
+    >
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-14 fade-in">
+          <div class="section-tag">Data, precisely</div>
+          <h2 class="text-4xl font-bold mb-4">
+            What stays on your phone, what reaches us
+          </h2>
+          <p
+            class="mx-auto"
+            style="color: var(--muted-foreground); max-width: 620px"
+          >
+            No vague promises — here's exactly where each piece of data lives.
+          </p>
+        </div>
+
+        <div class="data-grid fade-in fade-delay-1">
+          <div class="card data-card p-8">
+            <h4>
+              <span
+                class="data-dot"
+                style="background: hsl(67 100% 51%)"
+              ></span>
+              Stays on your phone
+            </h4>
+            <ul>
+              <li>Your full GPS route, point by point</li>
+              <li>Pace, splits, and elevation detail</li>
+              <li>Anything the app records mid-session</li>
+            </ul>
+          </div>
+          <div class="card data-card p-8">
+            <h4>
+              <span
+                class="data-dot"
+                style="background: hsl(220 15% 45%)"
+              ></span>
+              Reaches NoTrackRun servers
+            </h4>
+            <ul>
+              <li>Total distance and duration per session</li>
+              <li>The name or pseudonym tied to your token</li>
+              <li>Nothing else — no route, no map, no location history</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="data-note text-center fade-in fade-delay-2">
+          What reaches our servers is scoped to your organization only — your
+          coach or club can see it, other organizations can't, and it's never
+          used for advertising or resold to anyone. At the company level, the
+          only contact information NoTrackRun holds is the subscribing
+          organization's email and name — never a runner's.
+        </p>
+      </div>
+    </section>
+
+    <!-- ══ FORMULAS ══ -->
+    <section id="formulas" class="product-section">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-14 fade-in">
+          <div class="section-tag">Pricing</div>
+          <h2 class="text-4xl font-bold mb-4">Formulas</h2>
+          <p
+            class="mx-auto"
+            style="color: var(--muted-foreground); max-width: 560px"
+          >
+            Every formula includes a set number of coach seats and runner
+            tokens. Runners are always free to use — organizations pay for the
+            dashboard and the slots.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div
+            class="card formula-card p-8 fade-in fade-delay-1"
+            style="border-color: hsl(67 100% 51% / 0.4)"
+          >
+            <div>
+              <div class="pill" style="margin-bottom: 0.5rem">Starter</div>
+              <div class="price">49 &euro; <span>per month</span></div>
+            </div>
+            <ul>
+              <li>Up to 15 coach seats</li>
+              <li>Up to 300 runner tokens</li>
+            </ul>
+            <a href="#faq" class="btn-primary text-center py-3"
+              >Ask a question</a
+            >
+          </div>
+          <div
+            class="card formula-card p-8 fade-in fade-delay-1"
+            style="border-color: hsl(67 100% 51% / 0.4)"
+          >
+            <div>
+              <div class="pill" style="margin-bottom: 0.5rem">Club</div>
+              <div class="price">129 &euro; <span>per month</span></div>
+            </div>
+            <ul>
+              <li>Up to 5 coach seats</li>
+              <li>Up to 100 runner tokens</li>
+            </ul>
+            <a href="#faq" class="btn-primary text-center py-3"
+              >Ask a question</a
+            >
+          </div>
+          <div
+            class="card formula-card p-8 fade-in fade-delay-1"
+            style="border-color: hsl(67 100% 51% / 0.4)"
+          >
+            <div>
+              <div class="pill" style="margin-bottom: 0.5rem">Pro</div>
+              <div class="price">299 &euro; <span>per month</span></div>
+            </div>
+            <ul>
+              <li>Up to 15 coach seats</li>
+              <li>Up to 300 runner tokens</li>
+            </ul>
+            <a href="#faq" class="btn-primary text-center py-3"
+              >Ask a question</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FAQ ══ -->
+    <section
+      id="faq"
+      class="product-section"
+      style="
+        background: radial-gradient(
+          ellipse 60% 50% at 100% 50%,
+          hsl(67 100% 44% / 0.05) 0%,
+          transparent 60%
+        );
+      "
+    >
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="text-center mb-12 fade-in">
+          <div class="section-tag">Questions</div>
+          <h2 class="text-4xl font-bold">Frequently asked</h2>
+        </div>
+
+        <div class="fade-in fade-delay-1">
+          <details class="faq-item">
+            <summary>
+              Does my coach see my real name if I use a pseudonym?
+            </summary>
+            <p>
+              No. Whatever name or pseudonym is attached to your token is what
+              your organization sees — nothing more. NoTrackRun doesn't verify
+              or require a legal identity anywhere in the flow.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              What happens to my data if my organization cancels?
+            </summary>
+            <p>
+              Tokens tied to a cancelled subscription stop syncing new sessions.
+              Historical distance and duration data is deleted from our servers
+              after the organization's retention window closes.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              Does the GPS track ever leave my phone, even for export?
+            </summary>
+            <p>
+              If you export your own session as a file, that export is initiated
+              and stays on your device — it isn't uploaded to NoTrackRun as part
+              of that action.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I use one token with multiple coaches?</summary>
+            <p>
+              A token is tied to a single organization. If you train with more
+              than one coach, each one issues you a separate token.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              What exactly does NoTrackRun, the company, know about me?
+            </summary>
+            <p>
+              If you're a runner, nothing beyond the name or pseudonym on your
+              token and your aggregate session totals — and even those are
+              scoped to your organization. We only hold direct contact details
+              (email, organization name) for the subscribing coach, club, or
+              company, never for individual runners.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ TEAM ══ -->
+    <section id="team" class="product-section">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-14 fade-in">
+          <div class="section-tag">Who's building this</div>
+          <h2 class="text-4xl font-bold mb-4">The team</h2>
+          <p
+            class="mx-auto"
+            style="color: var(--muted-foreground); max-width: 560px"
+          >
+            A small European team building NoTrackRun in the open, currently in
+            closed beta.
+          </p>
+        </div>
+
+        <div class="team-grid fade-in fade-delay-1">
+          <div class="card team-card">
+            <div class="team-avatar">?</div>
+            <h4>Name</h4>
+            <div class="role">Founder</div>
+            <div class="bio">Add a short bio here.</div>
+          </div>
+          <div class="card team-card">
+            <div class="team-avatar">?</div>
+            <h4>Name</h4>
+            <div class="role">Backend &amp; platform</div>
+            <div class="bio">Add a short bio here.</div>
+          </div>
+          <div class="card team-card">
+            <div class="team-avatar">?</div>
+            <h4>Name</h4>
+            <div class="role">Mobile &amp; watch</div>
+            <div class="bio">Add a short bio here.</div>
+          </div>
+          <div class="card team-card">
+            <div class="team-avatar">?</div>
+            <h4>Name</h4>
+            <div class="role">Design</div>
+            <div class="bio">Add a short bio here.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FOOTER ══ -->
+    <footer
+      class="text-center py-12 px-6"
+      style="color: var(--muted-foreground)"
+    >
+      <div
+        class="text-xl font-bold mb-2"
+        style="font-family: 'Syne', sans-serif; color: var(--foreground)"
+      >
+        NoTrack<span style="color: var(--accent)">Run</span>
+      </div>
+      <p class="text-sm mb-4">
+        An ethical, transparent, and sovereign alternative to connected sport.
+      </p>
+      <a class="text-sm hover:text-white transition"
+        ><span>info@notrackrun.eu</span></a
+      >
+      <div
+        class="mt-6 pt-6 text-xs"
+        style="border-top: 1px solid var(--border)"
+      >
+        © 2026 NoTrackRun · All rights reserved · GDPR · EU Hosting
+      </div>
+    </footer>
+
+    <script>
+      function toggleMobileMenu() {
+        document.getElementById("hamburger-btn").classList.toggle("open");
+        document.getElementById("mobile-menu").classList.toggle("open");
+      }
+      function closeMobileMenu() {
+        document.getElementById("hamburger-btn").classList.remove("open");
+        document.getElementById("mobile-menu").classList.remove("open");
+      }
+
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      document.querySelectorAll(".fade-in").forEach((el) => obs.observe(el));
+    </script>
+  </body>
+</html>

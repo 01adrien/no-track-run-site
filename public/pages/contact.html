@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NoTrackRun</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="../assets/css/main.css" rel="stylesheet" />
+    <link href="../assets/css/contact.css" rel="stylesheet" />
+  </head>
+
+  <body class="min-h-screen">
+    <!-- ══ NAV ══ -->
+    <header>
+      <div class="flex justify-between items-center px-8 py-5">
+        <a
+          href="index.html"
+          class="text-xl font-bold tracking-tight"
+          style="font-family: 'Syne', sans-serif"
+        >
+          NoTrack<span style="color: var(--accent)">Run</span>
+        </a>
+        <nav
+          class="hidden md:flex items-center gap-8 text-sm"
+          style="color: var(--muted-foreground)"
+        >
+          <a href="../index.html#web" class="btn-primary px-5 py-2 text-sm"
+            >Explore the platform</a
+          >
+        </nav>
+        <button
+          class="hamburger"
+          id="hamburger-btn"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          onclick="toggleMobileMenu()"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <nav class="mobile-menu" id="mobile-menu">
+        <a href="index.html" onclick="closeMobileMenu()">Home</a>
+        <a href="about.html" onclick="closeMobileMenu()">How it works</a>
+        <a href="contact.html" onclick="closeMobileMenu()">Contact</a>
+        <a href="index.html#web" class="mobile-cta" onclick="closeMobileMenu()"
+          >Explore the platform →</a
+        >
+      </nav>
+    </header>
+
+    <!-- ══ HERO ══ -->
+    <section class="hero-bg text-center py-24 px-6 relative">
+      <div class="max-w-2xl mx-auto">
+        <h1
+          class="text-6xl font-extrabold leading-none mb-6 fade-in fade-delay-1"
+        >
+          Talk to us
+        </h1>
+        <p
+          class="text-lg fade-in fade-delay-2"
+          style="color: var(--muted-foreground)"
+        >
+          A question about a formula, a partnership idea — write to us directly.
+        </p>
+      </div>
+    </section>
+
+    <!-- ══ CONTACT FORM ══ -->
+    <section class="product-section" style="padding-top: 2rem">
+      <div class="max-w-xl mx-auto px-6">
+        <form id="contact-form" class="card p-8 fade-in" novalidate>
+          <div class="form-row mb-4">
+            <div>
+              <label class="form-label" for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Jane Runner"
+                autocomplete="name"
+                maxlength="200"
+                required
+              />
+              <span class="field-error" id="name-error"></span>
+            </div>
+            <div>
+              <label class="form-label" for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                maxlength="254"
+                required
+              />
+              <span class="field-error" id="email-error"></span>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label" for="role">I am</label>
+            <select id="role" name="role" autocomplete="off">
+              <option value="runner">A runner</option>
+              <option value="coach">An independent coach</option>
+              <option value="company">A company / club</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label" for="organization"
+              >Organization (optional)</label
+            >
+            <input
+              type="text"
+              id="organization"
+              name="organization"
+              placeholder="Your club or company name"
+              autocomplete="organization"
+              maxlength="200"
+            />
+          </div>
+
+          <div class="mb-2">
+            <label class="form-label" for="message">
+              Message
+              <span class="char-counter" id="message-counter" aria-hidden="true"
+                >0 / 5000</span
+              >
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              maxlength="5000"
+              placeholder="What can we help you with?"
+              required
+            ></textarea>
+            <span class="field-error" id="message-error"></span>
+          </div>
+
+          <!-- Honeypot — hidden from real visitors, bots tend to fill it -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="website">Website</label>
+            <input
+              type="text"
+              id="website"
+              name="website"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="btn-primary form-submit py-4 text-base text-center w-full mt-4"
+          >
+            Send message
+          </button>
+
+          <div id="form-status" class="form-status" role="alert"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ══ FOOTER ══ -->
+    <footer
+      class="text-center py-12 px-6"
+      style="color: var(--muted-foreground)"
+    >
+      <div
+        class="text-xl font-bold mb-2"
+        style="font-family: 'Syne', sans-serif; color: var(--foreground)"
+      >
+        NoTrack<span style="color: var(--accent)">Run</span>
+      </div>
+      <p class="text-sm mb-4">
+        An ethical, transparent, and sovereign alternative to connected sport.
+      </p>
+      <a
+        href="mailto:info@notrackrun.eu"
+        class="text-sm hover:text-white transition"
+        ><span>info@notrackrun.eu</span></a
+      >
+      <div
+        class="mt-6 pt-6 text-xs"
+        style="border-top: 1px solid var(--border)"
+      >
+        © 2026 NoTrackRun · All rights reserved · GDPR · EU Hosting
+      </div>
+    </footer>
+
+    <script src="../scripts/contact.js" defer></script>
+  </body>
+</html>
