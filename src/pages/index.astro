@@ -1,0 +1,264 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ProductSection from "../components/ProductSection.astro";
+import Carousel from "../components/Carousel.astro";
+import TestimonialCard from "../components/TestimonialCard.astro";
+import "../styles/index.css";
+---
+
+<Layout title="NoTrackRun — Run Free.">
+  <Header page="home" />
+  <!-- HERO -->
+  <section class="hero-bg text-center py-36 px-6 relative">
+    <div class="max-w-4xl mx-auto">
+      <div class="hero-badge fade-in">● Actuellement en beta</div>
+      <h1 class="text-7xl md:text-8xl font-extrabold leading-none mb-6 fade-in fade-delay-1">
+        Run Free.
+      </h1>
+      <p class="text-lg md:text-xl max-w-2xl mx-auto mb-10 fade-in fade-delay-2" style="color: var(--muted-foreground)">
+        Web, mobile et montre connectee — une plateforme running complete, sans tracking, sans pub, sans compromis.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center fade-in fade-delay-3">
+        <a href="#web" class="btn-primary px-8 py-4 text-base">Explorer la plateforme</a>
+        <a href="#philosophy" class="btn-ghost px-8 py-4 text-base">Notre philosophie</a>
+      </div>
+
+      <div class="mt-16 fade-in fade-delay-4" style="max-width: 720px; margin-left: auto; margin-right: auto">
+        <svg viewBox="0 0 720 160" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto">
+          <path
+            d="M10 120 C 120 20, 200 150, 300 70 S 480 10, 560 90 S 660 130, 710 60"
+            fill="none"
+            stroke="hsl(67 100% 51% / 0.35)"
+            stroke-width="2"
+          />
+          <circle cx="10" cy="120" r="5" fill="var(--accent)" />
+          <circle cx="300" cy="70" r="5" fill="var(--accent)" opacity="0.6" />
+          <circle cx="560" cy="90" r="5" fill="var(--accent)" opacity="0.6" />
+          <circle cx="710" cy="60" r="6" fill="var(--accent)" />
+        </svg>
+        <div
+          class="flex justify-center gap-8 mt-2 text-xs"
+          style="color: var(--muted-foreground); font-family: 'Syne', sans-serif; letter-spacing: 0.08em; text-transform: uppercase"
+        >
+          <span>Web</span>
+          <span>Mobile</span>
+          <span>Watch</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEB -->
+  <ProductSection
+    id="web"
+    title="Plateforme Web"
+    description="Un dashboard complet pour coachs, clubs et entreprises. Gerez vos coureurs, construisez des plans d'entrainement et suivez les performances — tout en garantissant une confidentialite totale."
+    features={["Analytics sans profilage", "Codes d'acces", "Gestion multi-role", "Plans d'entrainement"]}
+    pills={["Conforme RGPD", "Hebergement UE"]}
+  >
+    <Carousel>
+      <div class="carousel-slide">
+        <img src="/assets/img/web/user-plan-month-view.png" alt="Dashboard web" class="product-img" />
+      </div>
+      <div class="carousel-slide">
+        <img src="/assets/img/web/user-plan-week-view.png" alt="Plan hebdomadaire" class="product-img" />
+      </div>
+      <div class="carousel-slide">
+        <img src="/assets/img/web/user-overview.png" alt="Vue d'ensemble utilisateur" class="product-img" />
+      </div>
+      <div class="carousel-slide">
+        <img src="/assets/img/web/session-template.png" alt="Modele de session" class="product-img" />
+      </div>
+    </Carousel>
+  </ProductSection>
+
+  <!-- MOBILE -->
+  <ProductSection
+    id="mobile"
+    reverse
+    title="Application Mobile"
+    description="Enregistrez vos sessions simplement, courez librement. L'application mobile NoTrackRun est concue pour vous donner les outils — pas pour vous surveiller."
+    features={["Ghost Mode", "Objectifs personnalises", "Mode hors-ligne", "Import des seances du coach"]}
+    pills={["iOS & Android", "Sans compte", "Gratuit a vie"]}
+    bgGradient="background: radial-gradient(ellipse 60% 50% at 0% 50%, hsl(67 100% 44% / 0.06) 0%, transparent 60%);"
+  >
+    <Carousel>
+      <div class="carousel-slide">
+        <img
+          src="/assets/img/mobile/mobile-view-1.png"
+          alt="Plan hebdomadaire mobile"
+          class="product-img"
+          style="height: 340px; object-fit: cover"
+        />
+      </div>
+      <div class="carousel-slide">
+        <img
+          src="/assets/img/mobile/mobile-view-2.png"
+          alt="Vue mobile"
+          class="product-img"
+          style="height: 340px; object-fit: cover"
+        />
+      </div>
+    </Carousel>
+  </ProductSection>
+
+  <!-- WATCH -->
+  <ProductSection
+    id="watch"
+    title="Application Watch"
+    description="Concentrez-vous sur vos metriques — pas sur un algorithme. L'application watch NoTrackRun est ultra-legere, autonome, et ne transmet rien sans votre consentement explicite."
+    features={["Suivi en temps reel", "Design leger", "Zero SDK tiers", "Synchronisation securisee"]}
+    pills={["Apple Watch", "Wear OS", "Autonomie multi-jours"]}
+  >
+    <Carousel>
+      <div class="carousel-slide">
+        <div class="img-placeholder" style="height: 340px; border-style: solid; display:flex; align-items:center; justify-content:center;">
+          <svg viewBox="0 0 200 240" style="width: 150px; height: 180px">
+            <rect x="55" y="10" width="14" height="24" rx="4" fill="var(--muted)" />
+            <rect x="131" y="10" width="14" height="24" rx="4" fill="var(--muted)" />
+            <rect x="55" y="206" width="14" height="24" rx="4" fill="var(--muted)" />
+            <rect x="131" y="206" width="14" height="24" rx="4" fill="var(--muted)" />
+            <rect x="20" y="30" width="160" height="180" rx="28" fill="var(--card)" stroke="var(--border)" stroke-width="2" />
+            <rect x="34" y="44" width="132" height="152" rx="16" fill="var(--background)" />
+            <text x="100" y="90" text-anchor="middle" fill="var(--muted-foreground)" font-family="Syne, sans-serif" font-size="11" letter-spacing="1">SESSION</text>
+            <text x="100" y="130" text-anchor="middle" fill="var(--accent)" font-family="Syne, sans-serif" font-size="30" font-weight="800">5.4</text>
+            <text x="100" y="150" text-anchor="middle" fill="var(--muted-foreground)" font-family="DM Sans, sans-serif" font-size="11">km · 28:14</text>
+            <path d="M50 175 L70 165 L85 180 L105 160 L125 172 L150 158" fill="none" stroke="var(--accent)" stroke-width="2" opacity="0.7" />
+          </svg>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <div class="img-placeholder" style="height: 340px; border-style: solid; display:flex; align-items:center; justify-content:center;">
+          <svg viewBox="0 0 200 240" style="width: 150px; height: 180px">
+            <rect x="55" y="10" width="14" height="24" rx="4" fill="var(--muted)" />
+            <rect x="131" y="10" width="14" height="24" rx="4" fill="var(--muted)" />
+            <rect x="55" y="206" width="14" height="24" rx="4" fill="var(--muted)" />
+            <rect x="131" y="206" width="14" height="24" rx="4" fill="var(--muted)" />
+            <rect x="20" y="30" width="160" height="180" rx="28" fill="var(--card)" stroke="var(--border)" stroke-width="2" />
+            <rect x="34" y="44" width="132" height="152" rx="16" fill="var(--background)" />
+            <text x="100" y="90" text-anchor="middle" fill="var(--muted-foreground)" font-family="Syne, sans-serif" font-size="11" letter-spacing="1">HEART RATE</text>
+            <text x="100" y="130" text-anchor="middle" fill="var(--accent)" font-family="Syne, sans-serif" font-size="30" font-weight="800">152</text>
+            <text x="100" y="150" text-anchor="middle" fill="var(--muted-foreground)" font-family="DM Sans, sans-serif" font-size="11">bpm · zone 3</text>
+            <path d="M45 172 L60 172 L68 158 L78 186 L88 172 L160 172" fill="none" stroke="var(--accent)" stroke-width="2" opacity="0.7" />
+          </svg>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <div class="img-placeholder" style="height: 340px; border-style: solid; display:flex; align-items:center; justify-content:center;">
+          <svg viewBox="0 0 200 240" style="width: 150px; height: 180px">
+            <rect x="55" y="10" width="14" height="24" rx="4" fill="var(--muted)" />
+            <rect x="131" y="10" width="14" height="24" rx="4" fill="var(--muted)" />
+            <rect x="55" y="206" width="14" height="24" rx="4" fill="var(--muted)" />
+            <rect x="131" y="206" width="14" height="24" rx="4" fill="var(--muted)" />
+            <rect x="20" y="30" width="160" height="180" rx="28" fill="var(--card)" stroke="var(--border)" stroke-width="2" />
+            <rect x="34" y="44" width="132" height="152" rx="16" fill="var(--background)" />
+            <text x="100" y="90" text-anchor="middle" fill="var(--muted-foreground)" font-family="Syne, sans-serif" font-size="11" letter-spacing="1">SYNC</text>
+            <circle cx="100" cy="128" r="26" fill="none" stroke="var(--muted)" stroke-width="6" />
+            <circle cx="100" cy="128" r="26" fill="none" stroke="var(--accent)" stroke-width="6" stroke-dasharray="122 163" stroke-linecap="round" transform="rotate(-90 100 128)" />
+            <text x="100" y="133" text-anchor="middle" fill="var(--foreground)" font-family="Syne, sans-serif" font-size="13" font-weight="700">75%</text>
+            <text x="100" y="172" text-anchor="middle" fill="var(--muted-foreground)" font-family="DM Sans, sans-serif" font-size="10">vers l'app mobile</text>
+          </svg>
+        </div>
+      </div>
+    </Carousel>
+  </ProductSection>
+
+  <!-- REVIEWS -->
+  <section id="avis" class="product-section" style="background: radial-gradient(ellipse 60% 50% at 0% 50%, hsl(67 100% 44% / 0.05) 0%, transparent 60%);">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12 fade-in">
+        <div class="section-tag">Beta testeurs</div>
+        <h2 class="text-5xl font-bold mb-4">Ce que disent les premiers coureurs</h2>
+        <p class="text-lg mx-auto" style="color: var(--muted-foreground); max-width: 560px">
+          NoTrackRun est actuellement en beta fermee. Voici des retours honnetes de personnes qui le testent deja sur la route.
+        </p>
+      </div>
+
+      <div class="fade-in fade-delay-1">
+        <Carousel>
+          <div class="carousel-slide">
+            <div class="grid md:grid-cols-3 gap-5">
+              <TestimonialCard name="Emma R." role="Coureuse amatrice, beta mobile" initials="ER">
+                "Premiere appli de running depuis des annees ou je n'ai pas eu a decocher cinq cases juste pour l'empecher de revendre mes donnees."
+              </TestimonialCard>
+              <TestimonialCard name="Marc D." role="Coach independant" initials="MD">
+                "Le dashboard web me permet de construire des plans pour tout mon club sans exporter le moindre tableur. Les codes d'acces rendent l'onboarding indolore."
+              </TestimonialCard>
+              <TestimonialCard name="Sophie L." role="Forces de l'ordre, beta mobile" initials="SL">
+                "Le Ghost Mode est exactement ce qu'il me fallait. Je peux enfin logger mes entrainements sans que mon itineraire soit reconstituable par qui que ce soit."
+              </TestimonialCard>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <div class="grid md:grid-cols-3 gap-5">
+              <TestimonialCard stars="★★★★☆" name="Julie K." role="Trailleuse, beta mobile" initials="JK">
+                "Le mode hors-ligne a sauve toute une session de trail sans reseau. Synchro propre des que j'ai retrouve du signal."
+              </TestimonialCard>
+              <TestimonialCard name="Alex P." role="Beta testeur Wear OS" initials="AP">
+                "L'appli watch demarre direct sur l'ecran de session. Pas de demande de compte, pas de synchro avec cinq services differents d'abord."
+              </TestimonialCard>
+              <TestimonialCard name="Thomas B." role="Responsable club de running" initials="TB">
+                "Deploye aupres des 40 membres de notre club en un apres-midi. La gestion multi-role fait que nos coachs adjoints ont enfin leur propre acces."
+              </TestimonialCard>
+            </div>
+          </div>
+        </Carousel>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section
+    id="philosophy"
+    class="product-section"
+    style="background: radial-gradient(ellipse 60% 50% at 100% 50%, hsl(67 100% 44% / 0.05) 0%, transparent 60%);"
+  >
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="section-tag fade-in">Notre philosophie</div>
+      <h2 class="text-5xl font-bold mb-4 fade-in">
+        Une technologie pensee<br />pour les humains.
+      </h2>
+      <p class="text-lg mb-12 fade-in" style="color: var(--muted-foreground); max-width: 680px">
+        Le sport connecte ne devrait pas se faire au prix de votre vie privee. Voici ce que ca signifie concretement.
+      </p>
+
+      <div class="philo-grid fade-in card">
+        <div class="philo-cell">
+          <h4 class="font-semibold text-lg mb-2">Souverainete numerique</h4>
+          <p class="text-sm" style="color: var(--muted-foreground)">
+            Un projet 100% europeen. Heberge exclusivement en Europe, avec une conformite RGPD native. Vos donnees ne quittent jamais le continent.
+          </p>
+        </div>
+        <div class="philo-cell" style="border-left: 1px solid var(--border)">
+          <h4 class="font-semibold text-lg mb-2">Zero tracking cache</h4>
+          <p class="text-sm" style="color: var(--muted-foreground)">
+            Pas de publicite, pas d'algorithme de recommandation, pas de profil commercial. Ce que vous faites ne regarde personne d'autre.
+          </p>
+        </div>
+        <div class="philo-cell" style="border-top: 1px solid var(--border)">
+          <h4 class="font-semibold text-lg mb-2">Pour les professions sensibles</h4>
+          <p class="text-sm" style="color: var(--muted-foreground)">
+            Militaires, forces de l'ordre et autres statuts sensibles — courir ne devrait jamais signifier une exposition non intentionnelle. Le Ghost Mode a ete concu pour eux.
+          </p>
+        </div>
+        <div class="philo-cell" style="border-top: 1px solid var(--border); border-left: 1px solid var(--border)">
+          <h4 class="font-semibold text-lg mb-2">Aucun compte requis</h4>
+          <p class="text-sm" style="color: var(--muted-foreground)">
+            Ouvrez l'appli et courez. Aucune inscription requise, aucun email collecte sans consentement explicite, aucune donnee personnelle exigee.
+          </p>
+        </div>
+      </div>
+
+      <blockquote class="mt-12 text-center fade-in" style="max-width: 600px; margin-left: auto; margin-right: auto">
+        <p class="text-2xl font-bold leading-snug mb-4" style="font-family: 'Syne', sans-serif">
+          "Aucun compte requis, pas de pub, pas d'algorithme de recommandation cache. Juste une appli souveraine, simple et efficace."
+        </p>
+        <footer class="text-sm pt-2" style="color: var(--muted-foreground)">— NoTrackRun</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

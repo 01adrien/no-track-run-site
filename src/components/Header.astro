@@ -1,0 +1,109 @@
+---
+interface Props {
+  page: "home" | "about" | "contact";
+}
+const { page } = Astro.props;
+
+// Liens du nav desktop selon la page (ancres si on est deja sur la page concernee,
+// sinon lien absolu vers la home + ancre)
+const homeAnchors = [
+  { href: "/#web", label: "Web" },
+  { href: "/#mobile", label: "Mobile" },
+  { href: "/#watch", label: "Watch" },
+  { href: "/#avis", label: "Avis" },
+  { href: "/#philosophy", label: "Philosophie" },
+];
+
+const aboutAnchors = [
+  { href: page === "about" ? "#how-it-works" : "/about#how-it-works", label: "Fonctionnement" },
+  { href: page === "about" ? "#data" : "/about#data", label: "Donnees" },
+  { href: page === "about" ? "#formulas" : "/about#formulas", label: "Formules" },
+  { href: page === "about" ? "#faq" : "/about#faq", label: "FAQ" },
+  { href: page === "about" ? "#team" : "/about#team", label: "Equipe" },
+];
+---
+
+<header>
+  <div class="flex justify-between items-center px-8 py-5">
+    <a
+      href="/"
+      class="text-xl font-bold tracking-tight"
+      style="font-family: 'Syne', sans-serif"
+    >
+      NoTrack<span style="color: var(--accent)">Run</span>
+    </a>
+
+    <nav
+      class="hidden md:flex items-center gap-8 text-sm"
+      style="color: var(--muted-foreground)"
+    >
+      {
+        page === "home" &&
+          homeAnchors.map((l) => (
+            <a href={l.href} class="hover:text-white transition">
+              {l.label}
+            </a>
+          ))
+      }
+      {
+        page === "about" &&
+          aboutAnchors.map((l) => (
+            <a href={l.href} class="hover:text-white transition">
+              {l.label}
+            </a>
+          ))
+      }
+      {page !== "contact" && (
+        <a href="/contact" class="hover:text-white transition">Nous contacter</a>
+      )}
+      <a href="/about" class="btn-primary px-5 py-2 text-sm">
+        {page === "about" ? "Explorer la plateforme" : "Comment ca marche"}
+      </a>
+    </nav>
+
+    <button
+      class="hamburger"
+      id="hamburger-btn"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <nav class="mobile-menu" id="mobile-menu">
+    <a href="/">Accueil</a>
+    {
+      page === "home" &&
+        homeAnchors.map((l) => <a href={l.href}>{l.label}</a>)
+    }
+    {
+      page === "about" &&
+        aboutAnchors.map((l) => <a href={l.href}>{l.label}</a>)
+    }
+    <a href="/contact">Nous contacter</a>
+    <a href="/about" class="mobile-cta">Comment ca marche →</a>
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById("hamburger-btn");
+  const menu = document.getElementById("mobile-menu");
+
+  btn?.addEventListener("click", () => {
+    const open = btn.classList.toggle("open");
+    menu?.classList.toggle("open");
+    btn.setAttribute("aria-expanded", String(open));
+  });
+
+  // Ferme le menu mobile quand on clique un lien
+  menu?.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => {
+      btn?.classList.remove("open");
+      menu.classList.remove("open");
+      btn?.setAttribute("aria-expanded", "false");
+    })
+  );
+</script>

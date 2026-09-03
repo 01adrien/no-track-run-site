@@ -1,0 +1,175 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import FlowStep from "../components/FlowStep.astro";
+import FaqItem from "../components/FaqItem.astro";
+import TeamCard from "../components/TeamCard.astro";
+import "../styles/about.css";
+---
+
+<Layout title="NoTrackRun — Comment ça marche">
+  <Header page="about" />
+
+  <!-- HERO -->
+  <section class="hero-bg text-center py-28 px-6 relative">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-6xl md:text-7xl font-extrabold leading-none mb-6 fade-in fade-delay-1">
+        Pas de comptes.<br />Pas de profils.<br />Juste des tokens.
+      </h1>
+      <p class="text-lg max-w-2xl mx-auto fade-in fade-delay-2" style="color: var(--muted-foreground)">
+        Voici la verite precise, sans fioritures, sur ce que NoTrackRun stocke, ce qu'il ne voit jamais, et comment coachs et coureurs se connectent sans le moindre formulaire d'inscription.
+      </p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="product-section">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-center mb-16 fade-in">
+        <div class="section-tag">Le modele</div>
+        <h2 class="text-4xl font-bold mb-4">L'acces fonctionne par tokens</h2>
+        <p style="color: var(--muted-foreground)">
+          Aucun coureur ne cree jamais de compte directement avec NoTrackRun. L'acces est accorde par l'organisation qui souscrit, un token a la fois.
+        </p>
+      </div>
+
+      <div class="flow fade-in fade-delay-1">
+        <FlowStep number={1} title="Une organisation souscrit">
+          Un coach, un club ou une entreprise choisit une formule et partage uniquement son email et le nom de son organisation avec NoTrackRun. C'est le seul contact direct que nous detenons au niveau de l'entreprise.
+        </FlowStep>
+        <FlowStep number={2} title="La plateforme genere des tokens">
+          Chaque formule inclut un nombre defini de places coureurs. Un token d'acces est genere par place, pret a etre distribue.
+        </FlowStep>
+        <FlowStep number={3} title="Un token est assigne a un coureur">
+          L'organisation associe le token a un nom ou un pseudonyme — ce avec quoi le coureur est a l'aise d'etre identifie.
+        </FlowStep>
+        <FlowStep number={4} title="Le coureur saisit le token">
+          Pas d'ecran d'inscription, pas d'email coureur, pas de mot de passe. Le token est le seul element qui relie l'appli a un plan d'entrainement.
+        </FlowStep>
+        <FlowStep number={5} title="Les sessions se synchronisent vers l'organisation">
+          Les donnees d'entrainement remontent vers le dashboard du coach ou du club, limitees a cette organisation uniquement. NoTrackRun ne croise jamais les coureurs entre organisations, et n'utilise jamais ces donnees a des fins publicitaires.
+        </FlowStep>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATA -->
+  <section id="data" class="product-section" style="background: radial-gradient(ellipse 60% 50% at 0% 50%, hsl(67 100% 44% / 0.06) 0%, transparent 60%);">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-14 fade-in">
+        <div class="section-tag">Les donnees, precisement</div>
+        <h2 class="text-4xl font-bold mb-4">Ce qui reste sur votre telephone, ce qui nous parvient</h2>
+        <p class="mx-auto" style="color: var(--muted-foreground); max-width: 620px">
+          Pas de promesses vagues — voici exactement ou vit chaque donnee.
+        </p>
+      </div>
+
+      <div class="data-grid fade-in fade-delay-1">
+        <div class="card data-card p-8">
+          <h4><span class="data-dot" style="background: hsl(67 100% 51%)"></span>Reste sur votre telephone</h4>
+          <ul>
+            <li>Votre parcours GPS complet, point par point</li>
+            <li>Allure, splits et details d'elevation</li>
+            <li>Tout ce que l'appli enregistre pendant la session</li>
+          </ul>
+        </div>
+        <div class="card data-card p-8">
+          <h4><span class="data-dot" style="background: hsl(220 15% 45%)"></span>Parvient aux serveurs NoTrackRun</h4>
+          <ul>
+            <li>Distance et duree totales par session</li>
+            <li>Le nom ou pseudonyme associe a votre token</li>
+            <li>Rien d'autre — pas de parcours, pas de carte, pas d'historique de localisation</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="data-note text-center fade-in fade-delay-2">
+        Ce qui parvient a nos serveurs est limite a votre organisation uniquement — votre coach ou club peut le voir, les autres organisations non, et ce n'est jamais utilise a des fins publicitaires ni revendu a qui que ce soit. Au niveau de l'entreprise, la seule information de contact que NoTrackRun detient est l'email et le nom de l'organisation souscriptrice — jamais celle d'un coureur.
+      </p>
+    </div>
+  </section>
+
+  <!-- FORMULAS -->
+  <section id="formulas" class="product-section">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14 fade-in">
+        <div class="section-tag">Tarifs</div>
+        <h2 class="text-4xl font-bold mb-4">Formules</h2>
+        <p class="mx-auto" style="color: var(--muted-foreground); max-width: 560px">
+          Chaque formule inclut un nombre defini de places coach et de tokens coureur. Les coureurs sont toujours gratuits — les organisations paient pour le dashboard et les places.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {[
+          { name: "Starter", price: "49", seats: "2", tokens: "30" },
+          { name: "Club", price: "129", seats: "5", tokens: "100" },
+          { name: "Pro", price: "299", seats: "15", tokens: "300" },
+        ].map((formula) => (
+          <div class="card formula-card p-8 fade-in fade-delay-1" style="border-color: hsl(67 100% 51% / 0.4)">
+            <div>
+              <div class="pill" style="margin-bottom: 0.5rem">{formula.name}</div>
+              <div class="price">{formula.price} € <span>par mois</span></div>
+            </div>
+            <ul>
+              <li>Jusqu'a {formula.seats} places coach</li>
+              <li>Jusqu'a {formula.tokens} tokens coureur</li>
+            </ul>
+            <a href="#faq" class="btn-primary text-center py-3">Poser une question</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="product-section" style="background: radial-gradient(ellipse 60% 50% at 100% 50%, hsl(67 100% 44% / 0.05) 0%, transparent 60%);">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-center mb-12 fade-in">
+        <div class="section-tag">Questions</div>
+        <h2 class="text-4xl font-bold">Questions frequentes</h2>
+      </div>
+
+      <div class="fade-in fade-delay-1">
+        <FaqItem question="Mon coach voit-il mon vrai nom si j'utilise un pseudonyme ?">
+          Non. Le nom ou pseudonyme attache a votre token est ce que votre organisation voit — rien de plus. NoTrackRun ne verifie ni n'exige d'identite legale a aucun moment du parcours.
+        </FaqItem>
+        <FaqItem question="Que deviennent mes donnees si mon organisation annule son abonnement ?">
+          Les tokens lies a un abonnement annule cessent de synchroniser de nouvelles sessions. Les donnees historiques de distance et duree sont supprimees de nos serveurs a la fin de la periode de retention de l'organisation.
+        </FaqItem>
+        <FaqItem question="Le trace GPS quitte-t-il un jour mon telephone, meme pour un export ?">
+          Si vous exportez votre propre session sous forme de fichier, cet export est initie et reste sur votre appareil — il n'est pas envoye vers NoTrackRun dans le cadre de cette action.
+        </FaqItem>
+        <FaqItem question="Puis-je utiliser un token avec plusieurs coachs ?">
+          Un token est lie a une seule organisation. Si vous vous entrainez avec plusieurs coachs, chacun vous delivre un token separe.
+        </FaqItem>
+        <FaqItem question="Que sait exactement NoTrackRun, l'entreprise, a mon sujet ?">
+          Si vous etes coureur, rien au-dela du nom ou pseudonyme sur votre token et de vos totaux de sessions agreges — et meme ceux-la sont limites a votre organisation. Nous ne detenons de coordonnees directes (email, nom d'organisation) que pour le coach, club ou entreprise souscripteur, jamais pour les coureurs individuels.
+        </FaqItem>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team" class="product-section">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-14 fade-in">
+        <div class="section-tag">Qui construit ceci</div>
+        <h2 class="text-4xl font-bold mb-4">L'equipe</h2>
+        <p class="mx-auto" style="color: var(--muted-foreground); max-width: 560px">
+          Une petite equipe europeenne qui construit NoTrackRun en public, actuellement en beta fermee.
+        </p>
+      </div>
+
+      <div class="team-grid fade-in fade-delay-1">
+        <TeamCard name="Nom" role="Fondateur" bio="Ajoutez une courte bio ici." />
+        <TeamCard name="Nom" role="Backend & plateforme" bio="Ajoutez une courte bio ici." />
+        <TeamCard name="Nom" role="Mobile & watch" bio="Ajoutez une courte bio ici." />
+        <TeamCard name="Nom" role="Design" bio="Ajoutez une courte bio ici." />
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

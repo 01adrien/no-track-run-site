@@ -1,11 +1,11 @@
 {
+  "version": "0.2.0",
   "configurations": [
     {
-      "name": "Listen for Xdebug",
-      "type": "php",
+      "command": "./node_modules/.bin/astro dev",
+      "name": "Development server",
       "request": "launch",
-      "port": 9003,
-      "log": true
+      "type": "node-terminal"
     }
   ]
 }

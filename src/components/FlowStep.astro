@@ -1,0 +1,15 @@
+---
+interface Props {
+  number: number;
+  title: string;
+}
+const { number, title } = Astro.props;
+---
+
+<div class="flow-step">
+  <div class="flow-number">{number}</div>
+  <div class="flow-content">
+    <h4>{title}</h4>
+    <p><slot /></p>
+  </div>
+</div>

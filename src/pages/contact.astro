@@ -1,0 +1,214 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/contact.css";
+---
+
+<Layout title="NoTrackRun — Contact">
+  <Header page="contact" />
+
+  <!-- HERO -->
+  <section class="hero-bg text-center py-24 px-6 relative">
+    <div class="max-w-2xl mx-auto">
+      <h1 class="text-6xl font-extrabold leading-none mb-6 fade-in fade-delay-1">
+        Parlons-en
+      </h1>
+      <p class="text-lg fade-in fade-delay-2" style="color: var(--muted-foreground)">
+        Une question sur une formule, une idee de partenariat — ecrivez-nous directement.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section class="product-section" style="padding-top: 2rem">
+    <div class="max-w-xl mx-auto px-6">
+      <form id="contact-form" class="card p-8 fade-in" novalidate>
+        <div class="form-row mb-4">
+          <div>
+            <label class="form-label" for="name">Nom</label>
+            <input type="text" id="name" name="name" placeholder="Jeanne Coureuse" autocomplete="name" maxlength="200" required />
+            <span class="field-error" id="name-error"></span>
+          </div>
+          <div>
+            <label class="form-label" for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="vous@exemple.com" autocomplete="email" maxlength="254" required />
+            <span class="field-error" id="email-error"></span>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label" for="role">Je suis</label>
+          <select id="role" name="role" autocomplete="off">
+            <option value="runner">Un coureur</option>
+            <option value="coach">Un coach independant</option>
+            <option value="company">Une entreprise / un club</option>
+            <option value="other">Autre chose</option>
+          </select>
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label" for="organization">Organisation (optionnel)</label>
+          <input type="text" id="organization" name="organization" placeholder="Nom de votre club ou entreprise" autocomplete="organization" maxlength="200" />
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label" for="message">
+            Message
+            <span class="char-counter" id="message-counter" aria-hidden="true">0 / 5000</span>
+          </label>
+          <textarea id="message" name="message" rows="5" maxlength="5000" placeholder="Comment pouvons-nous vous aider ?" required></textarea>
+          <span class="field-error" id="message-error"></span>
+        </div>
+
+        <!-- Honeypot — invisible pour les vrais visiteurs, les bots ont tendance a le remplir -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <button type="submit" class="btn-primary form-submit py-4 text-base text-center w-full mt-4">
+          Envoyer le message
+        </button>
+
+        <div id="form-status" class="form-status" role="alert"></div>
+      </form>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement | null;
+
+  if (form) {
+    const status = document.getElementById("form-status") as HTMLElement;
+    const submitBtn = form.querySelector(".form-submit") as HTMLButtonElement;
+    const messageField = form.elements.namedItem("message") as HTMLTextAreaElement;
+    const messageCounter = document.getElementById("message-counter") as HTMLElement;
+    const MAX_MESSAGE_LENGTH = 5000;
+
+    const rules: Record<string, { validate: (v: string) => boolean; message: string }> = {
+      name: {
+        validate: (v) => v.trim().length > 0 && v.trim().length <= 200,
+        message: "Merci de saisir votre nom (200 caracteres max).",
+      },
+      email: {
+        validate: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) && v.trim().length <= 254,
+        message: "Merci de saisir une adresse email valide.",
+      },
+      message: {
+        validate: (v) => v.trim().length > 0 && v.trim().length <= MAX_MESSAGE_LENGTH,
+        message: "Merci d'ecrire un message (5000 caracteres max).",
+      },
+    };
+
+    function setFieldState(field: HTMLInputElement | HTMLTextAreaElement, isValid: boolean) {
+      const errorEl = document.getElementById(field.name + "-error");
+      field.classList.toggle("invalid", !isValid);
+      field.setAttribute("aria-invalid", String(!isValid));
+      if (errorEl) {
+        errorEl.textContent = isValid ? "" : rules[field.name].message;
+        errorEl.classList.toggle("visible", !isValid);
+        if (!isValid) {
+          field.setAttribute("aria-describedby", errorEl.id);
+        } else {
+          field.removeAttribute("aria-describedby");
+        }
+      }
+    }
+
+    function validateField(field: HTMLInputElement | HTMLTextAreaElement) {
+      const rule = rules[field.name];
+      if (!rule) return true;
+      const isValid = rule.validate(field.value);
+      setFieldState(field, isValid);
+      return isValid;
+    }
+
+    function validateForm() {
+      let allValid = true;
+      ["name", "email", "message"].forEach((fieldName) => {
+        const field = form!.elements.namedItem(fieldName) as HTMLInputElement | HTMLTextAreaElement;
+        if (!validateField(field)) allValid = false;
+      });
+      return allValid;
+    }
+
+    ["name", "email", "message"].forEach((fieldName) => {
+      const field = form.elements.namedItem(fieldName) as HTMLInputElement | HTMLTextAreaElement;
+      field.addEventListener("input", () => {
+        if (field.classList.contains("invalid")) validateField(field);
+      });
+    });
+
+    function updateCounter() {
+      const len = messageField.value.length;
+      messageCounter.textContent = `${len} / ${MAX_MESSAGE_LENGTH}`;
+      messageCounter.classList.toggle("near-limit", len >= MAX_MESSAGE_LENGTH * 0.9 && len < MAX_MESSAGE_LENGTH);
+      messageCounter.classList.toggle("at-limit", len >= MAX_MESSAGE_LENGTH);
+    }
+    messageField.addEventListener("input", updateCounter);
+    updateCounter();
+
+    function showStatus(kind: "success" | "error", msg: string) {
+      status.textContent = msg;
+      status.className = "form-status visible " + kind;
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      status.className = "form-status";
+
+      if (!validateForm()) {
+        showStatus("error", "Merci de corriger les champs signales avant l'envoi.");
+        (form.querySelector(".invalid") as HTMLElement | null)?.focus();
+        return;
+      }
+
+      const websiteField = form.elements.namedItem("website") as HTMLInputElement;
+      if (websiteField.value.trim() !== "") {
+        // Honeypot rempli -> on simule un succes silencieusement (piege a bots)
+        showStatus("success", "Merci — votre message a bien ete envoye.");
+        form.reset();
+        updateCounter();
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Envoi…";
+
+      try {
+        const res = await fetch("/scripts/contact.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: (form.elements.namedItem("name") as HTMLInputElement).value.trim(),
+            email: (form.elements.namedItem("email") as HTMLInputElement).value.trim(),
+            role: (form.elements.namedItem("role") as HTMLSelectElement).value,
+            organization: (form.elements.namedItem("organization") as HTMLInputElement).value.trim(),
+            message: messageField.value.trim(),
+            website: websiteField.value,
+          }),
+        });
+
+        const data = await res.json();
+
+        if (res.ok && data.success) {
+          showStatus("success", "Merci — votre message a bien ete envoye. Nous revenons vers vous rapidement.");
+          form.reset();
+          updateCounter();
+        } else {
+          showStatus("error", data.error || "Une erreur est survenue. Merci de reessayer ou de nous ecrire directement.");
+        }
+      } catch (err) {
+        console.log(err);
+        showStatus("error", "Impossible de contacter le serveur. Merci de reessayer ou d'ecrire directement a info@notrackrun.eu.");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Envoyer le message";
+      }
+    });
+  }
+</script>
