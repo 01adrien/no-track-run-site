@@ -50,6 +50,7 @@ $allowedHosts = [
     'www.notrackrun.eu',
     'localhost',
     '127.0.0.1',
+    'dev.notrackrun.eu',
 ];
 if ($origin !== '') {
     $originHost = parse_url($origin, PHP_URL_HOST);
