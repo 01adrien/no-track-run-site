@@ -10,14 +10,16 @@ const t = useTranslations(lang);
 ---
 
 <Layout title="NoTrackRun — 404">
-  <Header page="home" />
+  <Header page="other" />
 
   <HeroSimple subtitle={t("notFound.subtitle")}>
     {t("notFound.title")}
   </HeroSimple>
 
   <div class="text-center pb-24 px-6">
-    <a href={localizePath("/", lang)} class="btn-primary px-8 py-4 text-base">{t("notFound.cta")}</a>
+    <a href={localizePath("/", lang)} class="btn-primary px-8 py-4 text-base"
+      >{t("notFound.cta")}</a
+    >
   </div>
 
   <Footer />
