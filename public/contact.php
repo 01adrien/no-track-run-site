@@ -14,9 +14,9 @@
 declare(strict_types=1);
 
 
-require dirname(__DIR__, 2) . '/vendor/autoload.php';
+require dirname(__DIR__) . '/vendor/autoload.php';
 
-$configPath = dirname(__DIR__, 2) . '/config.php';
+$configPath = dirname(__DIR__) . '/config.php';
 if (!is_readable($configPath)) {
     http_response_code(500);
     header('Content-Type: application/json; charset=utf-8');
@@ -33,6 +33,8 @@ $siteName = 'NoTrackRun';
 $rateLimitSeconds = 30;       // minimum delay between two submissions from the same IP
 $rateLimitFile = sys_get_temp_dir() . '/notrackrun_contact_rate.json';
 $maxMessageLength = 5000;
+
+
 
 // ── Basic hardening ─────────────────────────────────────────────────
 header('Content-Type: application/json; charset=utf-8');
