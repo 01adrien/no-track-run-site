@@ -50,7 +50,7 @@ $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 $allowedHosts = [
     'notrackrun.eu',
     'www.notrackrun.eu',
-    'test.notrckrun.eu',
+    'test.notrackrun.eu',
     'www.test.notrackrun.eu',
     'localhost',
     '127.0.0.1',
