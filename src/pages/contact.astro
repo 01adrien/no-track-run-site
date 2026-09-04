@@ -272,7 +272,7 @@ const t = useTranslations(lang);
       submitBtn.textContent = i18nData.sending;
 
       try {
-        const res = await fetch("contact.php", {
+        const res = await fetch("/contact.php", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
