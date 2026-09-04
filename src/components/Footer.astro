@@ -1,20 +1,34 @@
 ---
+import { getLangFromUrl, useTranslations, localizePath } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<footer class="text-center py-12 px-6" style="color: var(--muted-foreground)">
+<footer class="text-center py-12 px-6 text-muted">
   <div
     class="text-xl font-bold mb-2"
     style="font-family: 'Syne', sans-serif; color: var(--foreground)"
   >
     NoTrack<span style="color: var(--accent)">Run</span>
   </div>
-  <p class="text-sm mb-4">
-    Une alternative ethique, transparente et souveraine au sport connecte.
-  </p>
-  <a href="mailto:info@notrackrun.eu" class="text-sm hover:text-white transition">
+  <p class="text-sm mb-4">{t("footer.tagline")}</p>
+  <a
+    href="mailto:info@notrackrun.eu"
+    class="text-sm hover:text-white transition"
+  >
     <span>info@notrackrun.eu</span>
   </a>
-  <div class="mt-6 pt-6 text-xs" style="border-top: 1px solid var(--border)">
-    © 2026 NoTrackRun · Tous droits reserves · RGPD · Hebergement UE
+  <div class="flex justify-center gap-6 mt-6 text-xs">
+    <a href={localizePath("/privacy", lang)} class="hover:text-white transition"
+      >{t("footer.privacy")}</a
+    >
+    <a href={localizePath("/terms", lang)} class="hover:text-white transition"
+      >{t("footer.terms")}</a
+    >
+    <a
+      href={localizePath("/terms-of-use", lang)}
+      class="hover:text-white transition">{t("footer.termsOfUse")}</a
+    >
   </div>
 </footer>

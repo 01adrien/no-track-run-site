@@ -1,0 +1,8 @@
+---
+// Reutilise directement le composant de src/pages/index.astro : sa detection
+// de langue via Astro.url fonctionnera correctement puisqu'elle reflete la
+// vraie route demandee ("/fr/"), meme si le composant est defini ailleurs.
+import HomePage from "@/pages/index.astro";
+---
+
+<HomePage />

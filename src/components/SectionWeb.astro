@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets";
+import FeatureSplit from "./FeatureSplit.astro";
+import Carousel from "./Carousel.astro";
+import type { Screenshot, FeatureCopy } from "@/types";
+
+interface Props {
+  screenshots: Screenshot[];
+  copy: FeatureCopy;
+}
+const { screenshots, copy } = Astro.props;
+---
+
+<FeatureSplit
+  id="web"
+  title={copy.title}
+  description={copy.description}
+  features={copy.features}
+  pills={copy.pills}
+>
+  <Carousel>
+    {
+      screenshots.map((shot) => (
+        <div class="carousel-slide">
+          <Image src={shot.src} alt={shot.alt} class="product-img" widths={[400, 800, 1200]} sizes="(max-width: 768px) 100vw, 600px" />
+        </div>
+      ))
+    }
+  </Carousel>
+</FeatureSplit>

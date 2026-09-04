@@ -1,0 +1,53 @@
+---
+import type { PhilosophyCell } from "@/types";
+
+interface Props {
+  id: string;
+  tag: string;
+  intro: string;
+  cells: PhilosophyCell[];
+  quote: string;
+  quoteAuthor: string;
+}
+const { id, tag, intro, cells, quote, quoteAuthor } = Astro.props;
+---
+
+<section
+  id={id}
+  class="product-section"
+  style="background: radial-gradient(ellipse 60% 50% at 100% 50%, hsl(67 100% 44% / 0.05) 0%, transparent 60%);"
+>
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="section-tag fade-in">{tag}</div>
+    <h2 class="text-5xl font-bold mb-4 fade-in">
+      <slot name="heading" />
+    </h2>
+    <p class="text-lg mb-12 fade-in text-muted max-w-[680px]">{intro}</p>
+
+    <div class="philo-grid fade-in card">
+      {
+        cells.map((cell, i) => (
+          <div
+            class="philo-cell"
+            style={
+              [
+                i % 2 === 1 && "border-left: 1px solid var(--border)",
+                i >= 2 && "border-top: 1px solid var(--border)",
+              ]
+                .filter(Boolean)
+                .join("; ")
+            }
+          >
+            <h4 class="font-semibold text-lg mb-2">{cell.title}</h4>
+            <p class="text-sm text-muted">{cell.description}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <blockquote class="mt-12 text-center fade-in" style="max-width: 600px; margin-left: auto; margin-right: auto">
+      <p class="text-2xl font-bold leading-snug mb-4" style="font-family: 'Syne', sans-serif">{quote}</p>
+      <footer class="text-sm pt-2 text-muted">— {quoteAuthor}</footer>
+    </blockquote>
+  </div>
+</section>

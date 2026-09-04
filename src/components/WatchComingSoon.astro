@@ -1,0 +1,29 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class="img-placeholder" style="height: 340px; border-style: dashed; display:flex; flex-direction: column; align-items:center; justify-content:center; gap: 1rem;">
+  <svg viewBox="0 0 200 240" style="width: 130px; height: 156px">
+    <!-- boitier de montre, meme silhouette que WatchMockup mais en pointilles -->
+    <rect x="55" y="10" width="14" height="24" rx="4" fill="var(--muted)" />
+    <rect x="131" y="10" width="14" height="24" rx="4" fill="var(--muted)" />
+    <rect x="55" y="206" width="14" height="24" rx="4" fill="var(--muted)" />
+    <rect x="131" y="206" width="14" height="24" rx="4" fill="var(--muted)" />
+    <rect x="20" y="30" width="160" height="180" rx="28" fill="var(--card)" stroke="var(--border)" stroke-width="2" stroke-dasharray="6 5" />
+    <rect x="34" y="44" width="132" height="152" rx="16" fill="none" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4" />
+
+    <!-- icone outil, discrete, au centre -->
+    <g transform="translate(100 120)" stroke="var(--muted-foreground)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M-14 14 L2 -2" />
+      <path d="M6 -16 a8 8 0 1 0 10 10 l-4 -4 h-4 v-4 z" />
+    </g>
+  </svg>
+
+  <div style="text-align: center; padding: 0 1.5rem">
+    <p class="font-semibold" style="font-family: 'Syne', sans-serif; font-size: 0.95rem">{t("watch.comingSoon")}</p>
+    <p class="text-sm text-muted" style="margin-top: 0.25rem">{t("watch.comingSoon.sub")}</p>
+  </div>
+</div>

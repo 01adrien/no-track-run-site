@@ -1,0 +1,30 @@
+---
+import type { FaqEntry } from "@/types";
+
+interface Props {
+  tag: string;
+  heading: string;
+  faqs: FaqEntry[];
+}
+const { tag, heading, faqs } = Astro.props;
+---
+
+<section id="faq" class="product-section" style="background: radial-gradient(ellipse 60% 50% at 100% 50%, hsl(67 100% 44% / 0.05) 0%, transparent 60%);">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-12 fade-in">
+      <div class="section-tag">{tag}</div>
+      <h2 class="text-4xl font-bold">{heading}</h2>
+    </div>
+
+    <div class="fade-in fade-delay-1">
+      {
+        faqs.map((faq) => (
+          <details class="faq-item">
+            <summary>{faq.question}</summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,77 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  description: string;
+  features: string[];
+  pills: string[];
+  reverse?: boolean; // true = visuel a gauche, texte a droite (utilise pour "Mobile")
+  bgGradient?: string; // style CSS optionnel pour le fond de la section
+}
+
+const { id, title, description, features, pills, reverse = false, bgGradient } = Astro.props;
+---
+
+<section id={id} class="product-section" style={bgGradient}>
+  <div class="max-w-6xl mx-auto px-6">
+    <div class:list={["grid md:grid-cols-2 gap-16 items-start", { "xl:grid-cols-2": true }]}>
+      <div class:list={["fade-in", reverse && "order-2 md:order-1"]}>
+        {reverse && (
+          <div class="visual-slot">
+            <slot />
+          </div>
+        )}
+        {!reverse && (
+          <>
+            <div class="accent-line"></div>
+            <h2 class="text-5xl font-bold mb-4">{title}</h2>
+            <p class="text-lg mb-6 text-muted">
+              {description}
+            </p>
+
+            <div class="grid grid-cols-2 gap-3 mb-8">
+              {features.map((f) => (
+                <div class="card p-4 flex gap-3 items-center justify-center">
+                  <span class="font-medium text-sm">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* <div class="flex flex-wrap gap-2">
+              {pills.map((p) => (
+                <span class="pill">{p}</span>
+              ))}
+            </div> */}
+          </>
+        )}
+      </div>
+
+      <div class:list={["fade-in fade-delay-2", reverse && "order-1 md:order-2"]}>
+        {reverse && (
+          <>
+            <div class="accent-line"></div>
+            <h2 class="text-5xl font-bold mb-4">{title}</h2>
+            <p class="text-lg mb-6 text-muted">
+              {description}
+            </p>
+
+            <div class="grid grid-cols-2 gap-3 mb-8">
+              {features.map((f) => (
+                <div class="card p-4 flex gap-3 items-center justify-center">
+                  <span class="font-medium text-sm">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* <div class="flex flex-wrap gap-2">
+              {pills.map((p) => (
+                <span class="pill">{p}</span>
+              ))}
+            </div> */}
+          </>
+        )}
+        {!reverse && <slot />}
+      </div>
+    </div>
+  </div>
+</section>

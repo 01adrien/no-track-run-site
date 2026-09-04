@@ -1,0 +1,38 @@
+---
+import FeatureSplit from "./FeatureSplit.astro";
+import Carousel from "./Carousel.astro";
+import WatchMockup from "./WatchMockup.astro";
+import WatchComingSoon from "./WatchComingSoon.astro";
+import type { WatchMockupData, FeatureCopy } from "@/types";
+
+interface Props {
+  // Optionnel : tant que l'appli montre n'est pas construite, on ne passe
+  // rien et le placeholder "coming soon" s'affiche a la place.
+  mockups?: WatchMockupData[];
+  copy: FeatureCopy;
+}
+const { mockups, copy } = Astro.props;
+const hasMockups = mockups && mockups.length > 0;
+---
+
+<FeatureSplit
+  id="watch"
+  title={copy.title}
+  description={copy.description}
+  features={copy.features}
+  pills={copy.pills}
+>
+  {
+    hasMockups ? (
+      <Carousel>
+        {mockups!.map((m) => (
+          <div class="carousel-slide">
+            <WatchMockup {...m} />
+          </div>
+        ))}
+      </Carousel>
+    ) : (
+      <WatchComingSoon />
+    )
+  }
+</FeatureSplit>

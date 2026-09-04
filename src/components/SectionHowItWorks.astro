@@ -1,0 +1,35 @@
+---
+import type { FlowStepData } from "@/types";
+
+interface Props {
+  tag: string;
+  heading: string;
+  intro: string;
+  steps: FlowStepData[];
+}
+const { tag, heading, intro, steps } = Astro.props;
+---
+
+<section id="how-it-works" class="product-section">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-16 fade-in">
+      <div class="section-tag">{tag}</div>
+      <h2 class="text-4xl font-bold mb-4">{heading}</h2>
+      <p class="text-muted">{intro}</p>
+    </div>
+
+    <div class="flow fade-in fade-delay-1">
+      {
+        steps.map((step, i) => (
+          <div class="flow-step">
+            <div class="flow-number">{i + 1}</div>
+            <div class="flow-content">
+              <h4>{step.title}</h4>
+              <p>{step.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

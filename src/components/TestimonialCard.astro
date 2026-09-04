@@ -1,10 +1,8 @@
 ---
-interface Props {
-  stars?: string;
-  name: string;
-  role: string;
-  initials: string;
-}
+import type { Testimonial } from "@/types";
+
+type Props = Omit<Testimonial, "quote">;
+
 const { stars = "★★★★★", name, role, initials } = Astro.props;
 ---
 
@@ -15,7 +13,7 @@ const { stars = "★★★★★", name, role, initials } = Astro.props;
     <div class="testimonial-avatar">{initials}</div>
     <div>
       <div class="font-semibold text-sm">{name}</div>
-      <div class="text-xs" style="color: var(--muted-foreground)">{role}</div>
+      <div class="text-xs text-muted">{role}</div>
     </div>
   </div>
 </div>

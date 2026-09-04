@@ -1,6 +1,10 @@
 ---
 // Carousel generique : chaque slide passe en <slot /> doit avoir la classe "carousel-slide"
 // Plusieurs <Carousel> peuvent etre utilises sur une meme page, le script s'auto-initialise sur chacun.
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <div class="carousel">
@@ -8,9 +12,9 @@
     <slot />
   </div>
   <div class="carousel-controls">
-    <button class="carousel-btn" data-dir="-1" aria-label="Precedent">‹</button>
+    <button class="carousel-btn" data-dir="-1" aria-label={t("carousel.prev")}>‹</button>
     <div class="carousel-dots"></div>
-    <button class="carousel-btn" data-dir="1" aria-label="Suivant">›</button>
+    <button class="carousel-btn" data-dir="1" aria-label={t("carousel.next")}>›</button>
   </div>
 </div>
 

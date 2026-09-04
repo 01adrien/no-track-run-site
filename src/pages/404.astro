@@ -1,0 +1,24 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import HeroSimple from "@/components/HeroSimple.astro";
+import { getLangFromUrl, useTranslations, localizePath } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title="NoTrackRun — 404">
+  <Header page="home" />
+
+  <HeroSimple subtitle={t("notFound.subtitle")}>
+    {t("notFound.title")}
+  </HeroSimple>
+
+  <div class="text-center pb-24 px-6">
+    <a href={localizePath("/", lang)} class="btn-primary px-8 py-4 text-base">{t("notFound.cta")}</a>
+  </div>
+
+  <Footer />
+</Layout>

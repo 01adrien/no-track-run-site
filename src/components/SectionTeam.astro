@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+import type { TeamMember } from "@/types";
+
+interface Props {
+  tag: string;
+  heading: string;
+  intro: string;
+  members: TeamMember[];
+}
+const { tag, heading, intro, members } = Astro.props;
+---
+
+<section id="team" class="product-section">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-14 fade-in">
+      <div class="section-tag">{tag}</div>
+      <h2 class="text-4xl font-bold mb-4">{heading}</h2>
+      <p class="mx-auto max-w-[560px] text-muted">{intro}</p>
+    </div>
+
+    <div class="flex justify-center gap-6 fade-in fade-delay-1">
+      {
+        members.map((member) => (
+          <div class="card team-card">
+            {member.photo ? (
+              <Image
+                src={member.photo}
+                alt={member.name}
+                width={200}
+                height={200}
+                class="team-photo square"
+              />
+            ) : (
+              <div class="team-avatar">{member.initials ?? "?"}</div>
+            )}
+            <div class="team-card-body">
+              <h4>{member.name}</h4>
+              <div class="role">{member.role}</div>
+              <div class="bio">{member.bio}</div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

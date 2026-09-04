@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+import FeatureSplit from "./FeatureSplit.astro";
+import Carousel from "./Carousel.astro";
+import type { Screenshot, FeatureCopy } from "@/types";
+
+interface Props {
+  screenshots: Screenshot[];
+  copy: FeatureCopy;
+}
+const { screenshots, copy } = Astro.props;
+---
+
+<FeatureSplit
+  id="mobile"
+  reverse
+  title={copy.title}
+  description={copy.description}
+  features={copy.features}
+  pills={copy.pills}
+  bgGradient="background: radial-gradient(ellipse 60% 50% at 0% 50%, hsl(67 100% 44% / 0.06) 0%, transparent 60%);"
+>
+  <Carousel>
+    {
+      screenshots.map((shot) => (
+        <div class="carousel-slide">
+          <Image src={shot.src} alt={shot.alt} class="product-img" style="height: 340px; object-fit: cover" widths={[300, 600]} sizes="400px" />
+        </div>
+      ))
+    }
+  </Carousel>
+</FeatureSplit>

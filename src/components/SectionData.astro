@@ -1,0 +1,40 @@
+---
+import type { DataColumn } from "@/types";
+
+interface Props {
+  tag: string;
+  heading: string;
+  intro: string;
+  onDevice: DataColumn;
+  onServer: DataColumn;
+  note: string;
+}
+const { tag, heading, intro, onDevice, onServer, note } = Astro.props;
+---
+
+<section id="data" class="product-section" style="background: radial-gradient(ellipse 60% 50% at 0% 50%, hsl(67 100% 44% / 0.06) 0%, transparent 60%);">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-14 fade-in">
+      <div class="section-tag">{tag}</div>
+      <h2 class="text-4xl font-bold mb-4">{heading}</h2>
+      <p class="mx-auto max-w-[620px] text-muted">{intro}</p>
+    </div>
+
+    <div class="data-grid fade-in fade-delay-1">
+      <div class="card data-card p-8">
+        <h4><span class="data-dot" style="background: hsl(67 100% 51%)"></span>{onDevice.label}</h4>
+        <ul>
+          {onDevice.items.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+      <div class="card data-card p-8">
+        <h4><span class="data-dot" style="background: hsl(220 15% 45%)"></span>{onServer.label}</h4>
+        <ul>
+          {onServer.items.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </div>
+
+    <p class="data-note text-center fade-in fade-delay-2">{note}</p>
+  </div>
+</section>
