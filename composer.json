@@ -1,7 +1,11 @@
 {
   "name": "notrackrun/web-site",
+  "scripts": {
+    "dev": "php -d display_errors=1 -d error_reporting=E_ALL -S localhost:8000 -t dist"
+  },
   "require": {
     "php": ">=8.1",
-    "phpmailer/phpmailer": "^6.9"
+    "phpmailer/phpmailer": "^6.9",
+    "vlucas/phpdotenv": "^5.7"
   }
 }

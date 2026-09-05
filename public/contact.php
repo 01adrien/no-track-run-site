@@ -3,27 +3,40 @@
  * NoTrackRun — contact form backend (SMTP via PHPMailer).
  *
  * Deployment on the IONOS VPS:
- *   1. composer install                 (pulls in phpmailer/phpmailer)
- *   2. cp config.example.php config.php
- *   3. Fill in config.php with your real IONOS SMTP mailbox + password
- *   4. Make sure config.php and vendor/ are NOT web-readable directly
+ *   1. composer install                 (pulls in phpmailer/phpmailer + vlucas/phpdotenv)
+ *   2. cp .env.example .env
+ *   3. Fill in .env with your real IONOS SMTP mailbox + password
+ *   4. Make sure .env and vendor/ are NOT web-readable directly
  *      (the .htaccess included alongside this file already does that
  *      on Apache — adapt it if you're on nginx instead)
  */
 
 declare(strict_types=1);
 
-
 require dirname(__DIR__) . '/vendor/autoload.php';
 
-$configPath = dirname(__DIR__) . '/config.php';
-if (!is_readable($configPath)) {
+// ── Load .env ─────────────────────────────────────────────────────────
+$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
+$dotenv->safeLoad(); // ne plante pas si .env manque, on verifie juste apres
+
+$requiredVars = [
+    'SMTP_HOST',
+    'SMTP_PORT',
+    'SMTP_SECURE',
+    'SMTP_USER',
+    'SMTP_PASS',
+    'FROM_EMAIL',
+    'FROM_NAME',
+    'TO_EMAIL',
+];
+$missing = array_filter($requiredVars, static fn($key) => !isset($_ENV[$key]) || $_ENV[$key] === '');
+
+if (!empty($missing)) {
     http_response_code(500);
     header('Content-Type: application/json; charset=utf-8');
     echo json_encode(['success' => false, 'error' => 'Server misconfigured.']);
     exit;
 }
-require $configPath;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception as PHPMailerException;
@@ -165,16 +178,16 @@ $sent = false;
 
 try {
     $mail->isSMTP();
-    $mail->Host = SMTP_HOST;
+    $mail->Host = $_ENV['SMTP_HOST'];
     $mail->SMTPAuth = true;
-    $mail->Username = SMTP_USER;
-    $mail->Password = SMTP_PASS;
-    $mail->SMTPSecure = SMTP_SECURE; // 'tls' or 'ssl'
-    $mail->Port = SMTP_PORT;
+    $mail->Username = $_ENV['SMTP_USER'];
+    $mail->Password = $_ENV['SMTP_PASS'];
+    $mail->SMTPSecure = $_ENV['SMTP_SECURE']; // 'tls' or 'ssl'
+    $mail->Port = (int) $_ENV['SMTP_PORT'];
     $mail->CharSet = 'UTF-8';
 
-    $mail->setFrom(FROM_EMAIL, FROM_NAME);
-    $mail->addAddress(TO_EMAIL);
+    $mail->setFrom($_ENV['FROM_EMAIL'], $_ENV['FROM_NAME']);
+    $mail->addAddress($_ENV['TO_EMAIL']);
     $mail->addReplyTo($email, $name);
 
     $mail->Subject = $subject;
