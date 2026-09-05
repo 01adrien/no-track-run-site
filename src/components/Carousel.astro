@@ -1,6 +1,4 @@
 ---
-// Carousel generique : chaque slide passe en <slot /> doit avoir la classe "carousel-slide"
-// Plusieurs <Carousel> peuvent etre utilises sur une meme page, le script s'auto-initialise sur chacun.
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
@@ -12,16 +10,22 @@ const t = useTranslations(lang);
     <slot />
   </div>
   <div class="carousel-controls">
-    <button class="carousel-btn" data-dir="-1" aria-label={t("carousel.prev")}>‹</button>
+    <button class="carousel-btn" data-dir="-1" aria-label={t("carousel.prev")}
+      >‹</button
+    >
     <div class="carousel-dots"></div>
-    <button class="carousel-btn" data-dir="1" aria-label={t("carousel.next")}>›</button>
+    <button class="carousel-btn" data-dir="1" aria-label={t("carousel.next")}
+      >›</button
+    >
   </div>
 </div>
 
 <script>
   function initCarousel(root: HTMLElement) {
     const track = root.querySelector<HTMLElement>(".carousel-track");
-    const slides = Array.from(root.querySelectorAll<HTMLElement>(".carousel-slide"));
+    const slides = Array.from(
+      root.querySelectorAll<HTMLElement>(".carousel-slide")
+    );
     const dotsContainer = root.querySelector<HTMLElement>(".carousel-dots");
     if (!track || !dotsContainer || slides.length === 0) return;
 
@@ -37,9 +41,9 @@ const t = useTranslations(lang);
     function goTo(i: number) {
       index = (i + slides.length) % slides.length;
       track!.style.transform = `translateX(-${index * 100}%)`;
-      dotsContainer!.querySelectorAll(".carousel-dot").forEach((d, j) =>
-        d.classList.toggle("active", j === index)
-      );
+      dotsContainer!
+        .querySelectorAll(".carousel-dot")
+        .forEach((d, j) => d.classList.toggle("active", j === index));
     }
 
     root.querySelectorAll<HTMLButtonElement>(".carousel-btn").forEach((btn) => {

@@ -1,10 +1,8 @@
-// Contenu textuel (EN) de la home. Voir home.fr.ts pour l'equivalent francais
-// — les deux fichiers doivent garder exactement la meme forme.
 import type { Testimonial, PhilosophyCell, FeatureCopy } from "@/types";
 
 export const heroHome = {
   badge: "Currently in beta testing",
-  title: "Run Free.",
+  title: "Just Run.",
   subtitle:
     "Web, mobile, and connected watch — a complete running platform, built with no tracking, no ads, no compromises.",
   ctaPrimary: "Explore the platform",

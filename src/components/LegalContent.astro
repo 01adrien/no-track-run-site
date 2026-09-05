@@ -1,5 +1,6 @@
 ---
 import type { LegalDoc } from "@/types";
+import { renderLinks } from "@/utils/render";
 
 interface Props {
   doc: LegalDoc;
@@ -11,16 +12,22 @@ const { doc } = Astro.props;
   <div class="max-w-3xl mx-auto px-6">
     <h1 class="text-4xl font-bold mb-2">{doc.title}</h1>
     <p class="text-sm text-muted mb-10">{doc.lastUpdated}</p>
-    <p class="text-lg text-muted mb-12" style="line-height: 1.7">{doc.intro}</p>
+    <p
+      class="text-lg text-muted mb-12"
+      style="line-height: 1.7"
+      set:html={renderLinks(doc.intro)}
+    />
 
     {
       doc.sections.map((section) => (
         <div class="mb-10">
           <h2 class="text-2xl font-bold mb-3">{section.heading}</h2>
           {section.body.map((para) => (
-            <p class="text-muted mb-3" style="line-height: 1.7">
-              {para}
-            </p>
+            <p
+              class="text-muted mb-3"
+              style="line-height: 1.7"
+              set:html={renderLinks(para)}
+            />
           ))}
         </div>
       ))

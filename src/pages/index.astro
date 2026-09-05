@@ -8,7 +8,11 @@ import SectionMobile from "@/components/SectionMobile.astro";
 import SectionWatch from "@/components/SectionWatch.astro";
 import SectionReviews from "@/components/SectionReviews.astro";
 import SectionPhilosophy from "@/components/SectionPhilosophy.astro";
-import { webScreenshots, mobileScreenshots, watchMockups } from "@/content/media";
+import {
+  webScreenshots,
+  mobileScreenshots,
+  watchMockups,
+} from "@/content/media";
 import * as en from "@/content/home";
 import * as fr from "@/content/home.fr";
 import * as nl from "@/content/home.nl";
@@ -18,12 +22,20 @@ import "@/styles/index.css";
 const lang = getLangFromUrl(Astro.url);
 const contentByLang = { en, fr, nl };
 const content = contentByLang[lang];
-const { heroHome, webCopy, mobileCopy, watchCopy, reviewsCopy, philosophyCopy, testimonials, philosophyCells } = content;
+const {
+  heroHome,
+  webCopy,
+  mobileCopy,
+  watchCopy,
+  reviewsCopy,
+  philosophyCopy,
+  testimonials,
+  philosophyCells,
+} = content;
 ---
 
 <Layout title={`NoTrackRun — ${heroHome.title}`}>
   <Header page="home" />
-
   <HeroHome
     badge={heroHome.badge}
     subtitle={heroHome.subtitle}
@@ -55,7 +67,11 @@ const { heroHome, webCopy, mobileCopy, watchCopy, reviewsCopy, philosophyCopy, t
     quote={philosophyCopy.quote}
     quoteAuthor={philosophyCopy.quoteAuthor}
   >
-    <Fragment slot="heading">{philosophyCopy.headingLine1}<br />{philosophyCopy.headingLine2}</Fragment>
+    <Fragment slot="heading"
+      >{philosophyCopy.headingLine1}<br />{
+        philosophyCopy.headingLine2
+      }</Fragment
+    >
   </SectionPhilosophy>
 
   <Footer />

@@ -1,4 +1,3 @@
-// Contenu legal (NL). Doit garder exactement la meme forme que legal.ts.
 import type { LegalDoc } from "@/types";
 
 const LAST_UPDATED = "Laatst bijgewerkt: 4 september 2026";
@@ -7,7 +6,7 @@ export const privacyPolicy: LegalDoc = {
   title: "Privacybeleid",
   lastUpdated: LAST_UPDATED,
   intro:
-    "NoTrackRun is ontworpen om zo weinig mogelijk persoonsgegevens te verzamelen. Deze pagina legt precies uit wat we verzamelen, waarom, en hoe je dat kunt beheren. Voor de technische details van het tokensysteem, zie Hoe het werkt.",
+    "NoTrackRun is ontworpen om zo weinig mogelijk persoonsgegevens te verzamelen. Deze pagina legt precies uit wat we verzamelen, waarom, en hoe je dat kunt beheren. Voor de technische details van het tokensysteem, zie [Hoe het werkt](/nl/about).",
   sections: [
     {
       heading: "Wie we zijn",
@@ -90,7 +89,7 @@ export const privacyPolicy: LegalDoc = {
     {
       heading: "Wijzigingen aan dit beleid",
       body: [
-        "We kunnen dit beleid van tijd tot tijd bijwerken. Materiële wijzigingen worden weergegeven door een bijgewerkte datum \"laatst bijgewerkt\" bovenaan deze pagina.",
+        'We kunnen dit beleid van tijd tot tijd bijwerken. Materiële wijzigingen worden weergegeven door een bijgewerkte datum "laatst bijgewerkt" bovenaan deze pagina.',
       ],
     },
     {
@@ -106,7 +105,7 @@ export const terms: LegalDoc = {
   title: "Algemene voorwaarden",
   lastUpdated: LAST_UPDATED,
   intro:
-    "Deze voorwaarden regelen het gebruik van NoTrackRun's webdashboard, mobiele app en horloge-app (zodra beschikbaar) door organisaties die zich abonneren op de dienst (\"jij\", \"de organisatie\") en door de lopers aan wie zij toegang verlenen via tokens. Door je te abonneren, ga je akkoord met deze voorwaarden.",
+    'Deze voorwaarden regelen het gebruik van NoTrackRun\'s webdashboard, mobiele app en horloge-app (zodra beschikbaar) door organisaties die zich abonneren op de dienst ("jij", "de organisatie") en door de lopers aan wie zij toegang verlenen via tokens. Door je te abonneren, ga je akkoord met deze voorwaarden.',
   sections: [
     {
       heading: "Voor wie deze voorwaarden gelden",
@@ -270,7 +269,7 @@ export const termsOfUse: LegalDoc = {
     {
       heading: "Wijzigingen aan deze voorwaarden",
       body: [
-        "We kunnen deze voorwaarden van tijd tot tijd bijwerken. Materiële wijzigingen worden weergegeven door een bijgewerkte datum \"laatst bijgewerkt\", en waar redelijkerwijs mogelijk in de app gecommuniceerd.",
+        'We kunnen deze voorwaarden van tijd tot tijd bijwerken. Materiële wijzigingen worden weergegeven door een bijgewerkte datum "laatst bijgewerkt", en waar redelijkerwijs mogelijk in de app gecommuniceerd.',
       ],
     },
     {

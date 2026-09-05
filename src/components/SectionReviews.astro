@@ -13,7 +13,6 @@ interface Props {
 }
 const { id, tag, heading, intro, testimonials, perSlide = 3 } = Astro.props;
 
-// Regroupe les temoignages en paquets de `perSlide` pour former les slides du carousel
 const groups: Testimonial[][] = [];
 for (let i = 0; i < testimonials.length; i += perSlide) {
   groups.push(testimonials.slice(i, i + perSlide));
@@ -39,7 +38,12 @@ for (let i = 0; i < testimonials.length; i += perSlide) {
             <div class="carousel-slide">
               <div class="grid md:grid-cols-3 gap-5">
                 {group.map((t) => (
-                  <TestimonialCard stars={t.stars} name={t.name} role={t.role} initials={t.initials}>
+                  <TestimonialCard
+                    stars={t.stars}
+                    name={t.name}
+                    role={t.role}
+                    initials={t.initials}
+                  >
                     {t.quote}
                   </TestimonialCard>
                 ))}

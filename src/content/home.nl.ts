@@ -1,4 +1,3 @@
-// Contenu textuel (NL) de la home. Doit garder exactement la meme forme que home.ts.
 import type { Testimonial, PhilosophyCell, FeatureCopy } from "@/types";
 
 export const heroHome = {

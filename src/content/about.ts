@@ -1,5 +1,3 @@
-// Contenu textuel (EN) de la page about. Voir about.fr.ts pour l'equivalent
-// francais — les deux fichiers doivent garder exactement la meme forme.
 import type {
   FlowStepData,
   DataColumn,

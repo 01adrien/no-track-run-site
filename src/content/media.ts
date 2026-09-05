@@ -1,5 +1,3 @@
-// Medias (images, mockups) : independants de la langue, partages entre
-// toutes les versions localisees des pages.
 import type { Screenshot, WatchMockupData } from "@/types";
 
 import webMonthView from "@/assets/img/web/user-plan-month-view.png";

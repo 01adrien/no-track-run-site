@@ -1,11 +1,3 @@
-// Contenu legal (EN). Voir legal.fr.ts et legal.nl.ts pour les traductions —
-// les trois fichiers doivent garder exactement la meme forme (memes cles,
-// meme nombre de sections).
-//
-// TODO avant publication : remplacer tous les [placeholders] par les vraies
-// informations (raison sociale, SIRET/numero d'immatriculation, adresse,
-// prestataires, juridiction), et faire relire par un juriste — en particulier
-// les CGV (facturation, resiliation, responsabilite).
 import type { LegalDoc } from "@/types";
 
 const LAST_UPDATED = "Last updated: 4 September 2026";
@@ -14,7 +6,7 @@ export const privacyPolicy: LegalDoc = {
   title: "Privacy Policy",
   lastUpdated: LAST_UPDATED,
   intro:
-    "NoTrackRun is built around collecting as little personal data as possible. This page explains exactly what we collect, why, and how you can control it. For the technical detail of how the token system works, see How it works.",
+    "NoTrackRun is built around collecting as little personal data as possible. This page explains exactly what we collect, why, and how you can control it. For the technical detail of how the token system works, see [How it works](/about).",
   sections: [
     {
       heading: "Who we are",
@@ -97,7 +89,7 @@ export const privacyPolicy: LegalDoc = {
     {
       heading: "Changes to this policy",
       body: [
-        "We may update this policy from time to time. Material changes will be reflected in an updated \"last updated\" date at the top of this page.",
+        'We may update this policy from time to time. Material changes will be reflected in an updated "last updated" date at the top of this page.',
       ],
     },
     {
@@ -113,7 +105,7 @@ export const terms: LegalDoc = {
   title: "Terms & Conditions",
   lastUpdated: LAST_UPDATED,
   intro:
-    "These terms govern the use of NoTrackRun's web dashboard, mobile app, and watch app (once available) by organizations that subscribe to the service (\"you\", \"the organization\") and by the runners they grant access to via tokens. By subscribing, you agree to these terms.",
+    'These terms govern the use of NoTrackRun\'s web dashboard, mobile app, and watch app (once available) by organizations that subscribe to the service ("you", "the organization") and by the runners they grant access to via tokens. By subscribing, you agree to these terms.',
   sections: [
     {
       heading: "Who these terms apply to",
@@ -277,7 +269,7 @@ export const termsOfUse: LegalDoc = {
     {
       heading: "Changes to these terms",
       body: [
-        "We may update these terms from time to time. Material changes will be reflected in an updated \"last updated\" date, and where reasonably possible, communicated in the app.",
+        'We may update these terms from time to time. Material changes will be reflected in an updated "last updated" date, and where reasonably possible, communicated in the app.',
       ],
     },
     {

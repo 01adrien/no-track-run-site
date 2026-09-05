@@ -24,13 +24,14 @@ const lang = getLangFromUrl(Astro.url);
     <link rel="icon" href="/favicon.svg" />
 
     <script is:inline>
-      // Bloquant, s'execute avant le premier paint pour eviter le flash de
-      // mauvais theme. localStorage a priorite, sinon on suit la preference
-      // systeme (prefers-color-scheme).
       (function () {
         try {
           const stored = localStorage.getItem("theme");
-          const theme = stored || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+          const theme =
+            stored ||
+            (window.matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark");
           document.documentElement.dataset.theme = theme;
         } catch (e) {
           document.documentElement.dataset.theme = "dark";
@@ -51,7 +52,6 @@ const lang = getLangFromUrl(Astro.url);
     <slot />
 
     <script>
-      // Scroll reveal for all .fade-in elements, on every page
       const obs = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {

@@ -1,4 +1,3 @@
-// Contenu textuel (FR) de la page about. Doit garder exactement la meme forme que about.ts.
 import type {
   FlowStepData,
   DataColumn,

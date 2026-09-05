@@ -1,4 +1,3 @@
-// Contenu legal (FR). Doit garder exactement la meme forme que legal.ts.
 import type { LegalDoc } from "@/types";
 
 const LAST_UPDATED = "Dernière mise à jour : 4 septembre 2026";
@@ -7,7 +6,7 @@ export const privacyPolicy: LegalDoc = {
   title: "Politique de confidentialité",
   lastUpdated: LAST_UPDATED,
   intro:
-    "NoTrackRun est conçu pour collecter le moins de données personnelles possible. Cette page explique précisément ce que nous collectons, pourquoi, et comment vous pouvez le contrôler. Pour le détail technique du fonctionnement par tokens, voir Comment ça marche.",
+    "NoTrackRun est conçu pour collecter le moins de données personnelles possible. Cette page explique précisément ce que nous collectons, pourquoi, et comment vous pouvez le contrôler. Pour le détail technique du fonctionnement par tokens, voir [comment ça marche](/fr/about) .",
   sections: [
     {
       heading: "Qui nous sommes",
@@ -90,7 +89,7 @@ export const privacyPolicy: LegalDoc = {
     {
       heading: "Modifications de cette politique",
       body: [
-        "Nous pouvons mettre à jour cette politique de temps à autre. Les changements significatifs seront reflétés par une date de \"dernière mise à jour\" actualisée en haut de cette page.",
+        'Nous pouvons mettre à jour cette politique de temps à autre. Les changements significatifs seront reflétés par une date de "dernière mise à jour" actualisée en haut de cette page.',
       ],
     },
     {
@@ -270,7 +269,7 @@ export const termsOfUse: LegalDoc = {
     {
       heading: "Modifications de ces conditions",
       body: [
-        "Nous pouvons mettre à jour ces conditions de temps à autre. Les changements significatifs seront reflétés par une date de \"dernière mise à jour\" actualisée, et communiqués dans l'application dans la mesure du raisonnablement possible.",
+        'Nous pouvons mettre à jour ces conditions de temps à autre. Les changements significatifs seront reflétés par une date de "dernière mise à jour" actualisée, et communiqués dans l\'application dans la mesure du raisonnablement possible.',
       ],
     },
     {
