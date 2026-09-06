@@ -13,7 +13,8 @@ export const ui = {
     "nav.contact": "Contact",
     "nav.cta": "Explore the platform",
 
-    "footer.tagline": "An ethical, transparent, and sovereign alternative to connected sport.",
+    "footer.tagline":
+      "An ethical, transparent, and sovereign alternative to connected sport.",
     "footer.rights": "All rights reserved · GDPR · EU Hosting",
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms & Conditions",
@@ -26,15 +27,17 @@ export const ui = {
     "watch.comingSoon.sub": "The watch app is still in development",
 
     "contact.hero.title": "Talk to us",
-    "contact.hero.subtitle": "A question about a formula, a partnership idea — write to us directly.",
+    "contact.hero.subtitle":
+      "A question about a formula, a partnership idea — write to us directly.",
 
     "notFound.title": "404",
-    "notFound.subtitle": "The page you're looking for doesn't exist, or has moved.",
+    "notFound.subtitle":
+      "The page you're looking for doesn't exist, or has moved.",
     "notFound.cta": "Back to home",
 
     "formulas.perMonth": "per month",
-    "formulas.seatsLabel": "Up to {n} coach seats",
-    "formulas.tokensLabel": "Up to {n} runner tokens",
+    "formulas.seatsLabel": "Up to {n} coaches",
+    "formulas.tokensLabel": "Up to {n} runners tokens",
 
     "platform.web": "Web",
     "platform.mobile": "Mobile",
@@ -61,9 +64,12 @@ export const ui = {
     "form.error.email": "Please enter a valid email address.",
     "form.error.message": "Please write a message (max 5000 characters).",
     "form.error.invalid": "Please fix the highlighted fields before sending.",
-    "form.error.generic": "Something went wrong. Please try again or email us directly.",
-    "form.error.network": "Couldn't reach the server. Please try again or email info@notrackrun.eu directly.",
-    "form.success": "Thanks — your message has been sent. We'll get back to you soon.",
+    "form.error.generic":
+      "Something went wrong. Please try again or email us directly.",
+    "form.error.network":
+      "Couldn't reach the server. Please try again or email info@notrackrun.eu directly.",
+    "form.success":
+      "Thanks — your message has been sent. We'll get back to you soon.",
   },
   fr: {
     "nav.home": "Accueil",
@@ -71,7 +77,8 @@ export const ui = {
     "nav.contact": "Contact",
     "nav.cta": "Explorer la plateforme",
 
-    "footer.tagline": "Une alternative éthique, transparente et souveraine au sport connecté.",
+    "footer.tagline":
+      "Une alternative éthique, transparente et souveraine au sport connecté.",
     "footer.rights": "Tous droits réservés · RGPD · Hébergement UE",
     "footer.privacy": "Politique de confidentialité",
     "footer.terms": "Conditions générales de vente",
@@ -84,15 +91,17 @@ export const ui = {
     "watch.comingSoon.sub": "L'application montre est encore en développement",
 
     "contact.hero.title": "Parlons-en",
-    "contact.hero.subtitle": "Une question sur une formule, une idée de partenariat — écrivez-nous directement.",
+    "contact.hero.subtitle":
+      "Une question sur une formule, une idée de partenariat — écrivez-nous directement.",
 
     "notFound.title": "404",
-    "notFound.subtitle": "La page que vous cherchez n'existe pas, ou a été déplacée.",
+    "notFound.subtitle":
+      "La page que vous cherchez n'existe pas, ou a été déplacée.",
     "notFound.cta": "Retour à l'accueil",
 
     "formulas.perMonth": "par mois",
-    "formulas.seatsLabel": "Jusqu'à {n} places coach",
-    "formulas.tokensLabel": "Jusqu'à {n} tokens coureur",
+    "formulas.seatsLabel": "Jusqu'à {n} coachs",
+    "formulas.tokensLabel": "Jusqu'à {n} coureurs",
 
     "platform.web": "Web",
     "platform.mobile": "Mobile",
@@ -118,10 +127,14 @@ export const ui = {
     "form.error.name": "Merci de saisir votre nom (200 caractères max).",
     "form.error.email": "Merci de saisir une adresse email valide.",
     "form.error.message": "Merci d'écrire un message (5000 caractères max).",
-    "form.error.invalid": "Merci de corriger les champs signalés avant l'envoi.",
-    "form.error.generic": "Une erreur est survenue. Merci de réessayer ou de nous écrire directement.",
-    "form.error.network": "Impossible de contacter le serveur. Merci de réessayer ou d'écrire directement à info@notrackrun.eu.",
-    "form.success": "Merci — votre message a bien été envoyé. Nous revenons vers vous rapidement.",
+    "form.error.invalid":
+      "Merci de corriger les champs signalés avant l'envoi.",
+    "form.error.generic":
+      "Une erreur est survenue. Merci de réessayer ou de nous écrire directement.",
+    "form.error.network":
+      "Impossible de contacter le serveur. Merci de réessayer ou d'écrire directement à info@notrackrun.eu.",
+    "form.success":
+      "Merci — votre message a bien été envoyé. Nous revenons vers vous rapidement.",
   },
   nl: {
     "nav.home": "Home",
@@ -129,7 +142,8 @@ export const ui = {
     "nav.contact": "Contact",
     "nav.cta": "Ontdek het platform",
 
-    "footer.tagline": "Een ethisch, transparant en soeverein alternatief voor connected sport.",
+    "footer.tagline":
+      "Een ethisch, transparant en soeverein alternatief voor connected sport.",
     "footer.rights": "Alle rechten voorbehouden · AVG · Hosting in de EU",
     "footer.privacy": "Privacybeleid",
     "footer.terms": "Algemene voorwaarden",
@@ -142,15 +156,17 @@ export const ui = {
     "watch.comingSoon.sub": "De horloge-app is nog in ontwikkeling",
 
     "contact.hero.title": "Neem contact op",
-    "contact.hero.subtitle": "Een vraag over een formule, een samenwerkingsidee — schrijf ons rechtstreeks.",
+    "contact.hero.subtitle":
+      "Een vraag over een formule, een samenwerkingsidee — schrijf ons rechtstreeks.",
 
     "notFound.title": "404",
-    "notFound.subtitle": "De pagina die je zoekt bestaat niet, of is verplaatst.",
+    "notFound.subtitle":
+      "De pagina die je zoekt bestaat niet, of is verplaatst.",
     "notFound.cta": "Terug naar home",
 
     "formulas.perMonth": "per maand",
-    "formulas.seatsLabel": "Tot {n} coachplekken",
-    "formulas.tokensLabel": "Tot {n} lopertokens",
+    "formulas.seatsLabel": "Tot {n} coaches",
+    "formulas.tokensLabel": "Tot {n} lopers",
 
     "platform.web": "Web",
     "platform.mobile": "Mobiel",
@@ -176,9 +192,13 @@ export const ui = {
     "form.error.name": "Vul je naam in (max. 200 tekens).",
     "form.error.email": "Vul een geldig e-mailadres in.",
     "form.error.message": "Schrijf een bericht (max. 5000 tekens).",
-    "form.error.invalid": "Corrigeer de gemarkeerde velden voordat je verzendt.",
-    "form.error.generic": "Er is iets misgegaan. Probeer het opnieuw of mail ons rechtstreeks.",
-    "form.error.network": "Kon de server niet bereiken. Probeer het opnieuw of mail rechtstreeks naar info@notrackrun.eu.",
-    "form.success": "Bedankt — je bericht is verzonden. We nemen snel contact met je op.",
+    "form.error.invalid":
+      "Corrigeer de gemarkeerde velden voordat je verzendt.",
+    "form.error.generic":
+      "Er is iets misgegaan. Probeer het opnieuw of mail ons rechtstreeks.",
+    "form.error.network":
+      "Kon de server niet bereiken. Probeer het opnieuw of mail rechtstreeks naar info@notrackrun.eu.",
+    "form.success":
+      "Bedankt — je bericht is verzonden. We nemen snel contact met je op.",
   },
 } as const;

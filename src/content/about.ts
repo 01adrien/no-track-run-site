@@ -11,8 +11,7 @@ import photoAlex from "@/assets/img/team/alex.png";
 
 export const heroAbout = {
   titleLines: ["No accounts.", "No profiles.", "Just tokens."],
-  subtitle:
-    "Here's the precise, unglamorous truth about what NoTrackRun stores, what it never sees, and how coaches and runners connect without a single sign-up form.",
+  subtitle: "What NoTrackRun stores, what it never sees, and how it works.",
 };
 
 export const howItWorks = {
@@ -29,14 +28,9 @@ export const steps: FlowStepData[] = [
       "A coach, club, or company picks a formula and shares only their email and organization name with NoTrackRun. That's the only direct contact we hold at the company level.",
   },
   {
-    title: "The platform generates tokens",
+    title: "The coach creates a runner",
     description:
-      "Each formula includes a set number of runner slots. One access token is generated per slot, ready to be handed out.",
-  },
-  {
-    title: "A token is assigned to a runner",
-    description:
-      "The organization tags the token with a name or a pseudonym — whatever the runner is comfortable being identified by.",
+      "From their dashboard, the coach creates a runner and attaches a name or pseudonym to it — that's the moment an access token is generated, ready to be handed to the runner.",
   },
   {
     title: "The runner enters the token",
@@ -44,9 +38,9 @@ export const steps: FlowStepData[] = [
       "No sign-up screen, no runner email, no password. The token is the only thing that links the app to a training plan.",
   },
   {
-    title: "Sessions sync back to the organization",
+    title: "Sessions sync to the coach's dashboard",
     description:
-      "Training data flows to the coach or club dashboard, scoped to that organization only. NoTrackRun doesn't cross-reference runners between organizations, and never uses this data for advertising.",
+      "Training data flows to the coach's dashboard, scoped to that organization only. NoTrackRun doesn't cross-reference runners between organizations, and never uses this data for advertising.",
   },
 ];
 
@@ -80,8 +74,7 @@ export const dataNote =
 export const formulasSection = {
   tag: "Pricing",
   heading: "Formulas",
-  intro:
-    "Every formula includes a set number of coach seats and runner tokens. Runners are always free to use — organizations pay for the dashboard and the slots.",
+  intro: "Every formula includes a set number of coaches and runners.",
   ctaLabel: "Ask a question",
 };
 
@@ -111,11 +104,6 @@ export const faqs: FaqEntry[] = [
     question: "Does the GPS track ever leave my phone?",
     answer:
       "No. Your GPS route is recorded and stored only on your device. Our servers never receive it — only the total distance and duration of a session ever reach NoTrackRun.",
-  },
-  {
-    question: "Can I use one token with multiple coaches?",
-    answer:
-      "A token is tied to a single organization. If you train with more than one coach, each one issues you a separate token.",
   },
   {
     question: "What exactly does NoTrackRun, the company, know about me?",

@@ -11,8 +11,7 @@ import photoAlex from "@/assets/img/team/alex.png";
 
 export const heroAbout = {
   titleLines: ["Geen accounts.", "Geen profielen.", "Alleen tokens."],
-  subtitle:
-    "Dit is de precieze, ongepolijste waarheid over wat NoTrackRun opslaat, wat het nooit ziet, en hoe coaches en lopers verbinden zonder ook maar één registratieformulier.",
+  subtitle: "Wat NoTrackRun opslaat, wat het nooit ziet, en hoe het werkt.",
 };
 
 export const howItWorks = {
@@ -29,14 +28,9 @@ export const steps: FlowStepData[] = [
       "Een coach, club of bedrijf kiest een formule en deelt alleen hun e-mail en organisatienaam met NoTrackRun. Dat is het enige directe contact dat we op bedrijfsniveau bewaren.",
   },
   {
-    title: "Het platform genereert tokens",
+    title: "De coach maakt een loper aan",
     description:
-      "Elke formule bevat een vast aantal loperplekken. Per plek wordt één toegangstoken gegenereerd, klaar om te worden uitgedeeld.",
-  },
-  {
-    title: "Een token wordt aan een loper toegewezen",
-    description:
-      "De organisatie koppelt het token aan een naam of pseudoniem — waar de loper zich prettig bij voelt om mee geïdentificeerd te worden.",
+      "Vanuit het dashboard maakt de coach een loperprofiel aan en koppelt er een naam of pseudoniem aan — op dat moment wordt een toegangstoken gegenereerd, klaar om aan de loper te geven.",
   },
   {
     title: "De loper voert het token in",
@@ -44,9 +38,9 @@ export const steps: FlowStepData[] = [
       "Geen registratiescherm, geen e-mailadres van de loper, geen wachtwoord. Het token is het enige dat de app aan een trainingsschema koppelt.",
   },
   {
-    title: "Trainingen synchroniseren terug naar de organisatie",
+    title: "Trainingen synchroniseren naar het dashboard van de coach",
     description:
-      "Trainingsgegevens stromen naar het dashboard van de coach of club, beperkt tot die organisatie alleen. NoTrackRun koppelt nooit lopers tussen organisaties, en gebruikt deze gegevens nooit voor advertenties.",
+      "Trainingsgegevens stromen naar het dashboard van de coach, beperkt tot die organisatie alleen. NoTrackRun koppelt nooit lopers tussen organisaties, en gebruikt deze gegevens nooit voor advertenties.",
   },
 ];
 
@@ -80,8 +74,7 @@ export const dataNote =
 export const formulasSection = {
   tag: "Prijzen",
   heading: "Formules",
-  intro:
-    "Elke formule bevat een vast aantal coachplekken en lopertokens. Lopers gebruiken het platform altijd gratis — organisaties betalen voor het dashboard en de plekken.",
+  intro: "Elke formule bevat een vast aantal coaches en lopers.",
   ctaLabel: "Stel een vraag",
 };
 
@@ -111,11 +104,6 @@ export const faqs: FaqEntry[] = [
     question: "Verlaat de GPS-track ooit mijn telefoon?",
     answer:
       "Nee. Je GPS-route wordt alleen op je apparaat vastgelegd en opgeslagen. Onze servers ontvangen deze nooit — alleen de totale afstand en duur van een training bereiken NoTrackRun.",
-  },
-  {
-    question: "Kan ik één token met meerdere coaches gebruiken?",
-    answer:
-      "Een token is gekoppeld aan één organisatie. Train je met meerdere coaches, dan geeft elke coach je een apart token.",
   },
   {
     question: "Wat weet NoTrackRun, het bedrijf, precies over mij?",

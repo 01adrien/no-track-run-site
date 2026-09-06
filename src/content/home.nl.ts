@@ -38,7 +38,7 @@ export const mobileCopy: FeatureCopy = {
 export const watchCopy: FeatureCopy = {
   title: "Horloge-app",
   description:
-    "Houd je metrics in de gaten — niet een algoritme. De NoTrackRun horloge-app is ultralicht, zelfstandig, en verzendt niets zonder je uitdrukkelijke toestemming.",
+    "Houd je metrics in de gaten — niet een algoritme. De NoTrackRun horloge-app is ultralicht, zelfstandig.",
   features: ["Apple Watch", "Licht ontwerp", "Wear OS", "Garmin"],
   pills: ["Apple Watch", "Wear OS", "Meerdaagse batterijduur"],
 };
@@ -121,7 +121,7 @@ export const philosophyCells: PhilosophyCell[] = [
   {
     title: "Voor gevoelige beroepen",
     description:
-      "Militairen, politie en andere personen met een gevoelige status — hardlopen zou nooit onbedoelde blootstelling mogen betekenen. Ghost Mode is voor hen ontworpen.",
+      "Militairen, politie en andere personen met een gevoelige status — hardlopen zou nooit onbedoelde blootstelling mogen betekenen. No Track Mode is voor hen ontworpen.",
   },
   {
     title: "Geen account nodig",

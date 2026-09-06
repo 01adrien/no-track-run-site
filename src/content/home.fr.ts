@@ -38,7 +38,7 @@ export const mobileCopy: FeatureCopy = {
 export const watchCopy: FeatureCopy = {
   title: "Application Montre",
   description:
-    "Gardez l'œil sur vos métriques — pas sur un algorithme. L'application montre NoTrackRun est ultra-légère, autonome, et ne transmet rien sans votre consentement explicite.",
+    "Gardez l'œil sur vos métriques — pas sur un algorithme. L'application montre NoTrackRun est ultra-légère, autonome.",
   features: ["Apple Watch", "Design léger", "Wear OS", "Garmin"],
   pills: ["Apple Watch", "Wear OS", "Autonomie plusieurs jours"],
 };
@@ -121,7 +121,7 @@ export const philosophyCells: PhilosophyCell[] = [
   {
     title: "Pour les métiers sensibles",
     description:
-      "Militaires, forces de l'ordre et autres statuts sensibles — courir ne devrait jamais signifier une exposition involontaire. Le Mode Fantôme a été conçu pour eux.",
+      "Militaires, forces de l'ordre et autres statuts sensibles — courir ne devrait jamais signifier une exposition involontaire. Le Mode No Track a été conçu pour eux.",
   },
   {
     title: "Aucun compte requis",

@@ -38,7 +38,7 @@ export const mobileCopy: FeatureCopy = {
 export const watchCopy: FeatureCopy = {
   title: "Watch App",
   description:
-    "Run eye to eye with your metrics — not with an algorithm. The NoTrackRun watch app is ultra-lightweight, self-contained, and transmits nothing without your explicit consent.",
+    "Run eye to eye with your metrics — not with an algorithm. The NoTrackRun watch app is ultra-lightweight, self-contained.",
   features: ["Apple Watch", "Lightweight design", "Wear OS", "Garmin"],
   pills: ["Apple Watch", "Wear OS", "Multi-day battery"],
 };
@@ -121,7 +121,7 @@ export const philosophyCells: PhilosophyCell[] = [
   {
     title: "For sensitive professionals",
     description:
-      "Military personnel, law enforcement, and other sensitive-status individuals — running should never mean unintentional exposure. Ghost Mode was designed for them.",
+      "Military personnel, law enforcement, and other sensitive-status individuals — running should never mean unintentional exposure. No Track Mode was designed for them.",
   },
   {
     title: "No account required",

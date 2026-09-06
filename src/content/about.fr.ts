@@ -12,14 +12,14 @@ import photoAlex from "@/assets/img/team/alex.png";
 export const heroAbout = {
   titleLines: ["Pas de comptes.", "Pas de profils.", "Juste des tokens."],
   subtitle:
-    "Voici la vérité précise, sans artifice, sur ce que NoTrackRun stocke, ce qu'elle ne voit jamais, et comment coachs et coureurs se connectent sans le moindre formulaire d'inscription.",
+    "Ce que NoTrackRun stocke, ce qu'elle ne voit jamais, et comment ça marche.",
 };
 
 export const howItWorks = {
   tag: "Le modèle",
   heading: "L'accès fonctionne par tokens",
   intro:
-    "Aucun coureur ne crée jamais de compte directement chez NoTrackRun. L'accès est accordé par l'organisation abonnée, un token à la fois.",
+    "Aucun coureur ne crée de compte directement chez NoTrackRun. L'accès est accordé par l'organisation abonnée, un token à la fois.",
 };
 
 export const steps: FlowStepData[] = [
@@ -29,14 +29,9 @@ export const steps: FlowStepData[] = [
       "Un coach, un club ou une entreprise choisit une formule et ne partage que son email et le nom de son organisation avec NoTrackRun. C'est le seul contact direct que nous détenons au niveau de l'entreprise.",
   },
   {
-    title: "La plateforme génère des tokens",
+    title: "Le coach crée un coureur",
     description:
-      "Chaque formule inclut un nombre défini de places coureur. Un token d'accès est généré par place, prêt à être distribué.",
-  },
-  {
-    title: "Un token est attribué à un coureur",
-    description:
-      "L'organisation associe le token à un nom ou un pseudonyme — ce avec quoi le coureur est à l'aise d'être identifié.",
+      "Depuis son tableau de bord, le coach crée un coureur et lui associe un nom ou un pseudonyme — c'est à ce moment-là qu'un token d'accès est généré, prêt à être transmis au coureur.",
   },
   {
     title: "Le coureur saisit le token",
@@ -44,9 +39,9 @@ export const steps: FlowStepData[] = [
       "Pas d'écran d'inscription, pas d'email coureur, pas de mot de passe. Le token est le seul élément qui relie l'appli à un plan d'entraînement.",
   },
   {
-    title: "Les séances se synchronisent vers l'organisation",
+    title: "Les séances se synchronisent vers le tableau de bord du coach",
     description:
-      "Les données d'entraînement remontent vers le tableau de bord du coach ou du club, limitées à cette organisation uniquement. NoTrackRun ne croise jamais les coureurs entre organisations, et n'utilise jamais ces données à des fins publicitaires.",
+      "Les données d'entraînement remontent vers le tableau de bord du coach, limitées à cette organisation uniquement. NoTrackRun ne croise jamais les coureurs entre organisations, et n'utilise jamais ces données à des fins publicitaires.",
   },
 ];
 
@@ -80,8 +75,7 @@ export const dataNote =
 export const formulasSection = {
   tag: "Tarifs",
   heading: "Formules",
-  intro:
-    "Chaque formule inclut un nombre défini de places coach et de tokens coureur. Les coureurs sont toujours gratuits — les organisations paient pour le tableau de bord et les places.",
+  intro: "Chaque formule inclut un nombre défini de coachs et de coureurs.",
   ctaLabel: "Poser une question",
 };
 
@@ -114,11 +108,6 @@ export const faqs: FaqEntry[] = [
       "Non. Votre itinéraire GPS est enregistré et stocké uniquement sur votre appareil. Nos serveurs ne le reçoivent jamais — seuls la distance et la durée totales d'une séance parviennent à NoTrackRun.",
   },
   {
-    question: "Puis-je utiliser un token avec plusieurs coachs ?",
-    answer:
-      "Un token est lié à une seule organisation. Si vous vous entraînez avec plusieurs coachs, chacun vous délivre un token séparé.",
-  },
-  {
     question: "Que sait exactement NoTrackRun, l'entreprise, à mon sujet ?",
     answer:
       "Si vous êtes coureur, rien au-delà du nom ou pseudonyme sur votre token et de vos totaux de séances agrégés — et même ceux-là sont limités à votre organisation. Nous ne détenons de coordonnées directes (email, nom d'organisation) que pour le coach, club ou entreprise souscripteur, jamais pour les coureurs individuels.",
@@ -126,10 +115,10 @@ export const faqs: FaqEntry[] = [
 ];
 
 export const teamSection = {
-  tag: "Qui construit ceci",
+  tag: "Derrière NoTrackRun",
   heading: "L'équipe",
   intro:
-    "Une petite équipe européenne qui construit NoTrackRun en public, actuellement en bêta fermée.",
+    "Une petite équipe européenne qui construit NoTrackRun, actuellement en bêta fermée.",
 };
 
 export const team: TeamMember[] = [
