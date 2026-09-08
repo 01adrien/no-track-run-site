@@ -1,37 +1,37 @@
 @import "tailwindcss";
 
 :root {
-  --background: hsl(220 25% 6%);
-  --foreground: hsl(0 0% 96%);
-  --section: hsl(220 22% 9%);
-  --card: hsl(220 20% 12%);
-  --muted: hsl(220 15% 18%);
-  --muted-foreground: hsl(0 0% 60%);
-  --accent: hsl(67.2, 100%, 51%);
-  --accent-dim: hsl(67.2, 100%, 51%, 0.12);
-  --accent-foreground: hsl(220 25% 6%);
-  --border: hsl(220 15% 20%);
-  --radius: 1rem;
-}
-
-/* Theme clair : surcharge des memes variables. Voir le script bloquant dans
-   Layout.astro qui pose data-theme sur <html> avant le premier paint. */
-[data-theme="light"] {
-  --background: hsl(0 0% 100%);
-  --foreground: hsl(220 25% 10%);
-  --section: hsl(220 20% 96%);
+  --background: hsl(210 30% 97%);
+  --foreground: hsl(217 33% 17%);
+  --section: hsl(213 27% 93%);
   --card: hsl(0 0% 100%);
-  --muted: hsl(220 15% 92%);
-  --muted-foreground: hsl(220 10% 40%);
-  --accent: hsl(74 75% 34%);
-  --accent-dim: hsl(74 75% 34% / 0.12);
+  --muted: hsl(213 20% 90%);
+  --muted-foreground: hsl(215 16% 42%);
+  --accent: hsl(211 64% 38%);
+  --accent-dim: hsl(211 64% 38% / 0.1);
   --accent-foreground: hsl(0 0% 100%);
-  --border: hsl(220 15% 85%);
+  --border: hsl(213 20% 85%);
+  --radius: 0.85rem;
 }
 
-[data-theme="light"] .card {
+/* Theme sombre : surcharge des memes variables. Voir le script bloquant dans
+   Layout.astro qui pose data-theme sur <html> avant le premier paint. */
+[data-theme="dark"] {
+  --background: hsl(220 24% 8%);
+  --foreground: hsl(210 20% 94%);
+  --section: hsl(220 22% 11%);
+  --card: hsl(220 20% 13%);
+  --muted: hsl(220 15% 19%);
+  --muted-foreground: hsl(215 12% 62%);
+  --accent: hsl(211 78% 58%);
+  --accent-dim: hsl(211 78% 58% / 0.14);
+  --accent-foreground: hsl(220 24% 8%);
+  --border: hsl(220 15% 22%);
+}
+
+[data-theme="dark"] .card {
   border-color: var(--border);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
 }
 
 body,
@@ -44,7 +44,8 @@ textarea,
 select,
 .carousel-btn,
 .carousel-dot {
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease;
 }
 @media (prefers-reduced-motion: reduce) {
   body,
@@ -98,19 +99,22 @@ header {
   top: 0;
   z-index: 100;
   backdrop-filter: blur(18px);
-  background: hsla(220, 25%, 6%, 0.82);
+  background: hsla(210, 30%, 97%, 0.82);
   border-bottom: 1px solid var(--border);
+}
+[data-theme="dark"] header {
+  background: hsla(220, 24%, 8%, 0.82);
 }
 
 .hero-bg {
   background: radial-gradient(
       ellipse 80% 60% at 60% 40%,
-      hsla(70, 100%, 59%, 0.18) 0%,
+      hsla(211, 70%, 55%, 0.12) 0%,
       transparent 70%
     ),
     radial-gradient(
       ellipse 50% 50% at 20% 80%,
-      hsla(59, 98%, 47%, 0.07) 0%,
+      hsla(200, 60%, 45%, 0.06) 0%,
       transparent 60%
     ),
     var(--background);
@@ -120,9 +124,6 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: hsl(67 100% 51% / 0.1);
-  border: 1px solid hsl(67 100% 51% / 0.25);
-  border-radius: 999px;
   padding: 6px 16px;
   font-size: 0.8rem;
   letter-spacing: 0.08em;
@@ -142,9 +143,9 @@ header {
   display: inline-block;
 }
 .btn-primary:hover {
-  opacity: 0.9;
+  opacity: 0.92;
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px hsl(67 100% 51% / 0.35);
+  box-shadow: 0 8px 30px hsl(211 64% 38% / 0.3);
 }
 .btn-ghost {
   border: 1px solid var(--border);
@@ -157,8 +158,11 @@ header {
 }
 .btn-ghost:hover {
   background: var(--muted);
-  border-color: hsl(220 15% 32%);
+  border-color: hsl(213 20% 75%);
   transform: translateY(-2px);
+}
+[data-theme="dark"] .btn-ghost:hover {
+  border-color: hsl(220 15% 32%);
 }
 
 .card {
@@ -168,6 +172,10 @@ header {
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
 }
 .card:hover {
+  box-shadow: 0 12px 32px rgba(30, 41, 59, 0.1);
+  border-color: hsl(213 20% 75%);
+}
+[data-theme="dark"] .card:hover {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
   border-color: hsl(220 15% 30%);
 }
@@ -177,12 +185,16 @@ header {
   align-items: center;
   gap: 6px;
   background: var(--accent-dim);
-  border: 1px solid hsl(67 100% 51% / 0.2);
-  color: hsl(67 100% 75%);
+  border: 1px solid hsl(211 64% 38% / 0.2);
+  color: hsl(211 64% 30%);
   border-radius: 999px;
   padding: 4px 14px;
   font-size: 0.78rem;
   font-weight: 500;
+}
+[data-theme="dark"] .pill {
+  border-color: hsl(211 78% 58% / 0.25);
+  color: hsl(211 78% 78%);
 }
 
 .section-tag {
@@ -243,9 +255,12 @@ body::after {
   position: fixed;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.025;
+  opacity: 0.015;
   pointer-events: none;
   z-index: 9999;
+}
+[data-theme="dark"] body::after {
+  opacity: 0.025;
 }
 
 /* ── MOBILE NAV ── */
@@ -323,19 +338,22 @@ body::after {
 }
 .theme-toggle:hover {
   background: var(--muted);
+  border-color: hsl(213 20% 75%);
+}
+[data-theme="dark"] .theme-toggle:hover {
   border-color: hsl(220 15% 32%);
 }
 .theme-toggle .icon-sun {
-  display: none;
+  display: block;
 }
 .theme-toggle .icon-moon {
-  display: block;
-}
-[data-theme="light"] .theme-toggle .icon-sun {
-  display: block;
-}
-[data-theme="light"] .theme-toggle .icon-moon {
   display: none;
+}
+[data-theme="dark"] .theme-toggle .icon-sun {
+  display: none;
+}
+[data-theme="dark"] .theme-toggle .icon-moon {
+  display: block;
 }
 
 /* ── MOBILE LOCALE SWITCHER ── */
@@ -423,6 +441,9 @@ body::after {
 }
 .carousel-btn:hover {
   background: var(--muted);
+  border-color: hsl(213 20% 75%);
+}
+[data-theme="dark"] .carousel-btn:hover {
   border-color: hsl(220 15% 32%);
 }
 .carousel-dots {

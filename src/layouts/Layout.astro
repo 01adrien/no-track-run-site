@@ -34,7 +34,7 @@ const lang = getLangFromUrl(Astro.url);
               : "dark");
           document.documentElement.dataset.theme = theme;
         } catch (e) {
-          document.documentElement.dataset.theme = "dark";
+          document.documentElement.dataset.theme = "light";
         }
       })();
     </script>
