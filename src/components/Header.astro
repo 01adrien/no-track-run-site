@@ -6,16 +6,13 @@ import {
   getAlternatePath,
 } from "@/i18n/utils";
 import { languages } from "@/i18n/ui";
-
 interface Props {
   page: "home" | "about" | "contact" | "other";
 }
 const { page } = Astro.props;
-
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const localeList = Object.keys(languages) as (keyof typeof languages)[];
-
 const links = [
   { href: localizePath("/", lang), label: t("nav.home"), key: "home" },
   { href: localizePath("/about", lang), label: t("nav.about"), key: "about" },
@@ -36,7 +33,6 @@ const links = [
     >
       NoTrack<span style="color: var(--accent)">Run</span>
     </a>
-
     <nav class="hidden md:flex items-center gap-8 text-sm text-muted">
       {
         links.map((l) => (
@@ -52,7 +48,6 @@ const links = [
         ))
       }
       <span class="nav-divider" aria-hidden="true"></span>
-
       <div class="locale-pill">
         {
           localeList.map((l) =>
@@ -65,8 +60,48 @@ const links = [
         }
       </div>
     </nav>
-
     <div class="flex items-center gap-3">
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        aria-label="Basculer entre le mode clair et sombre"
+        aria-pressed="false"
+      >
+        <svg
+          class="icon-sun"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2"></path>
+          <path d="M12 20v2"></path>
+          <path d="m4.93 4.93 1.41 1.41"></path>
+          <path d="m17.66 17.66 1.41 1.41"></path>
+          <path d="M2 12h2"></path>
+          <path d="M20 12h2"></path>
+          <path d="m6.34 17.66-1.41 1.41"></path>
+          <path d="m19.07 4.93-1.41 1.41"></path>
+        </svg>
+        <svg
+          class="icon-moon"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        </svg>
+      </button>
       <button
         class="hamburger"
         id="hamburger-btn"
@@ -79,7 +114,6 @@ const links = [
       </button>
     </div>
   </div>
-
   <nav class="mobile-menu" id="mobile-menu">
     {
       links.map((l) => (
@@ -103,17 +137,14 @@ const links = [
     </div>
   </nav>
 </header>
-
 <script>
   const btn = document.getElementById("hamburger-btn");
   const menu = document.getElementById("mobile-menu");
-
   btn?.addEventListener("click", () => {
     const open = btn.classList.toggle("open");
     menu?.classList.toggle("open");
     btn.setAttribute("aria-expanded", String(open));
   });
-
   menu?.querySelectorAll("a").forEach((a) =>
     a.addEventListener("click", () => {
       btn?.classList.remove("open");
@@ -121,7 +152,6 @@ const links = [
       btn?.setAttribute("aria-expanded", "false");
     })
   );
-
   const themeToggle = document.getElementById("theme-toggle");
   themeToggle?.addEventListener("click", () => {
     const isLight = document.documentElement.dataset.theme === "light";
@@ -130,7 +160,6 @@ const links = [
     localStorage.setItem("theme", next);
     themeToggle.setAttribute("aria-pressed", String(next === "light"));
   });
-
   if (themeToggle) {
     themeToggle.setAttribute(
       "aria-pressed",

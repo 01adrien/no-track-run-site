@@ -7,11 +7,14 @@ const { subtitle, size = "default" } = Astro.props;
 
 const titleClass =
   size === "large"
-    ? "text-6xl md:text-7xl font-extrabold leading-none mb-6 fade-in fade-delay-1"
-    : "text-6xl font-extrabold leading-none mb-6 fade-in fade-delay-1";
+    ? "text-6xl md:text-7xl  leading-none mb-6 fade-in fade-delay-1"
+    : "text-6xl  leading-none mb-6 fade-in fade-delay-1";
 ---
 
-<section class="hero-bg text-center px-6 relative" style={size === "large" ? "padding: 7rem 1.5rem" : "padding: 6rem 1.5rem"}>
+<section
+  class="hero-bg text-center px-6 relative"
+  style={size === "large" ? "padding: 7rem 1.5rem" : "padding: 6rem 1.5rem"}
+>
   <div class:list={["mx-auto", size === "large" ? "max-w-3xl" : "max-w-2xl"]}>
     <h1 class={titleClass}>
       <slot />

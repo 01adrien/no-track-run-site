@@ -27,16 +27,24 @@ const t = useTranslations(lang);
     <div class="grid md:grid-cols-3 gap-6">
       {
         formulas.map((formula) => (
-          <div class="card formula-card p-8 fade-in fade-delay-1" style="border-color: hsl(67 100% 51% / 0.4)">
+          <div class="card formula-card p-8 fade-in fade-delay-1">
             <div>
-              <div class="pill" style="margin-bottom: 0.5rem">{formula.name}</div>
-              <div class="price">{formula.price} € <span>{t("formulas.perMonth")}</span></div>
+              <div class="pill" style="margin-bottom: 0.5rem">
+                {formula.name}
+              </div>
+              <div class="price">
+                {formula.price} € <span>{t("formulas.perMonth")}</span>
+              </div>
             </div>
             <ul>
               <li>{t("formulas.seatsLabel").replace("{n}", formula.seats)}</li>
-              <li>{t("formulas.tokensLabel").replace("{n}", formula.tokens)}</li>
+              <li>
+                {t("formulas.tokensLabel").replace("{n}", formula.tokens)}
+              </li>
             </ul>
-            <a href={ctaHref} class="btn-primary text-center py-3">{ctaLabel}</a>
+            <a href={ctaHref} class="btn-primary text-center py-3">
+              {ctaLabel}
+            </a>
           </div>
         ))
       }
