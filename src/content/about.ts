@@ -1,24 +1,15 @@
-import type {
-  FlowStepData,
-  DataColumn,
-  FormulaPlan,
-  FaqEntry,
-  TeamMember,
-} from "@/types";
-
-import photoAdrien from "@/assets/img/team/adrien.jpg";
-import photoAlex from "@/assets/img/team/alex.png";
+import type { FlowStepData, DataColumn, FormulaPlan, FaqEntry } from "@/types";
 
 export const heroAbout = {
   titleLines: ["No accounts.", "No profiles.", "Just tokens."],
-  subtitle: "What NoTrackRun stores, what it never sees, and how it works.",
+  subtitle: "What NoTrackRun stores and how it works.",
 };
 
 export const howItWorks = {
   tag: "The model",
   heading: "Access runs on tokens",
   intro:
-    "No runner ever creates an account with NoTrackRun directly. Access is granted by the organization that subscribes, one token at a time.",
+    "No runner ever creates an account directly. Access is granted by the organization that subscribes, one token at a time.",
 };
 
 export const steps: FlowStepData[] = [
@@ -109,27 +100,5 @@ export const faqs: FaqEntry[] = [
     question: "What exactly does NoTrackRun, the company, know about me?",
     answer:
       "If you're a runner, nothing beyond the name or pseudonym on your token and your aggregate session totals — and even those are scoped to your organization. We only hold direct contact details (email, organization name) for the subscribing coach, club, or company, never for individual runners.",
-  },
-];
-
-export const teamSection = {
-  tag: "Who's building this",
-  heading: "The team",
-  intro:
-    "A small European team building NoTrackRun in the open, currently in closed beta.",
-};
-
-export const team: TeamMember[] = [
-  {
-    name: "Adrien Gaucher",
-    role: "Backend & platform",
-    bio: "",
-    photo: photoAdrien,
-  },
-  {
-    name: "Alexandre Henin",
-    role: "Mobile & watch",
-    bio: "",
-    photo: photoAlex,
   },
 ];

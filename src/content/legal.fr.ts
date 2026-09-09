@@ -6,25 +6,20 @@ export const privacyPolicy: LegalDoc = {
   title: "Politique de confidentialité",
   lastUpdated: LAST_UPDATED,
   intro:
-    "NoTrackRun est conçu pour collecter le moins de données personnelles possible. Cette page explique précisément ce que nous collectons, pourquoi, et comment vous pouvez le contrôler. Pour le détail technique du fonctionnement par tokens, voir [comment ça marche](/fr/about) .",
+    "NoTrackRun est conçu pour collecter le moins de données personnelles possible. Cette page explique précisément ce que nous collectons, pourquoi, et comment vous pouvez le contrôler. Pour le détail technique du fonctionnement par tokens, voir [comment ça marche](/fr/about).",
   sections: [
-    {
-      heading: "Qui nous sommes",
-      body: [
-        "Ce service est exploité par [raison sociale], immatriculée en [pays] sous le numéro [numéro d'immatriculation], dont le siège social est situé [adresse du siège]. Pour toute question sur cette politique ou sur vos données, contactez-nous à info@notrackrun.eu.",
-      ],
-    },
     {
       heading: "L'essentiel en bref",
       body: [
-        "Les coureurs ne créent jamais de compte directement chez nous. Votre trace GPS ne quitte jamais votre téléphone ou votre montre. Seuls la distance et la durée totales d'une séance, ainsi que le nom ou pseudonyme associé à votre token d'accès, parviennent à nos serveurs — et même ces informations ne sont visibles que par l'organisation qui vous a délivré ce token, jamais par nous à des fins publicitaires, jamais revendues à qui que ce soit.",
+        "Utilisée en solo, sans token, l'application ne transmet absolument rien à nos serveurs — aucune donnée, aucune trace GPS, rien : tout reste sur votre téléphone ou votre montre. Si vous utilisez un token délivré par une organisation, seules la distance et la durée totales d'une séance, ainsi que le token qui vous est associé, parviennent à nos serveurs — et même ces informations ne sont visibles que par l'organisation qui vous a délivré ce token, jamais par nous à des fins publicitaires, jamais revendues à qui que ce soit.",
       ],
     },
     {
       heading: "Les données que nous collectons",
       body: [
+        "Des coureurs utilisant l'application en solo, sans token : rien. L'application fonctionne entièrement sur votre appareil — aucune donnée n'est collectée, transmise ou stockée sur nos serveurs.",
+        "Des coureurs utilisant un token délivré par une organisation : le nom ou pseudonyme associé à ce token, et les totaux agrégés de séance (distance et durée) synchronisés après chaque séance. Nous ne collectons ni l'email, ni le téléphone, ni aucune trace GPS d'un coureur, avec ou sans token.",
         "Des organisations abonnées (coachs, clubs, entreprises) : l'adresse email et le nom d'organisation utilisés pour créer l'abonnement, ainsi que les informations de facturation nécessaires au paiement.",
-        "Des coureurs utilisant un token : le nom ou pseudonyme associé à ce token, et les totaux agrégés de séance (distance et durée) synchronisés après chaque séance. Nous ne collectons ni l'email, ni le téléphone, ni aucune trace GPS d'un coureur.",
         "De toute personne qui nous contacte : le nom, l'email, le rôle, le nom d'organisation (optionnel) et le message soumis via le formulaire de contact.",
       ],
     },
@@ -57,27 +52,21 @@ export const privacyPolicy: LegalDoc = {
     {
       heading: "Où vos données sont hébergées",
       body: [
-        "Nos serveurs sont situés au sein de l'Union européenne. Les sous-traitants que nous utilisons incluent notre hébergeur ([nom de l'hébergeur]) et, pour l'envoi des messages du formulaire de contact, [nom du prestataire d'envoi d'emails]. Nous ne travaillons avec aucun sous-traitant hors UE/EEE pour les données personnelles couvertes par cette politique.",
+        "Nos serveurs sont situés au sein de l'Union européenne. Les sous-traitants que nous utilisons incluent notre hébergeur IONOS et, pour l'envoi des messages du formulaire de contact, IONOS. Nous ne travaillons avec aucun sous-traitant hors UE/EEE pour les données personnelles couvertes par cette politique.",
       ],
     },
     {
       heading: "Durée de conservation",
       body: [
-        "Les informations de contact et de facturation des organisations abonnées sont conservées pendant la durée de l'abonnement, plus la durée exigée par la législation comptable [du pays] ensuite.",
-        "Les totaux de séance des coureurs sont conservés tant qu'un token est actif, et supprimés de nos serveurs une fois l'abonnement de l'organisation émettrice — et sa période de rétention — terminés.",
+        "Les informations de contact et de facturation des organisations abonnées sont conservées pendant la durée de l'abonnement, plus la durée exigée par la législation comptable Belge ensuite.",
+        "Les totaux de séance des coureurs utilisant un token sont conservés tant que ce token est actif, et supprimés de nos serveurs une fois l'abonnement de l'organisation émettrice — et sa période de rétention — terminés. Pour un usage en solo, cette question ne se pose pas : aucune donnée n'étant jamais transmise, rien n'est conservé de notre côté.",
         "Les soumissions du formulaire de contact sont conservées jusqu'à 12 mois pour permettre un suivi, puis supprimées.",
       ],
     },
     {
       heading: "Vos droits",
       body: [
-        "En vertu du RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données, d'un droit de limitation et d'opposition à leur traitement, ainsi que d'un droit à la portabilité. Pour exercer l'un de ces droits, écrivez à info@notrackrun.eu ou utilisez le formulaire de contact. Vous disposez également du droit d'introduire une réclamation auprès de votre autorité de protection des données — en France, la CNIL (cnil.fr).",
-      ],
-    },
-    {
-      heading: "Mineurs",
-      body: [
-        "Ce service ne s'adresse pas aux enfants de moins de 16 ans. Si vous pensez qu'un enfant nous a communiqué des données personnelles sans le consentement approprié, contactez-nous et nous les supprimerons.",
+        "En vertu du RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données, d'un droit de limitation et d'opposition à leur traitement, ainsi que d'un droit à la portabilité. Pour exercer l'un de ces droits, écrivez à info@notrackrun.eu ou utilisez le formulaire de contact. Vous disposez également du droit d'introduire une réclamation auprès de votre autorité de protection des données.",
       ],
     },
     {
@@ -105,12 +94,12 @@ export const terms: LegalDoc = {
   title: "Conditions générales de vente",
   lastUpdated: LAST_UPDATED,
   intro:
-    "Ces conditions régissent l'utilisation du tableau de bord web, de l'application mobile et de l'application montre (une fois disponible) de NoTrackRun par les organisations abonnées au service (\"vous\", \"l'organisation\") et par les coureurs auxquels vous accordez l'accès via des tokens. En vous abonnant, vous acceptez ces conditions.",
+    "Ces conditions régissent l'abonnement et l'utilisation du tableau de bord web et de l'application de NoTrackRun par l'organisation qui souscrit au service. En vous abonnant, vous acceptez ces conditions.",
   sections: [
     {
       heading: "À qui s'appliquent ces conditions",
       body: [
-        "L'organisation abonnée — un coach, un club ou une entreprise — conclut cet accord et est facturée pour le service. Les coureurs individuels utilisent les applications mobile et montre gratuitement, sous une acceptation simplifiée affichée lors de la première saisie de leur token ; ils ne sont pas facturés et ne sont pas directement partie aux conditions commerciales ci-dessous.",
+        "L'organisation abonnée — un club ou une entreprise — conclut cet accord et est seule facturée pour le service. Les coureurs individuels auxquels vous accordez un token utilisent les applications mobile et montre gratuitement et ne sont pas facturés ; leur usage de l'application relève de nos Conditions générales d'utilisation, pas du présent document.",
       ],
     },
     {
@@ -134,13 +123,13 @@ export const terms: LegalDoc = {
     {
       heading: "Paiement et facturation",
       body: [
-        "Les abonnements sont facturés mensuellement à l'avance via [nom du prestataire de paiement]. En cas d'échec de paiement, nous pouvons suspendre l'accès au tableau de bord et la capacité des tokens à synchroniser de nouvelles séances jusqu'à régularisation.",
+        "Les abonnements sont facturés mensuellement à l'avance. En cas d'échec de paiement, nous pouvons suspendre l'accès au tableau de bord et la capacité des tokens à synchroniser de nouvelles séances jusqu'à régularisation.",
       ],
     },
     {
       heading: "Tokens et accès coureur",
       body: [
-        "Chaque formule inclut un nombre défini de tokens coureur. Vous êtes responsable de la manière dont vous distribuez les tokens et du nom ou pseudonyme que vous associez à chacun. Un token accorde à un coureur l'usage gratuit des applications mobile et montre, limité à votre organisation. Les tokens ne sont pas des comptes personnels et ne comportent aucune garantie d'accès ininterrompu.",
+        "Chaque formule inclut un nombre défini de tokens coureur. Vous êtes responsable de la manière dont vous distribuez les tokens et du nom ou pseudonyme que vous associez à chacun. Un token accorde à un coureur l'usage gratuit des applications mobile et montre, limité à votre organisation.",
       ],
     },
     {
@@ -158,7 +147,7 @@ export const terms: LegalDoc = {
     {
       heading: "Propriété intellectuelle",
       body: [
-        "NoTrackRun, son logo, ainsi que la plateforme et le logiciel sous-jacents restent la propriété de [raison sociale]. Vous conservez l'entière propriété des plans d'entraînement et du contenu que vous créez ou téléversez sur le tableau de bord.",
+        "NoTrackRun, son logo, ainsi que la plateforme et le logiciel sous-jacents restent la propriété de NoTrackRun. Vous conservez l'entière propriété des plans d'entraînement et du contenu que vous créez ou téléversez sur le tableau de bord.",
       ],
     },
     {
@@ -170,7 +159,7 @@ export const terms: LegalDoc = {
     {
       heading: "Disponibilité du service et support",
       body: [
-        "Nous fournissons un support au mieux via info@notrackrun.eu. Nous ne garantissons pas de délai de réponse durant la période bêta, et nous communiquerons les maintenances planifiées dans la mesure du raisonnablement possible.",
+        "Nous fournissons un support au mieux via info@notrackrun.eu. Nous ne garantissons pas de délai de réponse durant la période bêta.",
       ],
     },
     {
@@ -194,7 +183,7 @@ export const terms: LegalDoc = {
     {
       heading: "Droit applicable et juridiction",
       body: [
-        "Ces conditions sont régies par le droit [du pays]. Tout litige en découlant sera soumis à la compétence exclusive des tribunaux de [ville], sous réserve des règles impératives de protection des consommateurs qui pourraient vous être applicables.",
+        "Ces conditions sont régies par le droit Belge. Tout litige en découlant sera soumis à la compétence exclusive des tribunaux de Bruxelles, sous réserve des règles impératives de protection des consommateurs qui pourraient vous être applicables.",
       ],
     },
     {
@@ -210,24 +199,24 @@ export const termsOfUse: LegalDoc = {
   title: "Conditions générales d'utilisation",
   lastUpdated: LAST_UPDATED,
   intro:
-    "Ces conditions s'appliquent à vous si vous êtes un coureur utilisant l'application mobile ou montre NoTrackRun avec un token délivré par votre coach, votre club ou votre entreprise. Elles sont distinctes de nos Conditions générales de vente, qui régissent la relation commerciale entre NoTrackRun et l'organisation abonnée — vous n'êtes pas facturé et n'êtes pas partie à cet accord.",
+    "Ces conditions s'appliquent à vous si vous utilisez l'application mobile ou montre NoTrackRun — que ce soit en solo, en la téléchargeant simplement, ou avec un token délivré par votre coach, votre club ou votre entreprise. Elles sont distinctes de nos Conditions générales de vente, qui régissent uniquement la relation commerciale entre NoTrackRun et l'organisation abonnée — si vous utilisez l'application en solo ou via un token, vous n'êtes pas facturé et n'êtes pas partie à cet accord.",
   sections: [
     {
       heading: "Acceptation de ces conditions",
       body: [
-        "En saisissant un token et en utilisant l'application, vous acceptez ces conditions générales d'utilisation. Si vous n'êtes pas d'accord, n'utilisez pas l'application — demandez plutôt à votre organisation de retirer votre token.",
+        "En téléchargeant et en utilisant l'application — avec ou sans token — vous acceptez ces conditions générales d'utilisation. Si vous n'êtes pas d'accord, n'utilisez pas l'application.",
       ],
     },
     {
       heading: "Le service que vous utilisez",
       body: [
-        "Les applications mobile et montre vous permettent d'enregistrer vos séances d'entraînement, de consulter le plan que votre organisation a mis en place pour vous, et de synchroniser les résumés de séance vers votre organisation. Aucun compte, email ou mot de passe n'est requis — voir notre Politique de confidentialité pour savoir exactement ce que nous savons de vous.",
+        "Utilisée en solo, l'application vous permet d'enregistrer vos séances d'entraînement et de suivre vos statistiques, sans compte ni token — tout reste sur votre appareil, rien n'est transmis à nos serveurs. Si vous utilisez un token délivré par une organisation, l'application vous permet en plus de consulter le plan que votre organisation a mis en place pour vous, et de synchroniser vos résumés de séance vers cette organisation. Aucun compte, email ou mot de passe n'est requis dans un cas comme dans l'autre — voir notre Politique de confidentialité pour le détail exact de ce que nous savons de vous.",
       ],
     },
     {
-      heading: "Votre token",
+      heading: "Si vous utilisez un token",
       body: [
-        "Votre token vous est délivré par votre organisation et est lié à celle-ci uniquement. Ne le partagez avec personne d'autre que prévu. Si vous perdez l'accès à votre token, demandez à votre organisation de vous en délivrer un nouveau — nous ne pouvons pas le faire à votre place, puisque nous ne détenons pas vos coordonnées.",
+        "Cette section ne concerne que les coureurs rattachés à une organisation — si vous utilisez l'application en solo, elle ne s'applique pas à vous. Votre token vous est délivré par votre organisation et est lié à celle-ci uniquement. Ne le partagez avec personne d'autre que prévu. Si vous perdez l'accès à votre token, demandez à votre organisation de vous en délivrer un nouveau — nous ne pouvons pas le faire à votre place, puisque nous ne détenons pas vos coordonnées.",
       ],
     },
     {
@@ -257,25 +246,25 @@ export const termsOfUse: LegalDoc = {
     {
       heading: "Propriété intellectuelle",
       body: [
-        "L'application et son contenu appartiennent à [raison sociale]. Vous pouvez l'utiliser pour votre propre entraînement personnel et non commercial — rien ici ne vous confère de droits sur le logiciel ou le design sous-jacents.",
+        "L'application et son contenu appartiennent à NoTrackRun. Vous pouvez l'utiliser pour votre propre entraînement personnel et non commercial — rien ici ne vous confère de droits sur le logiciel ou le design sous-jacents.",
       ],
     },
     {
       heading: "Mettre fin à votre accès",
       body: [
-        "Vous pouvez arrêter d'utiliser l'application à tout moment, et votre organisation peut révoquer votre token à tout moment. Comme il n'existe pas de compte personnel à supprimer, vos données sont traitées selon les règles de conservation de notre Politique de confidentialité une fois votre token désactivé.",
+        "Vous pouvez arrêter d'utiliser l'application à tout moment. Si vous êtes rattaché à une organisation, celle-ci peut aussi révoquer votre token à tout moment. Comme il n'existe pas de compte personnel à supprimer : en solo, vos données restent uniquement sur votre appareil et disparaissent avec l'application ; avec un token, elles sont traitées selon les règles de conservation de notre Politique de confidentialité une fois celui-ci désactivé.",
       ],
     },
     {
       heading: "Modifications de ces conditions",
       body: [
-        'Nous pouvons mettre à jour ces conditions de temps à autre. Les changements significatifs seront reflétés par une date de "dernière mise à jour" actualisée, et communiqués dans l\'application dans la mesure du raisonnablement possible.',
+        'Nous pouvons mettre à jour ces conditions de temps à autre. Les changements significatifs seront reflétés par une date de "dernière mise à jour" actualisée.',
       ],
     },
     {
       heading: "Droit applicable et juridiction",
       body: [
-        "Ces conditions sont régies par le droit [du pays]. Tout litige en découlant sera soumis à la compétence exclusive des tribunaux de [ville], sous réserve des règles impératives de protection des consommateurs qui pourraient vous être applicables.",
+        "Ces conditions sont régies par le droit Belge. Tout litige en découlant sera soumis à la compétence exclusive des tribunaux de Bruxelles, sous réserve des règles impératives de protection des consommateurs qui pourraient vous être applicables.",
       ],
     },
     {

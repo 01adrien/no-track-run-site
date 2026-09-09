@@ -1,0 +1,24 @@
+---
+import type { AddOn } from "@/types";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+interface Props {
+  addOns: AddOn[];
+}
+const { addOns } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class="addons-panel">
+  {
+    addOns.map((addOn) => (
+      <div class="addons-cell">
+        <h3>{addOn.title}</h3>
+        <p>{addOn.description}</p>
+        <span class="addons-price">{addOn.price ?? t("addons.priceTBD")}</span>
+      </div>
+    ))
+  }
+</div>

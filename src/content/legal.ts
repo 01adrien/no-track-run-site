@@ -6,25 +6,20 @@ export const privacyPolicy: LegalDoc = {
   title: "Privacy Policy",
   lastUpdated: LAST_UPDATED,
   intro:
-    "NoTrackRun is built around collecting as little personal data as possible. This page explains exactly what we collect, why, and how you can control it. For the technical detail of how the token system works, see [How it works](/about).",
+    "NoTrackRun is built around collecting as little personal data as possible. This page explains exactly what we collect, why, and how you can control it. For the technical detail of how the token system works, see [how it works](/about).",
   sections: [
-    {
-      heading: "Who we are",
-      body: [
-        "This service is operated by [legal company name], registered in [country] under number [registration number], with its registered office at [registered address]. For any question about this policy or your data, contact us at info@notrackrun.eu.",
-      ],
-    },
     {
       heading: "The short version",
       body: [
-        "Runners never create an account with us directly. Your GPS route never leaves your phone or watch. The only things that reach our servers are a session's total distance and duration, and the name or pseudonym attached to your access token — and even those are only visible to the organization that issued your token, never to us for advertising, never sold to anyone else.",
+        "Used solo, without a token, the app transmits absolutely nothing to our servers — no data, no GPS track, nothing: everything stays on your phone or watch. If you use a token issued by an organization, only the total distance and duration of a session, along with the token associated with you, reach our servers — and even that information is only visible to the organization that issued your token, never used by us for advertising, never sold to anyone.",
       ],
     },
     {
       heading: "Data we collect",
       body: [
+        "From runners using the app solo, without a token: nothing. The app runs entirely on your device — no data is collected, transmitted, or stored on our servers.",
+        "From runners using a token issued by an organization: the name or pseudonym attached to that token, and aggregate session totals (distance and duration) synced after each session. We don't collect a runner's email, phone number, or any GPS route data, with or without a token.",
         "From subscribing organizations (coaches, clubs, or companies): the email address and organization name used to set up the subscription, and billing information needed to process payment.",
-        "From runners using a token: the name or pseudonym attached to that token, and aggregate session totals (distance and duration) synced after each session. We do not collect a runner's email, phone number, or any GPS route data.",
         "From anyone who contacts us: the name, email, role, optional organization name, and message submitted through the contact form.",
       ],
     },
@@ -57,27 +52,21 @@ export const privacyPolicy: LegalDoc = {
     {
       heading: "Where your data is hosted",
       body: [
-        "Our servers are located within the European Union. Subprocessors we use include our hosting provider ([hosting provider name]) and, for contact form delivery, [email delivery provider name]. We don't work with subprocessors outside the EU/EEA for personal data covered by this policy.",
+        "Our servers are located within the European Union. Subprocessors we use include our hosting provider, IONOS, and, for contact form delivery, IONOS. We don't work with subprocessors outside the EU/EEA for personal data covered by this policy.",
       ],
     },
     {
       heading: "How long we keep it",
       body: [
-        "Subscribing organization contact and billing information is kept for the duration of the subscription, plus the period required by [country] accounting law afterward.",
-        "Runner session totals are kept while a token is active, and deleted from our servers once the issuing organization's subscription — and its data retention window — ends.",
+        "Subscribing organization contact and billing information is kept for the duration of the subscription, plus the period required by Belgian accounting law afterward.",
+        "Runner session totals for token users are kept while that token is active, and deleted from our servers once the issuing organization's subscription — and its data retention window — ends. For solo use, this doesn't apply: since no data is ever transmitted, nothing is kept on our end.",
         "Contact form submissions are kept for up to 12 months to allow us to follow up, then deleted.",
       ],
     },
     {
       heading: "Your rights",
       body: [
-        "Under the GDPR, you have the right to access, correct, or delete your data, to restrict or object to its processing, and to receive a copy of it in a portable format. To exercise any of these rights, email info@notrackrun.eu or use the contact form. You also have the right to lodge a complaint with your national data protection authority — in France, the CNIL (cnil.fr).",
-      ],
-    },
-    {
-      heading: "Children",
-      body: [
-        "This service is not directed at children under 16. If you believe a child has provided us with personal data without appropriate consent, contact us and we will delete it.",
+        "Under the GDPR, you have the right to access, correct, or delete your data, to restrict or object to its processing, and to receive a copy of it in a portable format. To exercise any of these rights, email info@notrackrun.eu or use the contact form. You also have the right to lodge a complaint with your data protection authority.",
       ],
     },
     {
@@ -105,24 +94,24 @@ export const terms: LegalDoc = {
   title: "Terms & Conditions",
   lastUpdated: LAST_UPDATED,
   intro:
-    'These terms govern the use of NoTrackRun\'s web dashboard, mobile app, and watch app (once available) by organizations that subscribe to the service ("you", "the organization") and by the runners they grant access to via tokens. By subscribing, you agree to these terms.',
+    "These terms govern the subscription to and use of NoTrackRun's web dashboard and application by the organization that subscribes to the service. By subscribing, you agree to these terms.",
   sections: [
     {
       heading: "Who these terms apply to",
       body: [
-        "The subscribing organization — a coach, club, or company — enters into this agreement and is billed for the service. Individual runners use the mobile and watch apps for free under a simplified acceptance shown when they first enter a token; they are not billed and are not directly party to the commercial terms below.",
+        "The subscribing organization — a club or a company — enters into this agreement and is solely billed for the service. Individual runners you grant a token to use the mobile and watch apps for free and are not billed; their use of the app is governed by our Terms of Use, not by this document.",
       ],
     },
     {
       heading: "The service",
       body: [
-        "NoTrackRun provides a web dashboard for building training plans and managing runner access, a mobile app for logging training sessions, and a watch app (currently in development). The service is currently in closed beta: features may be added, changed, or removed, and availability is not guaranteed.",
+        "NoTrackRun provides a web dashboard for building training plans and managing runner access, a mobile app for logging sessions, and a watch app (currently in development). The service is currently in closed beta: features may be added, changed, or removed, and availability is not guaranteed.",
       ],
     },
     {
       heading: "Beta status",
       body: [
-        "You acknowledge that the service is provided as a beta. We may change functionality without notice, and we don't guarantee any level of uptime or availability during this period. We may ask beta organizations for feedback to help improve the service.",
+        "You acknowledge that the service is provided as a beta. We may change functionality without notice, and we don't guarantee any level of availability during this period. We may ask beta organizations for feedback to help improve the service.",
       ],
     },
     {
@@ -134,13 +123,13 @@ export const terms: LegalDoc = {
     {
       heading: "Payment and billing",
       body: [
-        "Subscriptions are billed monthly in advance via [payment provider name]. If payment fails, we may suspend dashboard access and the ability for tokens to sync new sessions until the account is brought current.",
+        "Subscriptions are billed monthly in advance. If payment fails, we may suspend dashboard access and the ability for tokens to sync new sessions until the account is brought current.",
       ],
     },
     {
       heading: "Tokens and runner access",
       body: [
-        "Each formula includes a set number of runner tokens. You are responsible for how you distribute tokens and what name or pseudonym you attach to each one. A token grants a runner free use of the mobile and watch apps, scoped to your organization. Tokens are not personal accounts and don't carry any warranty of uninterrupted access.",
+        "Each formula includes a set number of runner tokens. You are responsible for how you distribute tokens and what name or pseudonym you attach to each one. A token grants a runner free use of the mobile and watch apps, scoped to your organization.",
       ],
     },
     {
@@ -158,7 +147,7 @@ export const terms: LegalDoc = {
     {
       heading: "Intellectual property",
       body: [
-        "NoTrackRun, its logo, and the underlying platform and software remain the property of [legal company name]. You retain full ownership of the training plans and content you create or upload to the dashboard.",
+        "NoTrackRun, its logo, and the underlying platform and software remain the property of NoTrackRun. You retain full ownership of the training plans and content you create or upload to the dashboard.",
       ],
     },
     {
@@ -170,7 +159,7 @@ export const terms: LegalDoc = {
     {
       heading: "Service availability and support",
       body: [
-        "We provide best-effort support at info@notrackrun.eu. We don't guarantee a response time during the beta period, and we'll communicate planned maintenance where reasonably possible.",
+        "We provide best-effort support at info@notrackrun.eu. We don't guarantee a response time during the beta period.",
       ],
     },
     {
@@ -194,7 +183,7 @@ export const terms: LegalDoc = {
     {
       heading: "Governing law and jurisdiction",
       body: [
-        "These terms are governed by the laws of [country]. Any dispute arising from them will be submitted to the exclusive jurisdiction of the courts of [city], subject to any mandatory consumer-protection rules that may apply to you.",
+        "These terms are governed by Belgian law. Any dispute arising from them will be submitted to the exclusive jurisdiction of the courts of Brussels, subject to any mandatory consumer-protection rules that may apply to you.",
       ],
     },
     {
@@ -210,24 +199,24 @@ export const termsOfUse: LegalDoc = {
   title: "Terms of Use",
   lastUpdated: LAST_UPDATED,
   intro:
-    "These terms apply to you if you're a runner using the NoTrackRun mobile or watch app with a token issued by your coach, club, or company. They're separate from our Terms & Conditions, which govern the commercial relationship between NoTrackRun and the organization that subscribes — you are not billed and are not party to that agreement.",
+    "These terms apply to you if you use the NoTrackRun mobile or watch app — whether solo, by simply downloading it, or with a token issued by your coach, club, or company. They're separate from our Terms & Conditions, which govern only the commercial relationship between NoTrackRun and the subscribing organization — whether you use the app solo or via a token, you are not billed and are not party to that agreement.",
   sections: [
     {
       heading: "Accepting these terms",
       body: [
-        "By entering a token and using the app, you accept these Terms of Use. If you don't agree, don't use the app — ask your organization to remove your token instead.",
+        "By downloading and using the app — with or without a token — you accept these Terms of Use. If you don't agree, don't use the app.",
       ],
     },
     {
       heading: "The service you're using",
       body: [
-        "The mobile and watch apps let you log training sessions, view the training plan your organization has set up for you, and sync session summaries back to your organization. No account, email, or password is required — see our Privacy Policy for exactly what we know about you.",
+        "Used solo, the app lets you log your training sessions and track your stats, with no account or token — everything stays on your device, nothing is transmitted to our servers. If you use a token issued by an organization, the app additionally lets you view the training plan your organization has set up for you, and sync your session summaries to that organization. No account, email, or password is required either way — see our Privacy Policy for the exact detail of what we know about you.",
       ],
     },
     {
-      heading: "Your token",
+      heading: "If you use a token",
       body: [
-        "Your token is issued to you by your organization and is tied to that organization only. Don't share it with anyone it wasn't intended for. If you lose access to your token, ask your organization to issue you a new one — we can't do this on your behalf, since we don't hold your contact details.",
+        "This section only applies to runners linked to an organization — if you use the app solo, it doesn't apply to you. Your token is issued to you by your organization and is tied to that organization only. Don't share it with anyone it wasn't intended for. If you lose access to your token, ask your organization to issue you a new one — we can't do this on your behalf, since we don't hold your contact details.",
       ],
     },
     {
@@ -257,25 +246,25 @@ export const termsOfUse: LegalDoc = {
     {
       heading: "Intellectual property",
       body: [
-        "The app and its content belong to [legal company name]. You may use it for your own personal, non-commercial training — nothing here gives you rights to the underlying software or design.",
+        "The app and its content belong to NoTrackRun. You may use it for your own personal, non-commercial training — nothing here gives you rights to the underlying software or design.",
       ],
     },
     {
       heading: "Ending your access",
       body: [
-        "You can stop using the app at any time, and your organization can revoke your token at any time. Since there's no personal account to delete, your data is handled according to the retention rules in our Privacy Policy once your token is no longer active.",
+        "You can stop using the app at any time. If you're linked to an organization, it can also revoke your token at any time. Since there's no personal account to delete: in solo use, your data stays only on your device and disappears with the app; with a token, it's handled according to the retention rules in our Privacy Policy once that token is deactivated.",
       ],
     },
     {
       heading: "Changes to these terms",
       body: [
-        'We may update these terms from time to time. Material changes will be reflected in an updated "last updated" date, and where reasonably possible, communicated in the app.',
+        'We may update these terms from time to time. Material changes will be reflected in an updated "last updated" date.',
       ],
     },
     {
       heading: "Governing law and jurisdiction",
       body: [
-        "These terms are governed by the laws of [country]. Any dispute arising from them will be submitted to the exclusive jurisdiction of the courts of [city], subject to any mandatory consumer-protection rules that may apply to you.",
+        "These terms are governed by Belgian law. Any dispute arising from them will be submitted to the exclusive jurisdiction of the courts of Brussels, subject to any mandatory consumer-protection rules that may apply to you.",
       ],
     },
     {

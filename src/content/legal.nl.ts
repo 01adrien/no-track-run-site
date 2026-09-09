@@ -6,25 +6,20 @@ export const privacyPolicy: LegalDoc = {
   title: "Privacybeleid",
   lastUpdated: LAST_UPDATED,
   intro:
-    "NoTrackRun is ontworpen om zo weinig mogelijk persoonsgegevens te verzamelen. Deze pagina legt precies uit wat we verzamelen, waarom, en hoe je dat kunt beheren. Voor de technische details van het tokensysteem, zie [Hoe het werkt](/nl/about).",
+    "NoTrackRun is ontworpen om zo weinig mogelijk persoonsgegevens te verzamelen. Deze pagina legt precies uit wat we verzamelen, waarom, en hoe je dat kunt beheren. Voor de technische details van het tokensysteem, zie [hoe het werkt](/nl/about).",
   sections: [
-    {
-      heading: "Wie we zijn",
-      body: [
-        "Deze dienst wordt geëxploiteerd door [rechtsvorm en naam], geregistreerd in [land] onder nummer [registratienummer], met maatschappelijke zetel te [adres]. Voor vragen over dit beleid of je gegevens: info@notrackrun.eu.",
-      ],
-    },
     {
       heading: "Kort samengevat",
       body: [
-        "Lopers maken nooit rechtstreeks een account bij ons aan. Je GPS-route verlaat nooit je telefoon of horloge. Alleen de totale afstand en duur van een training, en de naam of het pseudoniem gekoppeld aan je toegangstoken, bereiken onze servers — en zelfs die informatie is alleen zichtbaar voor de organisatie die je token heeft uitgegeven, nooit voor ons voor advertentiedoeleinden, nooit doorverkocht aan wie dan ook.",
+        "In solo gebruik, zonder token, verzendt de app absoluut niets naar onze servers — geen gegevens, geen GPS-track, niets: alles blijft op je telefoon of horloge. Gebruik je een token uitgegeven door een organisatie, dan bereiken alleen de totale afstand en duur van een training, samen met het token dat aan jou is gekoppeld, onze servers — en zelfs die informatie is alleen zichtbaar voor de organisatie die je token heeft uitgegeven, nooit door ons gebruikt voor advertentiedoeleinden, nooit aan wie dan ook doorverkocht.",
       ],
     },
     {
       heading: "Gegevens die we verzamelen",
       body: [
+        "Van lopers die de app solo gebruiken, zonder token: niets. De app draait volledig op je apparaat — er worden geen gegevens verzameld, verzonden of opgeslagen op onze servers.",
+        "Van lopers die een token gebruiken uitgegeven door een organisatie: de naam of het pseudoniem gekoppeld aan dat token, en geaggregeerde trainingstotalen (afstand en duur) gesynchroniseerd na elke training. We verzamelen geen e-mailadres, telefoonnummer of GPS-routegegevens van een loper, met of zonder token.",
         "Van abonnerende organisaties (coaches, clubs, bedrijven): het e-mailadres en de organisatienaam gebruikt om het abonnement aan te maken, en de facturatiegegevens nodig voor betaling.",
-        "Van lopers die een token gebruiken: de naam of het pseudoniem gekoppeld aan dat token, en geaggregeerde trainingstotalen (afstand en duur) gesynchroniseerd na elke training. We verzamelen geen e-mailadres, telefoonnummer of GPS-routegegevens van een loper.",
         "Van iedereen die contact met ons opneemt: naam, e-mail, rol, optionele organisatienaam en het bericht ingediend via het contactformulier.",
       ],
     },
@@ -57,27 +52,21 @@ export const privacyPolicy: LegalDoc = {
     {
       heading: "Waar je gegevens worden gehost",
       body: [
-        "Onze servers bevinden zich binnen de Europese Unie. Verwerkers die we gebruiken zijn onder meer onze hostingprovider ([naam hostingprovider]) en, voor de verzending van contactformulieren, [naam e-mailprovider]. We werken niet met verwerkers buiten de EU/EER voor persoonsgegevens die onder dit beleid vallen.",
+        "Onze servers bevinden zich binnen de Europese Unie. Verwerkers die we gebruiken zijn onder meer onze hostingprovider, IONOS, en, voor de verzending van contactformulieren, IONOS. We werken niet met verwerkers buiten de EU/EER voor persoonsgegevens die onder dit beleid vallen.",
       ],
     },
     {
       heading: "Bewaartermijn",
       body: [
-        "Contact- en facturatiegegevens van abonnerende organisaties worden bewaard voor de duur van het abonnement, plus de termijn vereist door de boekhoudwetgeving van [land] daarna.",
-        "Trainingstotalen van lopers worden bewaard zolang een token actief is, en verwijderd van onze servers zodra het abonnement van de uitgevende organisatie — en de bijbehorende bewaartermijn — is beëindigd.",
+        "Contact- en facturatiegegevens van abonnerende organisaties worden bewaard voor de duur van het abonnement, plus de termijn vereist door de Belgische boekhoudwetgeving daarna.",
+        "Trainingstotalen van lopers met een token worden bewaard zolang dat token actief is, en verwijderd van onze servers zodra het abonnement van de uitgevende organisatie — en de bijbehorende bewaartermijn — is beëindigd. Bij solo gebruik is dit niet van toepassing: omdat er nooit gegevens worden verzonden, wordt er ook niets aan onze kant bewaard.",
         "Inzendingen via het contactformulier worden tot 12 maanden bewaard om opvolging mogelijk te maken, en daarna verwijderd.",
       ],
     },
     {
       heading: "Jouw rechten",
       body: [
-        "Onder de AVG heb je recht op inzage, correctie en verwijdering van je gegevens, recht op beperking en bezwaar tegen de verwerking ervan, en recht op overdraagbaarheid. Om een van deze rechten uit te oefenen, mail je naar info@notrackrun.eu of gebruik je het contactformulier. Je hebt ook het recht om een klacht in te dienen bij je nationale gegevensbeschermingsautoriteit — in Nederland de Autoriteit Persoonsgegevens.",
-      ],
-    },
-    {
-      heading: "Kinderen",
-      body: [
-        "Deze dienst is niet gericht op kinderen jonger dan 16 jaar. Als je denkt dat een kind ons persoonsgegevens heeft verstrekt zonder passende toestemming, neem dan contact met ons op zodat we deze kunnen verwijderen.",
+        "Onder de AVG heb je recht op inzage, correctie en verwijdering van je gegevens, recht op beperking en bezwaar tegen de verwerking ervan, en recht op overdraagbaarheid. Om een van deze rechten uit te oefenen, mail je naar info@notrackrun.eu of gebruik je het contactformulier. Je hebt ook het recht om een klacht in te dienen bij je gegevensbeschermingsautoriteit.",
       ],
     },
     {
@@ -105,12 +94,12 @@ export const terms: LegalDoc = {
   title: "Algemene voorwaarden",
   lastUpdated: LAST_UPDATED,
   intro:
-    'Deze voorwaarden regelen het gebruik van NoTrackRun\'s webdashboard, mobiele app en horloge-app (zodra beschikbaar) door organisaties die zich abonneren op de dienst ("jij", "de organisatie") en door de lopers aan wie zij toegang verlenen via tokens. Door je te abonneren, ga je akkoord met deze voorwaarden.',
+    "Deze voorwaarden regelen het abonnement op en het gebruik van het webdashboard en de applicatie van NoTrackRun door de organisatie die zich op de dienst abonneert. Door je te abonneren, ga je akkoord met deze voorwaarden.",
   sections: [
     {
       heading: "Voor wie deze voorwaarden gelden",
       body: [
-        "De abonnerende organisatie — een coach, club of bedrijf — sluit deze overeenkomst en wordt gefactureerd voor de dienst. Individuele lopers gebruiken de mobiele en horloge-app gratis onder een vereenvoudigde acceptatie die wordt getoond wanneer ze voor het eerst een token invoeren; zij worden niet gefactureerd en zijn geen directe partij bij de commerciële voorwaarden hieronder.",
+        "De abonnerende organisatie — een club of een bedrijf — sluit deze overeenkomst en wordt als enige gefactureerd voor de dienst. Individuele lopers aan wie je een token toekent, gebruiken de mobiele en horloge-app gratis en worden niet gefactureerd; hun gebruik van de app valt onder onze Gebruiksvoorwaarden, niet onder dit document.",
       ],
     },
     {
@@ -134,13 +123,13 @@ export const terms: LegalDoc = {
     {
       heading: "Betaling en facturatie",
       body: [
-        "Abonnementen worden maandelijks vooraf gefactureerd via [naam betalingsprovider]. Bij een mislukte betaling kunnen we de toegang tot het dashboard en het vermogen van tokens om nieuwe trainingen te synchroniseren opschorten totdat het account is bijgewerkt.",
+        "Abonnementen worden maandelijks vooraf gefactureerd. Bij een mislukte betaling kunnen we de toegang tot het dashboard en het vermogen van tokens om nieuwe trainingen te synchroniseren opschorten totdat het account is bijgewerkt.",
       ],
     },
     {
       heading: "Tokens en lopertoegang",
       body: [
-        "Elke formule bevat een vast aantal lopertokens. Jij bent verantwoordelijk voor hoe je tokens verdeelt en welke naam of pseudoniem je aan elk token koppelt. Een token geeft een loper gratis gebruik van de mobiele en horloge-app, beperkt tot jouw organisatie. Tokens zijn geen persoonlijke accounts en dragen geen garantie van ononderbroken toegang.",
+        "Elke formule bevat een vast aantal lopertokens. Jij bent verantwoordelijk voor hoe je tokens verdeelt en welke naam of pseudoniem je aan elk token koppelt. Een token geeft een loper gratis gebruik van de mobiele en horloge-app, beperkt tot jouw organisatie.",
       ],
     },
     {
@@ -158,7 +147,7 @@ export const terms: LegalDoc = {
     {
       heading: "Intellectueel eigendom",
       body: [
-        "NoTrackRun, het logo en het onderliggende platform en de software blijven eigendom van [rechtsvorm en naam]. Jij behoudt de volledige eigendom van de trainingsschema's en content die je aanmaakt of uploadt naar het dashboard.",
+        "NoTrackRun, het logo en het onderliggende platform en de software blijven eigendom van NoTrackRun. Jij behoudt de volledige eigendom van de trainingsschema's en content die je aanmaakt of uploadt naar het dashboard.",
       ],
     },
     {
@@ -170,7 +159,7 @@ export const terms: LegalDoc = {
     {
       heading: "Beschikbaarheid van de dienst en support",
       body: [
-        "We bieden best-effort support via info@notrackrun.eu. We garanderen geen reactietijd tijdens de bètaperiode, en we communiceren geplande onderhoudswerkzaamheden waar redelijkerwijs mogelijk.",
+        "We bieden best-effort support via info@notrackrun.eu. We garanderen geen reactietijd tijdens de bètaperiode.",
       ],
     },
     {
@@ -194,7 +183,7 @@ export const terms: LegalDoc = {
     {
       heading: "Toepasselijk recht en bevoegde rechter",
       body: [
-        "Deze voorwaarden worden beheerst door het recht van [land]. Elk geschil dat eruit voortvloeit, wordt voorgelegd aan de exclusieve bevoegdheid van de rechtbanken van [stad], onverminderd eventuele dwingende consumentenbeschermingsregels die op jou van toepassing kunnen zijn.",
+        "Deze voorwaarden worden beheerst door Belgisch recht. Elk geschil dat eruit voortvloeit, wordt voorgelegd aan de exclusieve bevoegdheid van de rechtbanken van Brussel, onverminderd eventuele dwingende consumentenbeschermingsregels die op jou van toepassing kunnen zijn.",
       ],
     },
     {
@@ -210,24 +199,24 @@ export const termsOfUse: LegalDoc = {
   title: "Gebruiksvoorwaarden",
   lastUpdated: LAST_UPDATED,
   intro:
-    "Deze voorwaarden gelden voor jou als je als loper de NoTrackRun mobiele of horloge-app gebruikt met een token uitgegeven door je coach, club of bedrijf. Ze staan los van onze Algemene voorwaarden, die de commerciële relatie regelen tussen NoTrackRun en de abonnerende organisatie — jij wordt niet gefactureerd en bent geen partij bij die overeenkomst.",
+    "Deze voorwaarden gelden voor jou als je de NoTrackRun mobiele of horloge-app gebruikt — of je die nu solo gebruikt, gewoon door de app te downloaden, of met een token uitgegeven door je coach, club of bedrijf. Ze staan los van onze Algemene voorwaarden, die uitsluitend de commerciële relatie regelen tussen NoTrackRun en de abonnerende organisatie — of je de app nu solo of via een token gebruikt, jij wordt niet gefactureerd en bent geen partij bij die overeenkomst.",
   sections: [
     {
       heading: "Deze voorwaarden aanvaarden",
       body: [
-        "Door een token in te voeren en de app te gebruiken, aanvaard je deze gebruiksvoorwaarden. Ga je niet akkoord, gebruik de app dan niet — vraag je organisatie in plaats daarvan om je token te verwijderen.",
+        "Door de app te downloaden en te gebruiken — met of zonder token — aanvaard je deze gebruiksvoorwaarden. Ga je niet akkoord, gebruik de app dan niet.",
       ],
     },
     {
       heading: "De dienst die je gebruikt",
       body: [
-        "Met de mobiele en horloge-app kun je trainingen loggen, het trainingsschema bekijken dat je organisatie voor je heeft ingesteld, en trainingssamenvattingen terugsturen naar je organisatie. Er is geen account, e-mail of wachtwoord nodig — zie ons Privacybeleid voor precies wat we van je weten.",
+        "In solo gebruik kun je met de app je trainingen loggen en je statistieken bijhouden, zonder account of token — alles blijft op je apparaat, er wordt niets naar onze servers verzonden. Gebruik je een token uitgegeven door een organisatie, dan kun je met de app bovendien het trainingsschema bekijken dat je organisatie voor je heeft ingesteld, en je trainingssamenvattingen naar die organisatie synchroniseren. In beide gevallen is geen account, e-mail of wachtwoord vereist — zie ons Privacybeleid voor het exacte detail van wat we van je weten.",
       ],
     },
     {
-      heading: "Jouw token",
+      heading: "Als je een token gebruikt",
       body: [
-        "Je token wordt aan je uitgegeven door je organisatie en is uitsluitend aan die organisatie gekoppeld. Deel het niet met iemand voor wie het niet bedoeld is. Verlies je de toegang tot je token, vraag dan je organisatie om een nieuwe uit te geven — wij kunnen dit niet namens jou doen, omdat we je contactgegevens niet bewaren.",
+        "Dit onderdeel geldt alleen voor lopers die aan een organisatie gekoppeld zijn — gebruik je de app solo, dan is dit niet op jou van toepassing. Je token wordt aan je uitgegeven door je organisatie en is uitsluitend aan die organisatie gekoppeld. Deel het niet met iemand voor wie het niet bedoeld is. Verlies je de toegang tot je token, vraag dan je organisatie om een nieuwe uit te geven — wij kunnen dit niet namens jou doen, omdat we je contactgegevens niet bewaren.",
       ],
     },
     {
@@ -257,25 +246,25 @@ export const termsOfUse: LegalDoc = {
     {
       heading: "Intellectueel eigendom",
       body: [
-        "De app en de inhoud ervan zijn eigendom van [rechtsvorm en naam]. Je mag de app gebruiken voor je eigen persoonlijke, niet-commerciële training — niets hierin geeft je rechten op de onderliggende software of het ontwerp.",
+        "De app en de inhoud ervan zijn eigendom van NoTrackRun. Je mag de app gebruiken voor je eigen persoonlijke, niet-commerciële training — niets hierin geeft je rechten op de onderliggende software of het ontwerp.",
       ],
     },
     {
       heading: "Je toegang beëindigen",
       body: [
-        "Je kunt op elk moment stoppen met het gebruik van de app, en je organisatie kan je token op elk moment intrekken. Omdat er geen persoonlijk account is om te verwijderen, worden je gegevens behandeld volgens de bewaartermijnen in ons Privacybeleid zodra je token niet meer actief is.",
+        "Je kunt op elk moment stoppen met het gebruik van de app. Ben je aan een organisatie gekoppeld, dan kan die ook op elk moment je token intrekken. Omdat er geen persoonlijk account is om te verwijderen: bij solo gebruik blijven je gegevens uitsluitend op je apparaat en verdwijnen ze samen met de app; met een token worden ze behandeld volgens de bewaartermijnen in ons Privacybeleid zodra dat token is gedeactiveerd.",
       ],
     },
     {
       heading: "Wijzigingen aan deze voorwaarden",
       body: [
-        'We kunnen deze voorwaarden van tijd tot tijd bijwerken. Materiële wijzigingen worden weergegeven door een bijgewerkte datum "laatst bijgewerkt", en waar redelijkerwijs mogelijk in de app gecommuniceerd.',
+        'We kunnen deze voorwaarden van tijd tot tijd bijwerken. Materiële wijzigingen worden weergegeven door een bijgewerkte datum "laatst bijgewerkt".',
       ],
     },
     {
       heading: "Toepasselijk recht en bevoegde rechter",
       body: [
-        "Deze voorwaarden worden beheerst door het recht van [land]. Elk geschil dat eruit voortvloeit, wordt voorgelegd aan de exclusieve bevoegdheid van de rechtbanken van [stad], onverminderd eventuele dwingende consumentenbeschermingsregels die op jou van toepassing kunnen zijn.",
+        "Deze voorwaarden worden beheerst door Belgisch recht. Elk geschil dat eruit voortvloeit, wordt voorgelegd aan de exclusieve bevoegdheid van de rechtbanken van Brussel, onverminderd eventuele dwingende consumentenbeschermingsregels die op jou van toepassing kunnen zijn.",
       ],
     },
     {

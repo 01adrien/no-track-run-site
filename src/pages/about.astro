@@ -5,9 +5,7 @@ import Footer from "@/components/Footer.astro";
 import HeroSimple from "@/components/HeroSimple.astro";
 import SectionHowItWorks from "@/components/SectionHowItWorks.astro";
 import SectionData from "@/components/SectionData.astro";
-import SectionFormulas from "@/components/SectionFormulas.astro";
 import SectionFaq from "@/components/SectionFaq.astro";
-import SectionTeam from "@/components/SectionTeam.astro";
 import * as en from "@/content/about";
 import * as fr from "@/content/about.fr";
 import * as nl from "@/content/about.nl";
@@ -25,12 +23,8 @@ const {
   dataOnDevice,
   dataOnServer,
   dataNote,
-  formulasSection,
-  formulas,
   faqSection,
   faqs,
-  teamSection,
-  team,
 } = content;
 ---
 
@@ -64,23 +58,7 @@ const {
     note={dataNote}
   />
 
-  <SectionFormulas
-    tag={formulasSection.tag}
-    heading={formulasSection.heading}
-    intro={formulasSection.intro}
-    formulas={formulas}
-    ctaLabel={formulasSection.ctaLabel}
-    ctaHref="#faq"
-  />
-
   <SectionFaq tag={faqSection.tag} heading={faqSection.heading} faqs={faqs} />
-
-  <SectionTeam
-    tag={teamSection.tag}
-    heading={teamSection.heading}
-    intro={teamSection.intro}
-    members={team}
-  />
 
   <Footer />
 </Layout>

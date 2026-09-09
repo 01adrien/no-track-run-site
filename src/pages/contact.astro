@@ -4,10 +4,17 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { MAX_MESSAGE_LENGTH } from "@/constants";
+import SectionTeam from "@/components/SectionTeam.astro";
+import * as en from "@/content/contact";
+import * as fr from "@/content/contact.fr";
+import * as nl from "@/content/contact.nl";
 import "@/styles/contact.css";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const contentByLang = { en, fr, nl };
+const content = contentByLang[lang];
+const { teamSection, team } = content;
 ---
 
 <Layout title="NoTrackRun — Contact">
@@ -119,6 +126,13 @@ const t = useTranslations(lang);
       </form>
     </div>
   </section>
+
+  <SectionTeam
+    tag={teamSection.tag}
+    heading={teamSection.heading}
+    intro={teamSection.intro}
+    members={team}
+  />
 
   <Footer />
 

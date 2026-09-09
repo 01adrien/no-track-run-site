@@ -5,14 +5,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<footer class="text-center py-12 px-6 text-muted">
-  <div
-    class="text-xl font-bold mb-2"
-    style="font-family: 'Syne', sans-serif; color: var(--foreground)"
-  >
-    NoTrack<span style="color: var(--accent)">Run</span>
-  </div>
-  <p class="text-sm mb-4">{t("footer.tagline")}</p>
+<footer class="text-center py-6 px-6 text-muted">
   <a
     href="mailto:info@notrackrun.eu"
     class="text-sm hover:text-white transition"

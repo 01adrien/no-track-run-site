@@ -12,7 +12,7 @@ export const heroHome = {
 export const webCopy: FeatureCopy = {
   title: "Plateforme Web",
   description:
-    "Un tableau de bord complet pour coachs, clubs et entreprises. Gérez vos coureurs, créez des plans d'entraînement et suivez les performances — tout en garantissant une confidentialité totale.",
+    "Un tableau de bord complet pour coachs, clubs et entreprises. Gérez vos coureurs, créez des plans d'entraînement et suivez les performances.",
   features: [
     "Analytique sans profilage",
     "Codes d'accès",

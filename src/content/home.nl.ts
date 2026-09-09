@@ -12,7 +12,7 @@ export const heroHome = {
 export const webCopy: FeatureCopy = {
   title: "Webplatform",
   description:
-    "Een compleet dashboard voor coaches, clubs en bedrijven. Beheer je lopers, bouw trainingsschema's en volg de prestaties — met volledige privacy gegarandeerd.",
+    "Een compleet dashboard voor coaches, clubs en bedrijven. Beheer je lopers, bouw trainingsschema's en volg de prestaties.",
   features: [
     "Analyse zonder profilering",
     "Toegangscodes",

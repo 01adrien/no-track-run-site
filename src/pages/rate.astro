@@ -1,0 +1,39 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import HeroSimple from "@/components/HeroSimple.astro";
+import SectionFormulas from "@/components/SectionFormulas.astro";
+import SectionAddOns from "@/components/SectionAddonsPrice.astro";
+import * as en from "@/content/rate";
+import * as fr from "@/content/rate.fr";
+import * as nl from "@/content/rate.nl";
+import { getLangFromUrl } from "@/i18n/utils";
+import "@/styles/rate.css";
+
+const lang = getLangFromUrl(Astro.url);
+const contentByLang = { en, fr, nl };
+const content = contentByLang[lang];
+const { heroRate, formulasSection, formulas, addOns } = content;
+---
+
+<Layout title={`NoTrackRun — ${heroRate.title}`}>
+  <Header page="other" />
+
+  <HeroSimple subtitle={heroRate.subtitle}>
+    {heroRate.title}
+  </HeroSimple>
+
+  <SectionFormulas
+    tag={formulasSection.tag}
+    heading={formulasSection.heading}
+    intro={formulasSection.intro}
+    formulas={formulas}
+    ctaLabel={formulasSection.ctaLabel}
+    ctaHref="/contact"
+  />
+
+  <SectionAddOns addOns={addOns} />
+
+  <Footer />
+</Layout>

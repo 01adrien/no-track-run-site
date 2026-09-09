@@ -7,7 +7,7 @@ import {
 } from "@/i18n/utils";
 import { languages } from "@/i18n/ui";
 interface Props {
-  page: "home" | "about" | "contact" | "other";
+  page: "home" | "about" | "contact" | "other" | "rate";
 }
 const { page } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
@@ -20,6 +20,11 @@ const links = [
     href: localizePath("/contact", lang),
     label: t("nav.contact"),
     key: "contact",
+  },
+  {
+    href: localizePath("/rate", lang),
+    label: t("nav.rate"),
+    key: "rate",
   },
 ];
 ---

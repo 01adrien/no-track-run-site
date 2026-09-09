@@ -11,14 +11,14 @@ import photoAlex from "@/assets/img/team/alex.png";
 
 export const heroAbout = {
   titleLines: ["Geen accounts.", "Geen profielen.", "Alleen tokens."],
-  subtitle: "Wat NoTrackRun opslaat, wat het nooit ziet, en hoe het werkt.",
+  subtitle: "Wat NoTrackRun opslaat en hoe het werkt.",
 };
 
 export const howItWorks = {
   tag: "Het model",
   heading: "Toegang werkt met tokens",
   intro:
-    "Geen enkele loper maakt ooit rechtstreeks een account aan bij NoTrackRun. Toegang wordt verleend door de organisatie die zich abonneert, één token per keer.",
+    "   Geen enkele loper maakt ooit rechtstreeks een account aan. Toegang wordt verleend door de organisatie die zich abonneert, één token per keer.",
 };
 
 export const steps: FlowStepData[] = [

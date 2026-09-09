@@ -82,6 +82,10 @@ h4,
   font-family: "Syne", sans-serif;
 }
 
+a:hover {
+  color: var(--accent);
+}
+
 .text-muted {
   color: var(--muted-foreground);
 }
@@ -383,7 +387,7 @@ body::after {
   color: var(--muted-foreground);
 }
 .locale-pill a:hover {
-  color: var(--foreground);
+  color: var(--accent);
 }
 .locale-pill .locale-active {
   background: var(--accent);

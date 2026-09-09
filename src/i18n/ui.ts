@@ -11,6 +11,7 @@ export const ui = {
     "nav.home": "Home",
     "nav.about": "How it works",
     "nav.contact": "Contact",
+    "nav.rate": "Rates",
     "nav.cta": "Explore the platform",
 
     "footer.tagline":
@@ -19,7 +20,7 @@ export const ui = {
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms & Conditions",
     "footer.termsOfUse": "Terms of Use",
-
+    "addons.priceTBD": "Price coming soon",
     "carousel.prev": "Previous",
     "carousel.next": "Next",
 
@@ -76,7 +77,7 @@ export const ui = {
     "nav.about": "Comment ça marche",
     "nav.contact": "Contact",
     "nav.cta": "Explorer la plateforme",
-
+    "nav.rate": "Tarifs",
     "footer.tagline":
       "Une alternative éthique, transparente et souveraine au sport connecté.",
     "footer.rights": "Tous droits réservés · RGPD · Hébergement UE",
@@ -108,6 +109,7 @@ export const ui = {
     "platform.watch": "Montre",
 
     "theme.toggle": "Changer de thème",
+    "addons.priceTBD": "Prix à venir",
 
     "form.name": "Nom",
     "form.name.placeholder": "Jeanne Coureuse",
@@ -141,7 +143,8 @@ export const ui = {
     "nav.about": "Hoe het werkt",
     "nav.contact": "Contact",
     "nav.cta": "Ontdek het platform",
-
+    "addons.priceTBD": "Prijs volgt binnenkort",
+    "nav.rate": "Tarieven",
     "footer.tagline":
       "Een ethisch, transparant en soeverein alternatief voor connected sport.",
     "footer.rights": "Alle rechten voorbehouden · AVG · Hosting in de EU",

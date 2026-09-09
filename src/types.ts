@@ -81,3 +81,9 @@ export interface LegalDoc {
   intro: string;
   sections: LegalSection[];
 }
+
+export interface AddOn {
+  title: string;
+  description: string;
+  price?: string; // optionnel, tant que le prix n'est pas fixé
+}

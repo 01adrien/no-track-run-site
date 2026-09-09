@@ -148,3 +148,62 @@ select.invalid:focus {
     grid-template-columns: 1fr;
   }
 }
+
+.team-card {
+  padding: 1.75rem 1.25rem;
+  text-align: center;
+}
+.team-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  background: var(--accent-dim);
+  border: 1px solid hsl(67 100% 51% / 0.25);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin: 0 auto 1rem;
+}
+.team-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+.team-card .role {
+  font-size: 0.82rem;
+  color: var(--accent);
+  margin: 0.2rem 0 0.6rem;
+}
+
+.team-card {
+  padding: 0;
+  overflow: hidden;
+  text-align: center;
+}
+.team-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+.team-avatar {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  margin: 0;
+  background: var(--accent-dim);
+  border: none;
+  border-bottom: 1px solid var(--border);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+}
+.team-card-body {
+  padding: 1.5rem 1.25rem 1.75rem;
+}

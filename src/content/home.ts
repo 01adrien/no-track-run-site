@@ -12,7 +12,7 @@ export const heroHome = {
 export const webCopy: FeatureCopy = {
   title: "Web Platform",
   description:
-    "A complete dashboard for coaches, clubs, and businesses. Manage your runners, build training plans, and track performance — all while guaranteeing complete privacy.",
+    "A complete dashboard for coaches, clubs, and businesses. Manage your runners, build training plans, and track performance.",
   features: [
     "Profiling-free analytics",
     "Access codes",
